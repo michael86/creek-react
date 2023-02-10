@@ -1,0 +1,37 @@
+.flex {
+  display: flex;
+}
+
+.justifyCenter {
+  justify-content: center;
+}
+
+.alignCenter {
+  align-items: center;
+}
+
+.flexCol {
+  flex-direction: column;
+}
+
+.mt2 {
+  margin-top: 2rem;
+}
+
+.mt5 {
+  margin-top: 5rem;
+}
+
+.overflowHidden {
+  overflow: auto;
+  min-height: 2.9rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  inset: 0;
+}
