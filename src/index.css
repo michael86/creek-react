@@ -11,3 +11,19 @@ html {
 body {
   font-size: 1.6rem;
 }
+
+main {
+  position: absolute;
+  inset: 0;
+}
+
+.scroll-snap-point {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+}

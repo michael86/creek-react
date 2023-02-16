@@ -1,7 +1,16 @@
 import gsap from "gsap";
-import React, { useContext, useLayoutEffect, useRef, useState } from "react";
+import { ScrollToPlugin } from "gsap/all";
+import React, {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useRef,
+  useState,
+} from "react";
 import Viewport from "../context/Viewport";
 import styles from "../styles/Nav.module.css";
+
+gsap.registerPlugin(ScrollToPlugin);
 
 const Nav = () => {
   const [navOpen, setNavOpen] = useState(false);
@@ -9,21 +18,23 @@ const Nav = () => {
   const { height } = useContext(Viewport);
   const navRef = useRef();
   const navTimeline = useRef();
+  const homeRef = useRef();
+  const aboutRef = useRef();
+  const firstRender = useRef(true);
+
+  const genRandNumber = () => {
+    let num = Math.floor(Math.random() * 99) + 1; // this will get a number between 1 and 99;
+    num *= Math.round(Math.random()) ? 1 : -1; // this will add minus sign in 50% of cases
+    return num;
+  };
 
   useLayoutEffect(() => {
-    const fontSizes = ["7rem", "5rem", "4rem"];
-    const fontSize =
-      height <= 295
-        ? fontSizes[3]
-        : height >= 468
-        ? fontSizes[2]
-        : fontSizes[0];
-
     const ctx = gsap.context(() => {
       gsap.to("#line-one", { top: "0vh", ease: "bounce", duration: 1 });
       gsap.to("#line-two", { top: "0vh", ease: "bounce", duration: 1.5 });
       gsap.to("#line-three", { top: "0vh", ease: "bounce", duration: 2 });
 
+      //if width greater than height
       navTimeline.current = gsap
         .timeline({ paused: true })
         .to("#line-one", {
@@ -45,9 +56,9 @@ const Nav = () => {
           0
         )
         .fromTo(
-          ".nav-link > a",
+          ".nav-link > p",
           { fontSize: "0" },
-          { fontSize, stagger: 0.1, delay: 0.5, duration: 0.5 },
+          { fontSize: "20vw", stagger: 0.1, delay: 0.5, duration: 0.5 },
           0
         );
     }, navRef);
@@ -55,10 +66,42 @@ const Nav = () => {
     return () => ctx.revert();
   }, [height]);
 
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    navOpen ? navTimeline.current.play() : navTimeline.current.reverse(0);
+  }, [navOpen]);
+
   const onClick = () => {
     setNavOpen(!navOpen);
+  };
 
-    !navOpen ? navTimeline.current.play() : navTimeline.current.reverse(0);
+  const onNavigate = (target) => {
+    const letters = [...target.children[0].children];
+
+    if (letters) {
+      letters.forEach((letter) => {
+        gsap.to(letter, {
+          scale: 0,
+          rotate: 360,
+          autoAlpha: 0,
+          y: `${genRandNumber()}vh`,
+          x: `${genRandNumber()}vw`,
+          duration: 1,
+          onComplete: function () {
+            gsap.set(this.targets(), { clearProps: "all" });
+          },
+        });
+      });
+    }
+
+    setTimeout(() => {
+      setNavOpen(false);
+
+      gsap.to(window, { scrollTo: target });
+    }, 200);
   };
 
   return (
@@ -82,30 +125,39 @@ const Nav = () => {
         ></div>
       </div>
       <ul className={styles.navList}>
-        <li className={`${styles.navItem} nav-link`}>
-          <a href="#home" className={styles.navLink}>
-            Home
-          </a>
+        <li
+          onClick={(e) => onNavigate(homeRef.current)}
+          ref={homeRef}
+          className={`${styles.navItem} nav-link`}
+        >
+          <p clas className={styles.navLetters} sName={styles.navLink}>
+            <span className={styles.navLetters}>H</span>
+            <span className={styles.navLetters}>o</span>
+            <span className={styles.navLetters}>m</span>
+            <span className={styles.navLetters}>e</span>
+          </p>
         </li>
-        <li className={`${styles.navItem} nav-link`}>
-          <a href="#about" className={styles.navLink}>
-            About
-          </a>
+        <li
+          onClick={() => onNavigate(aboutRef.current)}
+          ref={aboutRef}
+          className={`${styles.navItem} nav-link`}
+        >
+          <p className={styles.navLink}>
+            <span className={styles.navLetters}>A</span>
+            <span className={styles.navLetters}>b</span>
+            <span className={styles.navLetters}>o</span>
+            <span className={styles.navLetters}>u</span>
+            <span className={styles.navLetters}>t</span>
+          </p>
         </li>
-        <li className={`${styles.navItem} nav-link`}>
-          <a href="#gallery" className={styles.navLink}>
-            Gallery
-          </a>
+        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
+          <p className={styles.navLink}>Gallery</p>
         </li>
-        <li className={`${styles.navItem} nav-link`}>
-          <a href="#services" className={styles.navLink}>
-            Services
-          </a>
+        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
+          <p className={styles.navLink}>Services</p>
         </li>
-        <li className={`${styles.navItem} nav-link`}>
-          <a href="#contact" className={styles.navLink}>
-            Contact
-          </a>
+        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
+          <p className={styles.navLink}>Contact</p>
         </li>
       </ul>
     </nav>

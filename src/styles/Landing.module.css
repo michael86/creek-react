@@ -1,7 +1,3 @@
-.landing {
-  height: calc(100vh - 5rem);
-}
-
 .siteLogo {
   width: 50vw;
   height: auto;
@@ -10,7 +6,6 @@
 .servicesContainer {
   width: 100%;
   height: 100%;
-  opacity: 0;
   overflow: hidden;
 }
 

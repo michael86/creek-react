@@ -51,9 +51,9 @@ const LandingGallery = ({ tl }) => {
     const ctx = gsap.context(() => {
       tl &&
         tl
-          .fromTo(containerRef.current, { autoAlpha: 0 }, { autoAlpha: 1 })
-          .fromTo(".card-header-img", { x: -1000 }, { x: 0 })
-          .fromTo("h2", { x: 1000 }, { x: 0 });
+          .from(containerRef.current, { autoAlpha: 0 })
+          .from(".card-header-img", { x: -1000 })
+          .from("h2", { x: 1000 });
     }, containerRef);
 
     return () => ctx.revert();
@@ -81,7 +81,6 @@ const LandingGallery = ({ tl }) => {
         .to(currCard, { display: "none" });
     }, currCard);
 
-    console.log(activeTl.current);
     gsap.context(() => {
       activeTl.currCard = gsap
         .timeline()
