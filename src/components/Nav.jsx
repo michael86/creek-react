@@ -41,12 +41,14 @@ const Nav = () => {
           rotation: "+=45",
           top: "12.5px",
           duration: 0.1,
+          color: "#000",
         })
         .to("#line-two", { autoAlpha: 0, duration: 0.1 })
         .to("#line-three", {
           rotation: "-=45",
           top: "-11px",
           duration: 0.1,
+          color: "#000",
         })
         .to(navRef.current, { height: "100vh", duration: 0.5 })
         .fromTo(
@@ -130,7 +132,7 @@ const Nav = () => {
           ref={homeRef}
           className={`${styles.navItem} nav-link`}
         >
-          <p clas className={styles.navLetters} sName={styles.navLink}>
+          <p className={styles.navLink}>
             <span className={styles.navLetters}>H</span>
             <span className={styles.navLetters}>o</span>
             <span className={styles.navLetters}>m</span>

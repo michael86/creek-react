@@ -1,15 +1,25 @@
+.landing {
+  text-align: center;
+  display: grid;
+  grid-template-rows: min-content;
+  height: 100svh;
+}
+
 .siteLogo {
-  width: 50vw;
-  height: auto;
+  width: 80%;
+  display: block;
+  margin: 2rem auto 0 auto;
 }
 
 .servicesContainer {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  margin-top: 2rem;
 }
 
-.servicesContainer .scrollButton {
+.servicesContainer .scrollButton,
+.servicesContainer .expandAccordion {
   width: 5rem;
   height: auto;
   z-index: 1;
@@ -18,12 +28,22 @@
   translate: 0 -50%;
 }
 
-.servicesContainer .scrollRight {
+.servicesContainer .scrollRight,
+.servicesContainer .expandAccordion {
   margin-left: auto;
 }
 
 .servicesContainer .scrollLeft {
   rotate: 180deg;
+}
+
+.servicesContainer .expandAccordion {
+  display: none;
+}
+
+.serviceCard {
+  position: absolute;
+  height: 100%;
 }
 
 .serviceCard:not(:first-of-type) {
@@ -32,7 +52,6 @@
 
 .serviceCard .cardHeader {
   height: 40%;
-  width: 100%;
 }
 
 .serviceCard img {
@@ -61,6 +80,13 @@
   font-size: 2.2rem;
   line-height: 3rem;
   padding: 2rem 1rem;
+}
+
+.cardContent .elipsisContainer {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .serviceCard .serviceButton {
@@ -128,4 +154,112 @@
 .serviceCard .btnOne:hover::after {
   opacity: 0;
   transform: scale(0.1, 1);
+}
+
+@media screen and (min-width: 992px) {
+  .landing {
+    display: flex;
+    align-items: center;
+    background-color: rgb(102, 102, 102);
+    background-blend-mode: multiply;
+    background-image: url("../public/images/landing-background.webp");
+    background-size: cover;
+    background-position: center center;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: 5rem;
+  }
+
+  .siteTitle {
+    width: 50%;
+  }
+  .siteLogo {
+    width: 80%;
+    height: auto;
+  }
+
+  .site-logo h1 {
+    color: #fff;
+  }
+
+  .servicesContainer {
+    width: 50%;
+    margin-top: 0;
+    height: auto;
+    border-radius: 25px;
+    margin-right: 2rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: min-content;
+  }
+
+  .serviceCard {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-color: #2483d1;
+    min-height: 10.8rem;
+  }
+
+  .serviceCard:not(:first-of-type) {
+    display: block;
+  }
+
+  .scrollButton {
+    display: none;
+  }
+
+  .servicesContainer .expandAccordion {
+    display: block;
+    margin-right: 2rem;
+    rotate: -90deg;
+  }
+
+  .serviceCard .cardHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+  }
+
+  .cardHeader img {
+    width: 50%;
+    height: auto;
+    margin-bottom: 7rem;
+    max-width: 19rem;
+    max-height: 18rem;
+  }
+
+  .serviceCard .cardHeader:hover {
+    cursor: pointer;
+  }
+
+  .serviceCard h2 {
+    background-color: transparent;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .serviceCard .cardContent {
+    background-color: transparent;
+    height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .serviceCard .btnOne {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  .serviceCard .btnOne span {
+    padding: 0 2rem;
+    width: 100%;
+  }
 }

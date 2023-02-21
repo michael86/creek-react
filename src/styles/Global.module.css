@@ -35,3 +35,8 @@
   position: absolute;
   inset: 0;
 }
+
+.highLight {
+  font-weight: 700;
+  color: rgb(43, 42, 42);
+}

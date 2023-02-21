@@ -10,6 +10,7 @@ html {
 
 body {
   font-size: 1.6rem;
+  font-family: "Manrope", sans-serif;
 }
 
 main {
@@ -25,5 +26,5 @@ main {
 
 section {
   scroll-snap-align: start;
-  height: 100vh;
+  overflow: hidden;
 }
