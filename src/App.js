@@ -3,6 +3,8 @@ import Landing from "./components/Landing";
 import About from "./components/About";
 
 import "./index.css";
+import Services from "./components/Services";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -13,7 +15,11 @@ function App() {
       <main className="scroll-snap-point">
         <Landing />
         <About />
+        <Services />
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 }

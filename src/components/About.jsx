@@ -7,9 +7,26 @@ import {
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { useRef } from "react";
+import gsap from "gsap";
+import ScrollToPlugin from "gsap/ScrollToPlugin";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollToPlugin);
+gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
+const About = ({ addRefToTl }) => {
   const ref = useRef();
+
+  // useLayoutEffect(() => {
+  //   const anim = gsap.to(window, {
+  //     scrollTrigger: {
+  //       trigger: "#about",
+  //       start: "top 95%",
+  //       toggleActions: "play none none none",
+  //     },
+  //     scrollTo: "#about",
+  //   });
+  //   addRefToTl(anim);
+  // }, [addRefToTl]);
 
   return (
     <section className={styles.about} id="about" ref={ref}>
@@ -63,14 +80,14 @@ const About = () => {
             </ul>
 
             <div className={styles.socialsContainer}>
-              <a href="#" style={{ background: "#4267b2" }}>
+              <a href="#home" style={{ background: "#4267b2" }}>
                 <FontAwesomeIcon icon={faFacebook} inverse />
               </a>
-              <a href="#" style={{ background: "#1da1f2" }}>
+              <a href="#home" style={{ background: "#1da1f2" }}>
                 <FontAwesomeIcon icon={faTwitter} inverse />
               </a>
 
-              <a href="#" style={{ background: "#ff0000" }}>
+              <a href="#home" style={{ background: "#ff0000" }}>
                 <FontAwesomeIcon icon={faLinkedin} inverse />
               </a>
             </div>

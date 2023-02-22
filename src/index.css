@@ -6,25 +6,24 @@
 
 html {
   font-size: 10px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-size: 1.6rem;
   font-family: "Manrope", sans-serif;
+  overflow-x: hidden;
 }
 
-main {
-  position: absolute;
-  inset: 0;
+footer {
+  background-color: #2d2f2e;
+  color: #fff;
+  padding: 2rem 2rem 0;
 }
 
-.scroll-snap-point {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-section {
-  scroll-snap-align: start;
-  overflow: hidden;
+iframe {
+  width: 100%;
+  margin: 2rem auto 0;
+  border-radius: 10px;
 }
