@@ -3,7 +3,7 @@ import styles from "../styles/Services.module.css";
 const ServiceSection = ({ main, parentIndex }) => {
   return (
     <section>
-      {main.map((main) => {
+      {main.map((main, i) => {
         return main.type === "text" ? (
           Array.isArray(main.content) ? (
             main.content.map((content, index) => (
@@ -21,6 +21,7 @@ const ServiceSection = ({ main, parentIndex }) => {
               className={`${styles.sectionContent} ${
                 parentIndex % 2 !== 0 ? styles.textPrimary : ""
               }`}
+              key={`content-${i}`}
             >
               {main.content}
             </p>
@@ -30,9 +31,10 @@ const ServiceSection = ({ main, parentIndex }) => {
             className={`${styles.sectionContent} ${
               parentIndex % 2 !== 0 ? styles.textPrimary : ""
             }`}
+            key={`content-${i}`}
           >
-            {main.content.map((content) => (
-              <li>{content}</li>
+            {main.content.map((content, index) => (
+              <li key={index}>{content}</li>
             ))}
           </ul>
         ) : (

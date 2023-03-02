@@ -8,25 +8,45 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { useRef } from "react";
 import gsap from "gsap";
-import ScrollToPlugin from "gsap/ScrollToPlugin";
 import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollToPlugin);
+import { useLayoutEffect } from "react";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ addRefToTl }) => {
   const ref = useRef();
 
-  // useLayoutEffect(() => {
-  //   const anim = gsap.to(window, {
-  //     scrollTrigger: {
-  //       trigger: "#about",
-  //       start: "top 95%",
-  //       toggleActions: "play none none none",
-  //     },
-  //     scrollTo: "#about",
-  //   });
-  //   addRefToTl(anim);
-  // }, [addRefToTl]);
+  useLayoutEffect(() => {
+    const paragraphs = [...ref.current.children[0].children].splice(1);
+    const card = ref.current.children[1].children[0];
+    gsap
+      .timeline()
+      .from(paragraphs, {
+        scrollTrigger: {
+          trigger: ref.current,
+          start: "top 50%",
+          end: "top top",
+          // markers: true,
+          scrub: true,
+        },
+        y: 100,
+        x: 500,
+        autoAlpha: 0,
+        stagger: 0.2,
+      })
+      .from(card, {
+        scrollTrigger: {
+          trigger: paragraphs[paragraphs.length - 1],
+          start: "top 50%",
+          end: "top top",
+          // markers: true,
+          scrub: true,
+        },
+        scale: 0,
+        autoAlpha: 0,
+        stagger: 0.2,
+      });
+  }, [addRefToTl]);
 
   return (
     <section className={styles.about} id="about" ref={ref}>

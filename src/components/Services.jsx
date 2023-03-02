@@ -1,11 +1,64 @@
 import { useRef, useLayoutEffect } from "react";
 import styles from "../styles/Services.module.css";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ServiceSection from "./ServiceSection";
 import ServiceButton from "./ServiceButton";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const services = [
+  {
+    title: "PCB Design",
+    id: "design",
+    main: [
+      {
+        type: "text",
+        content: [
+          "With extensive experience in a wide variety of industries and systems, Creekview Electronics can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
+          "Our aim is to deliver your project on time and to within your budget, and to ultimately surpass your expectations. Feasibility studies may first be undertaken to ensure that your project is viable both in engineering and economic terms. We then utilise creative design strategies to reduce costs wherever possible, and employ technical experts to support, refine and direct your project to completion.",
+          "We offer a comprehensive range of design solutions including rapid prototyping for full 3D visual and engineering validation. We can also convert 2D drawings or reverse engineer parts into fully interactive 3D CAD models. These systems enable us to apply design for manufacture techniques throughout the project, ensuring that the product is optimised for the correct manufacturing and assembly process. This facilitates expert analysis of a product during the design process, where we can check parts and assemblies, and detect interference long before prototyping and manufacturing. This saves our customers time and money.",
+        ],
+      },
+    ],
+    aside: [
+      { type: "title", content: "Technical Specifications" },
+      {
+        type: "text",
+        content:
+          "We typically start from your general description or initial concept, undertake a feasibility study, produce a functional specification, circuit design and hardware development, software and firmware development, PCB layout and housing thought to pre-production or prototype build and finally production. Our extensive experience covers all types of embedded systems using microcontroller designs, including, ECG monitoring, RFID applications, CNC control, balanced battery chargers, monitoring and control systems and medical devices.",
+      },
+      { type: "title", content: "Incorporated Systems" },
+      {
+        type: "list",
+        content: [
+          "PIC & Microcontrollers",
+          "Microprocessors",
+          "Digital embedded controls",
+          "Ethernet & USB",
+          "Wireless & Bluetooth",
+          "Battery & mains capability",
+          "Serial communications",
+          "Signal processing with 8 bit, 16 bit or 32 bit",
+        ],
+      },
+
+      { type: "title", content: "Design Services" },
+      {
+        type: "list",
+        content: [
+          "Circuit design - analogue & digital",
+          "PCB & Enclosure design",
+          "3D concept design",
+          "Interactive 3D CAD models",
+          "2D drawings",
+          "Reverse engineering",
+          "Simulation",
+        ],
+      },
+    ],
+  },
   {
     title: "PCB Fabrication",
     id: "fabrication",
@@ -154,56 +207,7 @@ const services = [
       },
     ],
   },
-  {
-    title: "PCB Design",
-    id: "design",
-    main: [
-      {
-        type: "text",
-        content: [
-          "With extensive experience in a wide variety of industries and systems, Creekview Electronics can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
-          "Our aim is to deliver your project on time and to within your budget, and to ultimately surpass your expectations. Feasibility studies may first be undertaken to ensure that your project is viable both in engineering and economic terms. We then utilise creative design strategies to reduce costs wherever possible, and employ technical experts to support, refine and direct your project to completion.",
-          "We offer a comprehensive range of design solutions including rapid prototyping for full 3D visual and engineering validation. We can also convert 2D drawings or reverse engineer parts into fully interactive 3D CAD models. These systems enable us to apply design for manufacture techniques throughout the project, ensuring that the product is optimised for the correct manufacturing and assembly process. This facilitates expert analysis of a product during the design process, where we can check parts and assemblies, and detect interference long before prototyping and manufacturing. This saves our customers time and money.",
-        ],
-      },
-    ],
-    aside: [
-      { type: "title", content: "Technical Specifications" },
-      {
-        type: "text",
-        content:
-          "We typically start from your general description or initial concept, undertake a feasibility study, produce a functional specification, circuit design and hardware development, software and firmware development, PCB layout and housing thought to pre-production or prototype build and finally production. Our extensive experience covers all types of embedded systems using microcontroller designs, including, ECG monitoring, RFID applications, CNC control, balanced battery chargers, monitoring and control systems and medical devices.",
-      },
-      { type: "title", content: "Incorporated Systems" },
-      {
-        type: "list",
-        content: [
-          "PIC & Microcontrollers",
-          "Microprocessors",
-          "Digital embedded controls",
-          "Ethernet & USB",
-          "Wireless & Bluetooth",
-          "Battery & mains capability",
-          "Serial communications",
-          "Signal processing with 8 bit, 16 bit or 32 bit",
-        ],
-      },
 
-      { type: "title", content: "Design Services" },
-      {
-        type: "list",
-        content: [
-          "Circuit design - analogue & digital",
-          "PCB & Enclosure design",
-          "3D concept design",
-          "Interactive 3D CAD models",
-          "2D drawings",
-          "Reverse engineering",
-          "Simulation",
-        ],
-      },
-    ],
-  },
   {
     title: "Box Builds",
     id: "box-build",
@@ -222,6 +226,7 @@ const services = [
 
 const Services = () => {
   const refs = useRef([]);
+  const btnTimelines = useRef([]);
   const timelines = useRef([]);
 
   useLayoutEffect(() => {
@@ -230,7 +235,7 @@ const Services = () => {
       const aside = parent.children[1].children[1];
 
       gsap.context(() => {
-        timelines.current[i] = gsap
+        btnTimelines.current[i] = gsap
           .timeline({ paused: true })
           .fromTo(main, { height: "auto" }, { x: -500, autoAlpha: 0 }, 0)
           .fromTo(
@@ -239,15 +244,29 @@ const Services = () => {
             { height: "auto", autoAlpha: 1, x: "-100%" },
             0
           );
+
+        timelines.current[i] = gsap.timeline().from(main.children, {
+          scrollTrigger: {
+            trigger: parent,
+            start: "top 50%",
+            end: "top top",
+            // markers: true,
+            scrub: true,
+          },
+          scale: 0,
+          autoAlpha: 0,
+          stagger: 0.2,
+          y: 100,
+        });
       }, parent);
     });
   }, []);
 
   const toggleSectionAside = (ref) => {
-    if (timelines.current[ref])
-      !timelines.current[ref].progress()
-        ? timelines.current[ref].play()
-        : timelines.current[ref].reverse();
+    if (btnTimelines.current[ref])
+      !btnTimelines.current[ref].progress()
+        ? btnTimelines.current[ref].play()
+        : btnTimelines.current[ref].reverse();
   };
 
   return services.map((service, index) => {
