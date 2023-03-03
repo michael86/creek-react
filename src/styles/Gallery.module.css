@@ -1,5 +1,6 @@
 .galleryContainer {
   padding: 1rem;
+  text-align: center;
 }
 
 .reveal {
@@ -26,4 +27,25 @@
   align-items: center;
   top: 100%;
   overflow: hidden;
+}
+
+.bubblyButton {
+  display: inline-block;
+  font-size: 1em;
+  padding: 1em 2em;
+  margin: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: rgb(36, 131, 209);
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px rgba(36, 131, 209, 0.5);
+}
+.bubblyButton:focus {
+  outline: 0;
 }

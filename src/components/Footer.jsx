@@ -20,7 +20,7 @@ const Footer = () => {
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
           <div className={styles.emailBtn}>
-            <a href="">
+            <a href="mailto:sadsad@saddasd">
               Email Us
               <FontAwesomeIcon
                 style={{ marginLeft: "1rem" }}
@@ -29,7 +29,7 @@ const Footer = () => {
             </a>
           </div>
           <div className={styles.callBtn}>
-            <a href="">
+            <a href="tel:0000000000">
               Phone Us
               <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faPhone} />
             </a>
