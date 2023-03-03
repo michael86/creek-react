@@ -139,7 +139,7 @@ const LandingGallery = ({ mm }) => {
 
   const onMouseEnter = (target) => {
     if (width < 992) return;
-    console.log(cardTimelines.current[target]);
+
     cardTimelines.current[target].data[0].play();
   };
 

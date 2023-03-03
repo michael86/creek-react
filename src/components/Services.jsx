@@ -1,10 +1,11 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useContext } from "react";
 import styles from "../styles/Services.module.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import ServiceSection from "./ServiceSection";
 import ServiceButton from "./ServiceButton";
+import Viewport from "../context/Viewport";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -228,6 +229,7 @@ const Services = () => {
   const refs = useRef([]);
   const btnTimelines = useRef([]);
   const timelines = useRef([]);
+  const { width } = useContext(Viewport);
 
   useLayoutEffect(() => {
     refs.current.forEach((parent, i) => {
@@ -235,6 +237,7 @@ const Services = () => {
       const aside = parent.children[1].children[1];
 
       gsap.context(() => {
+        //add media queires here
         btnTimelines.current[i] = gsap
           .timeline({ paused: true })
           .fromTo(main, { height: "auto" }, { x: -500, autoAlpha: 0 }, 0)
@@ -292,7 +295,12 @@ const Services = () => {
           <ServiceSection main={service.aside} parentIndex={index} />
         </div>
 
-        <ServiceButton toggleSectionAside={toggleSectionAside} index={index} />
+        {width < 992 && (
+          <ServiceButton
+            toggleSectionAside={toggleSectionAside}
+            index={index}
+          />
+        )}
       </section>
     );
   });

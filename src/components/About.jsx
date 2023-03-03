@@ -6,7 +6,7 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
@@ -19,33 +19,68 @@ const About = ({ addRefToTl }) => {
   useLayoutEffect(() => {
     const paragraphs = [...ref.current.children[0].children].splice(1);
     const card = ref.current.children[1].children[0];
-    gsap
-      .timeline()
-      .from(paragraphs, {
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 50%",
-          end: "top top",
-          // markers: true,
-          scrub: true,
-        },
-        y: 100,
-        x: 500,
-        autoAlpha: 0,
-        stagger: 0.2,
-      })
-      .from(card, {
-        scrollTrigger: {
-          trigger: paragraphs[paragraphs.length - 1],
-          start: "top 50%",
-          end: "top top",
-          // markers: true,
-          scrub: true,
-        },
-        scale: 0,
-        autoAlpha: 0,
-        stagger: 0.2,
-      });
+
+    const mm = gsap.matchMedia();
+
+    mm.add("(max-width: 600px)", () => {
+      gsap
+        .timeline()
+        .from(paragraphs, {
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 50%",
+            end: "top top",
+            // markers: true,
+            scrub: true,
+          },
+          y: 100,
+          x: 500,
+          autoAlpha: 0,
+          stagger: 0.2,
+        })
+        .from(card, {
+          scrollTrigger: {
+            trigger: paragraphs[paragraphs.length - 1],
+            start: "top 50%",
+            end: "top top",
+            // markers: true,
+            scrub: true,
+          },
+          scale: 0,
+          autoAlpha: 0,
+          stagger: 0.2,
+        });
+    });
+
+    mm.add("(min-width: 992px)", () => {
+      gsap
+        .timeline()
+        .from(paragraphs, {
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 90%",
+            end: "top 30%",
+            // markers: true,
+            scrub: true,
+          },
+          y: 100,
+          x: 500,
+          autoAlpha: 0,
+          stagger: 0.2,
+        })
+        .from(card, {
+          scrollTrigger: {
+            trigger: paragraphs[paragraphs.length - 1],
+            start: "top bottom",
+            end: "top center",
+            // markers: true,
+            scrub: true,
+          },
+          scale: 0,
+          autoAlpha: 0,
+          stagger: 0.2,
+        });
+    });
   }, [addRefToTl]);
 
   return (

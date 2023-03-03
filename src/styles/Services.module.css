@@ -99,3 +99,13 @@
 .serviceBtn span:nth-child(4) {
   --n: 4;
 }
+
+@media screen and (min-width: 992px) {
+  .serviceContainer {
+    display: flex;
+  }
+
+  .serviceContainer section {
+    width: 50%;
+  }
+}

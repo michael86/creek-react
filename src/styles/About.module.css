@@ -95,3 +95,19 @@
 .btnContainer button:hover {
   background-color: #0e4bf1;
 }
+
+@media screen and (min-width: 992px) {
+  .about {
+    display: flex;
+    background-color: #2483d1;
+  }
+
+  .fontContainer,
+  .cardContainer {
+    width: 50%;
+  }
+
+  .cardContainer {
+    margin: 2rem 0;
+  }
+}
