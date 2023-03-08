@@ -6,10 +6,12 @@ import {
   faFacebook,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
+
+import waveBorder from "../public/images/wave.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,8 +19,8 @@ const About = ({ addRefToTl }) => {
   const ref = useRef();
 
   useLayoutEffect(() => {
-    const paragraphs = [...ref.current.children[0].children].splice(1);
-    const card = ref.current.children[1].children[0];
+    const paragraphs = [...ref.current.children[1].children].splice(1);
+    const card = ref.current.children[2].children[0];
 
     const mm = gsap.matchMedia();
 
@@ -85,6 +87,10 @@ const About = ({ addRefToTl }) => {
 
   return (
     <section className={styles.about} id="about" ref={ref}>
+      <div className={styles.waveContainer}>
+        <img src={waveBorder} alt="border" />
+      </div>
+
       <div className={styles.fontContainer}>
         <h2>About Us</h2>
         <p className={Global.mt2}>
@@ -156,6 +162,10 @@ const About = ({ addRefToTl }) => {
           </div>
         </div>
       </div>
+
+      {/* <div className={styles.waveContainer}>
+        <img src={waveBorder} alt="border" />
+      </div> */}
     </section>
   );
 };
