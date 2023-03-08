@@ -236,30 +236,61 @@ const Services = () => {
       const main = parent.children[1].children[0];
       const aside = parent.children[1].children[1];
 
-      gsap.context(() => {
-        //add media queires here
-        btnTimelines.current[i] = gsap
-          .timeline({ paused: true })
-          .fromTo(main, { height: "auto" }, { x: -500, autoAlpha: 0 }, 0)
-          .fromTo(
-            aside,
-            { autoAlpha: 0, x: 500 },
-            { height: "auto", autoAlpha: 1, x: "-100%" },
-            0
-          );
+      const mm = gsap.matchMedia();
 
-        timelines.current[i] = gsap.timeline().from(main.children, {
-          scrollTrigger: {
-            trigger: parent,
-            start: "top 50%",
-            end: "top top",
-            // markers: true,
-            scrub: true,
-          },
-          scale: 0,
-          autoAlpha: 0,
-          stagger: 0.2,
-          y: 100,
+      gsap.context(() => {
+        mm.add("(max-width: 991px)", () => {
+          btnTimelines.current[i] = gsap
+            .timeline({ paused: true })
+            .fromTo(main, { height: "auto" }, { x: -500, autoAlpha: 0 }, 0)
+            .fromTo(
+              aside,
+              { autoAlpha: 0, x: 500 },
+              { height: "auto", autoAlpha: 1, x: "-100%" },
+              0
+            );
+
+          timelines.current[i] = gsap.timeline().from(main.children, {
+            scrollTrigger: {
+              trigger: parent,
+              start: "top 50%",
+              end: "top top",
+              scrub: true,
+            },
+            scale: 0,
+            autoAlpha: 0,
+            stagger: 0.2,
+            y: 100,
+          });
+        });
+
+        mm.add("(min-width: 992px)", () => {
+          timelines.current[i] = gsap
+            .timeline()
+            .from(main.children, {
+              scrollTrigger: {
+                trigger: parent,
+                start: "top 95%",
+                end: "top top",
+                scrub: true,
+              },
+              scale: 0,
+              autoAlpha: 0,
+              stagger: 0.2,
+              y: 100,
+            })
+            .from(aside.children, {
+              scrollTrigger: {
+                trigger: parent,
+                start: "top 95%",
+                end: "top top",
+                scrub: true,
+              },
+              scale: 0,
+              autoAlpha: 0,
+              stagger: 0.2,
+              y: 100,
+            });
         });
       }, parent);
     });

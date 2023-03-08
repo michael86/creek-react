@@ -12,6 +12,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 import waveBorder from "../public/images/wave.svg";
+import waveLight from "../public/images/wave-white.svg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,7 +25,7 @@ const About = ({ addRefToTl }) => {
 
     const mm = gsap.matchMedia();
 
-    mm.add("(max-width: 600px)", () => {
+    mm.add("(max-width: 991px)", () => {
       gsap
         .timeline()
         .from(paragraphs, {
@@ -90,7 +91,6 @@ const About = ({ addRefToTl }) => {
       <div className={styles.waveContainer}>
         <img src={waveBorder} alt="border" />
       </div>
-
       <div className={styles.fontContainer}>
         <h2>About Us</h2>
         <p className={Global.mt2}>
@@ -121,7 +121,6 @@ const About = ({ addRefToTl }) => {
           Ltd.
         </p>
       </div>
-
       <div className={styles.cardContainer}>
         <div className={styles.card}>
           <div className={styles.cardHeader}>
@@ -163,9 +162,9 @@ const About = ({ addRefToTl }) => {
         </div>
       </div>
 
-      {/* <div className={styles.waveContainer}>
-        <img src={waveBorder} alt="border" />
-      </div> */}
+      <div className={styles.waveContainer}>
+        <img src={waveLight} alt="border" />
+      </div>
     </section>
   );
 };
