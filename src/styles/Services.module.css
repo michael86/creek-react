@@ -1,8 +1,6 @@
 .serviceSection {
   padding: 2rem 0;
-  overflow: hidden;
   position: relative;
-  isolation: isolate;
 }
 
 .serviceContainer {
@@ -21,6 +19,19 @@
 
 .serviceSection section:last-of-type {
   height: 0;
+}
+
+.serviceSection .dotsContainer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 30%;
+  height: 30%;
+  background-color: pink;
+  z-index: 222;
+}
+
+.serviceSection .dotsContainer img {
 }
 
 .bgPrimary {
@@ -105,13 +116,29 @@
 @media screen and (min-width: 992px) {
   .serviceContainer {
     display: flex;
+    flex-direction: column;
+  }
+
+  .serviceContainer p {
+    grid-column: 1 / span 2;
   }
 
   .serviceContainer section {
-    width: 50%;
+    width: 100%;
   }
 
   .serviceSection section:last-of-type {
     height: auto;
+  }
+
+  .ulContainer {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 2rem;
+  }
+
+  .ulContainer li {
+    margin: 1rem 0;
+    text-align: start;
   }
 }

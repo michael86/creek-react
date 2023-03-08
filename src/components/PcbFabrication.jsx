@@ -94,8 +94,8 @@ const PcbFabrication = () => {
         timeline.current = gsap.timeline().from(main.children, {
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 50%",
-            end: "top top",
+            start: "top 85%",
+            end: "top 40%",
             scrub: true,
           },
           scale: 0,
@@ -107,7 +107,7 @@ const PcbFabrication = () => {
       mm.add("(min-width: 992px)", () => {
         timeline.current = gsap
           .timeline()
-          .from(main.children, {
+          .from(main, {
             scrollTrigger: {
               trigger: ref.current,
               start: "top 95%",
@@ -119,7 +119,7 @@ const PcbFabrication = () => {
             stagger: 0.2,
             y: 100,
           })
-          .from(aside.children, {
+          .from(aside, {
             scrollTrigger: {
               trigger: ref.current,
               start: "top 95%",
@@ -136,7 +136,11 @@ const PcbFabrication = () => {
   }, []);
 
   return (
-    <section className={`${styles.serviceSection}`} id={service.id} ref={ref}>
+    <section
+      className={`${styles.serviceSection} ${styles.bgPrimary}`}
+      id={service.id}
+      ref={ref}
+    >
       <h2 className={`${styles.sectionTitle} `}>{service.title}</h2>
 
       <div className={styles.serviceContainer}>

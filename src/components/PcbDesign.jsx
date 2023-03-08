@@ -4,6 +4,7 @@ import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
 import Viewport from "../context/Viewport";
 import gsap from "gsap";
+// import dots from "../public/images/dots.svg";
 
 const service = {
   title: "PCB Design",
@@ -91,8 +92,8 @@ const PcbDesign = () => {
         timeline.current = gsap.timeline().from(main.children, {
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 50%",
-            end: "top top",
+            start: "top 85%",
+            end: "top 40%",
             scrub: true,
           },
           scale: 0,
@@ -101,10 +102,11 @@ const PcbDesign = () => {
           y: 100,
         });
       });
+
       mm.add("(min-width: 992px)", () => {
         timeline.current = gsap
           .timeline()
-          .from(main.children, {
+          .from(main, {
             scrollTrigger: {
               trigger: ref.current,
               start: "top 95%",
@@ -116,7 +118,7 @@ const PcbDesign = () => {
             stagger: 0.2,
             y: 100,
           })
-          .from(aside.children, {
+          .from(aside, {
             scrollTrigger: {
               trigger: ref.current,
               start: "top 95%",
@@ -137,11 +139,14 @@ const PcbDesign = () => {
       <h2 className={`${styles.sectionTitle} `}>{service.title}</h2>
 
       <div className={styles.serviceContainer}>
-        <ServiceSection main={service.main} />
-        <ServiceSection main={service.aside} />
+        <ServiceSection main={service.main} light />
+        <ServiceSection main={service.aside} light />
       </div>
 
       {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
+      {/* <div className={styles.dotsContainer}>
+        <img src={dots} alt="dots" />
+      </div> */}
     </section>
   );
 };

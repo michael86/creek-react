@@ -1,15 +1,30 @@
+import { useEffect, useState } from "react";
+
 import styles from "../styles/Services.module.css";
 
-const ServiceSection = ({ main, parentIndex }) => {
+const ServiceSection = ({ main, light }) => {
+  const [uls, setUls] = useState([]);
+
+  useEffect(() => {
+    const copy = JSON.parse(JSON.stringify(uls));
+
+    main.forEach(
+      (content) => content.type === "list" && copy.push(content.content)
+    );
+
+    setUls(copy);
+  }, [main]);
+
   return (
     <section>
       {main.map((main, i) => {
-        return main.type === "text" ? (
-          Array.isArray(main.content) ? (
+        return (
+          main.type === "text" &&
+          (Array.isArray(main.content) ? (
             main.content.map((content, index) => (
               <p
                 className={`${styles.sectionContent} ${
-                  parentIndex % 2 !== 0 ? styles.textPrimary : ""
+                  !light && styles.textPrimary
                 }`}
                 key={`content-${index}`}
               >
@@ -19,28 +34,34 @@ const ServiceSection = ({ main, parentIndex }) => {
           ) : (
             <p
               className={`${styles.sectionContent} ${
-                parentIndex % 2 !== 0 ? styles.textPrimary : ""
+                !light && styles.textPrimary
               }`}
               key={`content-${i}`}
             >
               {main.content}
             </p>
-          )
-        ) : main.type === "list" ? (
-          <ul
-            className={`${styles.sectionContent} ${
-              parentIndex % 2 !== 0 ? styles.textPrimary : ""
-            }`}
-            key={`content-${i}`}
-          >
-            {main.content.map((content, index) => (
-              <li key={index}>{content}</li>
-            ))}
-          </ul>
-        ) : (
-          ""
+          ))
         );
       })}
+
+      {uls.length > 0 && (
+        <div className={styles.ulContainer}>
+          {uls.map((items, i) => {
+            return (
+              <ul
+                className={`${styles.sectionContent} ${
+                  !light && styles.textPrimary
+                }`}
+                key={i}
+              >
+                {items.map((item, i) => (
+                  <li key={i}>{item}</li>
+                ))}
+              </ul>
+            );
+          })}
+        </div>
+      )}
     </section>
   );
 };
