@@ -1,4 +1,4 @@
-import { useContext, useRef, useLayoutEffect } from "react";
+import { useContext, useRef, useLayoutEffect, useEffect } from "react";
 import ServiceButton from "./ServiceButton";
 import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
@@ -62,7 +62,7 @@ const PcbDesign = () => {
   const { width } = useContext(Viewport);
   const timeline = useRef();
   const ref = useRef();
-
+  const headRef = useRef();
   const btnTimeline = useRef();
 
   const toggleSectionAside = () => {
@@ -71,6 +71,24 @@ const PcbDesign = () => {
         ? btnTimeline.current.play()
         : btnTimeline.current.reverse();
   };
+
+  useLayoutEffect(() => {
+    //Need to add a cleanup here ctx.revert
+
+    const animateHead = () => {
+      const head = headRef.current.children[0];
+
+      const traces = headRef.current.children[0].children[2].children;
+      console.log("trace", traces);
+
+      gsap
+        .timeline()
+        .fromTo(head, { autoAlpha: 0 }, { autoAlpha: 1 })
+        .fromTo(traces, { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.2 });
+    };
+
+    animateHead();
+  }, [headRef.current]);
 
   useLayoutEffect(() => {
     const main = ref.current.children[1].children[0];
@@ -134,14 +152,6 @@ const PcbDesign = () => {
             y: 100,
           });
       });
-
-      const head = ref.current.children[3].children[0].children[1];
-      const traces = ref.current.children[3].children[0].children[2].children;
-
-      gsap
-        .timeline()
-        .fromTo(head, { autoAlpha: 0 }, { autoAlpha: 1 })
-        .fromTo(traces, { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.2 });
     }, ref.current);
   }, []);
 
@@ -155,9 +165,11 @@ const PcbDesign = () => {
       </div>
 
       {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
-      <div className={styles.dotsContainer}>
-        <PcbDesignBg />
-      </div>
+      {width >= 992 && (
+        <div ref={headRef} className={styles.dotsContainer}>
+          <PcbDesignBg />
+        </div>
+      )}
     </section>
   );
 };
