@@ -4,6 +4,7 @@ import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
 import Viewport from "../context/Viewport";
 import gsap from "gsap";
+import PcbDesignBg from "./PcbDesignBg";
 // import dots from "../public/images/dots.svg";
 
 const service = {
@@ -106,6 +107,8 @@ const PcbDesign = () => {
       mm.add("(min-width: 992px)", () => {
         timeline.current = gsap
           .timeline()
+          .set(main, { height: "auto" }) //Set height to auto incase of a viewport resize
+          .set(aside, { height: "auto" }) //Set height to auto incase of a viewport resize
           .from(main, {
             scrollTrigger: {
               trigger: ref.current,
@@ -131,6 +134,14 @@ const PcbDesign = () => {
             y: 100,
           });
       });
+
+      const head = ref.current.children[3].children[0].children[1];
+      const traces = ref.current.children[3].children[0].children[2].children;
+
+      gsap
+        .timeline()
+        .fromTo(head, { autoAlpha: 0 }, { autoAlpha: 1 })
+        .fromTo(traces, { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.2 });
     }, ref.current);
   }, []);
 
@@ -144,9 +155,9 @@ const PcbDesign = () => {
       </div>
 
       {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
-      {/* <div className={styles.dotsContainer}>
-        <img src={dots} alt="dots" />
-      </div> */}
+      <div className={styles.dotsContainer}>
+        <PcbDesignBg />
+      </div>
     </section>
   );
 };

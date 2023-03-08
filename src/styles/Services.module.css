@@ -23,12 +23,17 @@
 
 .serviceSection .dotsContainer {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 30%;
-  height: 30%;
-  background-color: pink;
-  z-index: 222;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+  z-index: -1;
+}
+
+.dotsContainer svg {
+  width: 100%;
+  height: 100%;
+  fill: rgba(0, 0, 0, 0.164);
 }
 
 .serviceSection .dotsContainer img {

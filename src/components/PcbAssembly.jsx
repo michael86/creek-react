@@ -149,6 +149,8 @@ const PcbAssembly = () => {
       mm.add("(min-width: 992px)", () => {
         timeline.current = gsap
           .timeline()
+          .set(main, { height: "auto" }) //Set height to auto incase of a viewport resize
+          .set(aside, { height: "auto" }) //Set height to auto incase of a viewport resize
           .from(main, {
             scrollTrigger: {
               trigger: ref.current,
