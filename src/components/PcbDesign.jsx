@@ -1,4 +1,4 @@
-import { useContext, useRef, useLayoutEffect, useEffect } from "react";
+import { useContext, useRef, useLayoutEffect } from "react";
 import ServiceButton from "./ServiceButton";
 import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
@@ -72,24 +72,46 @@ const PcbDesign = () => {
         : btnTimeline.current.reverse();
   };
 
+  //head animation
   useLayoutEffect(() => {
-    //Need to add a cleanup here ctx.revert
+    if (width < 992) {
+      return;
+    }
 
-    const animateHead = () => {
+    const ctx = gsap.context(() => {
       const head = headRef.current.children[0];
 
       const traces = headRef.current.children[0].children[2].children;
-      console.log("trace", traces);
 
       gsap
         .timeline()
-        .fromTo(head, { autoAlpha: 0 }, { autoAlpha: 1 })
-        .fromTo(traces, { autoAlpha: 0 }, { autoAlpha: 1, stagger: 0.2 });
-    };
+        .from(traces, {
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 70%",
+            end: "top 40%",
+            scrub: true,
+          },
+          scale: 0,
+          autoAlpha: 0,
+          stagger: 0.2,
+          y: 100,
+        })
+        .to(head, {
+          scrollTrigger: {
+            trigger: ref.current,
+            start: "top 40%",
+            end: "top top",
+            scrub: true,
+          },
+          x: -1500,
+        });
+    });
 
-    animateHead();
-  }, [headRef.current]);
+    return () => ctx.revert();
+  }, [width]);
 
+  //main/aside triggers
   useLayoutEffect(() => {
     const main = ref.current.children[1].children[0];
     const aside = ref.current.children[1].children[1];

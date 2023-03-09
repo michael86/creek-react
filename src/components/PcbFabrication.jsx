@@ -1,9 +1,10 @@
-import { useContext, useRef, useLayoutEffect } from "react";
+import { useContext, useRef, useLayoutEffect, useState } from "react";
 import ServiceButton from "./ServiceButton";
 import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
 import Viewport from "../context/Viewport";
 import gsap from "gsap";
+import PcbFabricationBg from "./PcbFabricationBg";
 
 const service = {
   title: "PCB Fabrication",
@@ -60,11 +61,29 @@ const service = {
 };
 
 const PcbFabrication = () => {
-  const { width } = useContext(Viewport);
-  const timeline = useRef();
   const ref = useRef();
-
+  const timeline = useRef();
   const btnTimeline = useRef();
+  const bgRef = useRef();
+  const { width } = useContext(Viewport);
+  const [bgIntensity] = useState(6);
+
+  useLayoutEffect(() => {
+    const height = -Math.abs(parseInt(getComputedStyle(ref.current).height));
+
+    gsap.to(bgRef.current.children, {
+      scrollTrigger: {
+        trigger: ref.current,
+        start: "top 40%",
+        end: "top top",
+        scrub: true,
+      },
+      y: height + -100,
+      autoAlpha: 0,
+      stagger: 0.2,
+      // rotate: 360,
+    });
+  }, [bgRef.current]);
 
   const toggleSectionAside = () => {
     if (btnTimeline.current)
@@ -73,6 +92,7 @@ const PcbFabrication = () => {
         : btnTimeline.current.reverse();
   };
 
+  //main/aside
   useLayoutEffect(() => {
     const main = ref.current.children[1].children[0];
     const aside = ref.current.children[1].children[1];
@@ -138,20 +158,34 @@ const PcbFabrication = () => {
   }, []);
 
   return (
-    <section
-      className={`${styles.serviceSection} ${styles.bgPrimary}`}
-      id={service.id}
-      ref={ref}
-    >
-      <h2 className={`${styles.sectionTitle} `}>{service.title}</h2>
+    <div className={styles.sectionContainer}>
+      <section
+        className={`${styles.serviceSection} ${styles.bgPrimary}`}
+        id={service.id}
+        ref={ref}
+      >
+        <h2 className={`${styles.sectionTitle} `}>{service.title}</h2>
 
-      <div className={styles.serviceContainer}>
-        <ServiceSection main={service.main} />
-        <ServiceSection main={service.aside} />
+        <div className={styles.serviceContainer}>
+          <ServiceSection main={service.main} />
+          <ServiceSection main={service.aside} />
+        </div>
+
+        {width < 992 && (
+          <ServiceButton toggleSectionAside={toggleSectionAside} />
+        )}
+      </section>
+
+      <div className={styles.bgContainer} ref={bgRef}>
+        {[...Array(bgIntensity)].map((_, i) => {
+          return (
+            <div key={i}>
+              <PcbFabricationBg />
+            </div>
+          );
+        })}
       </div>
-
-      {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
-    </section>
+    </div>
   );
 };
 
