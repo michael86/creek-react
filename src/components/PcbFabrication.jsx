@@ -78,12 +78,12 @@ const PcbFabrication = () => {
         end: "top top",
         scrub: true,
       },
-      y: height + -100,
+      y: height + -50,
       autoAlpha: 0,
       stagger: 0.2,
       // rotate: 360,
     });
-  }, [bgRef.current]);
+  }, []);
 
   const toggleSectionAside = () => {
     if (btnTimeline.current)

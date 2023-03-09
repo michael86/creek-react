@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import styles from "../styles/Services.module.css";
 
-const ServiceSection = ({ main, light }) => {
+const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const ServiceSection = ({ main, light }) => {
   }, [main]);
 
   return (
-    <section>
+    <section ref={addRef ? (el) => addRef(el, type) : null}>
       {main.map((main, i) => {
         return (
           main.type === "text" &&

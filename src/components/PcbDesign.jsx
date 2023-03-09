@@ -5,7 +5,7 @@ import styles from "../styles/Services.module.css";
 import Viewport from "../context/Viewport";
 import gsap from "gsap";
 import PcbDesignBg from "./PcbDesignBg";
-// import dots from "../public/images/dots.svg";
+import ScrollTrigger from "gsap/ScrollTrigger";
 
 const service = {
   title: "PCB Design",
@@ -25,7 +25,7 @@ const service = {
     {
       type: "text",
       content:
-        "We typically start from your general description or initial concept, undertake a feasibility study, produce a functional specification, circuit design and hardware development, software and firmware development, PCB layout and housing thought to pre-production or prototype build and finally production. Our extensive experience covers all types of embedded systems using microcontroller designs, including, ECG monitoring, RFID applications, CNC control, balanced battery chargers, monitoring and control systems and medical devices.",
+        "We typically start from your general description or initial concept, undertake a feasibility study, produce a functional specification, circuit design and hardware development, software and firmware development, PCB layout and housing thought to pre-production or prototype uild and finally production. Our extensive experience covers all typesof embedded systems using microcontroller designs, including, ECG monitoring, RFID applications, CNC control, balanced battery chargers, monitoring and control systems and medical devices.",
     },
     { type: "title", content: "Incorporated Systems" },
     {
@@ -62,6 +62,8 @@ const PcbDesign = () => {
   const { width } = useContext(Viewport);
   const timeline = useRef();
   const ref = useRef();
+  const mainRef = useRef();
+  const asideRef = useRef();
   const headRef = useRef();
   const btnTimeline = useRef();
 
@@ -70,6 +72,10 @@ const PcbDesign = () => {
       !btnTimeline.current.progress()
         ? btnTimeline.current.play()
         : btnTimeline.current.reverse();
+  };
+
+  const addRef = (el, type) => {
+    type === "main" ? (mainRef.current = el) : (asideRef.current = el);
   };
 
   //head animation
@@ -83,29 +89,24 @@ const PcbDesign = () => {
 
       const traces = headRef.current.children[0].children[2].children;
 
-      gsap
+      const tl = gsap
         .timeline()
+
         .from(traces, {
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 70%",
-            end: "top 40%",
-            scrub: true,
-          },
           scale: 0,
           autoAlpha: 0,
-          stagger: 0.2,
+
+          duration: 1,
           y: 100,
         })
-        .to(head, {
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 40%",
-            end: "top top",
-            scrub: true,
-          },
-          x: -1500,
-        });
+        .to(head, { x: 0 });
+
+      ScrollTrigger.create({
+        trigger: ref.current,
+        start: "top 90%",
+        toggleActions: "play none none reverse",
+        animation: tl,
+      });
     });
 
     return () => ctx.revert();
@@ -113,16 +114,18 @@ const PcbDesign = () => {
 
   //main/aside triggers
   useLayoutEffect(() => {
-    const main = ref.current.children[1].children[0];
-    const aside = ref.current.children[1].children[1];
-
     const mm = gsap.matchMedia();
 
     gsap.context(() => {
       mm.add("(max-width: 991px)", () => {
+        const main = mainRef.current;
+        const aside = asideRef.current;
+
         btnTimeline.current = gsap
           .timeline({ paused: true })
-          .fromTo(main, { height: "auto" }, { x: -500, autoAlpha: 0 }, 0)
+          .set(main, { clearProps: "all" })
+          .set(aside, { clearProps: "all" })
+          .to(main, { x: -500 })
           .fromTo(
             aside,
             { autoAlpha: 0, x: 500 },
@@ -145,53 +148,42 @@ const PcbDesign = () => {
       });
 
       mm.add("(min-width: 992px)", () => {
+        const main = ref.current.children[2].children[0];
+        const aside = ref.current.children[2].children[1];
         timeline.current = gsap
           .timeline()
           .set(main, { height: "auto" }) //Set height to auto incase of a viewport resize
-          .set(aside, { height: "auto" }) //Set height to auto incase of a viewport resize
-          .from(main, {
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top 95%",
-              end: "top top",
-              scrub: true,
-            },
-            scale: 0,
-            autoAlpha: 0,
-            stagger: 0.2,
-            y: 100,
-          })
-          .from(aside, {
-            scrollTrigger: {
-              trigger: ref.current,
-              start: "top 95%",
-              end: "top top",
-              scrub: true,
-            },
-            scale: 0,
-            autoAlpha: 0,
-            stagger: 0.2,
-            y: 100,
-          });
+          .set(aside, { height: "auto" }); //Set height to auto incase of a viewport resize
       });
     }, ref.current);
   }, []);
 
   return (
-    <section className={`${styles.serviceSection}`} id={service.id} ref={ref}>
+    <section
+      className={`${styles.serviceSection} ${styles.pcbDesignContainer}`}
+      id={service.id}
+      ref={ref}
+    >
       <h2 className={`${styles.sectionTitle} `}>{service.title}</h2>
 
-      <div className={styles.serviceContainer}>
-        <ServiceSection main={service.main} light />
-        <ServiceSection main={service.aside} light />
-      </div>
-
-      {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
       {width >= 992 && (
         <div ref={headRef} className={styles.dotsContainer}>
           <PcbDesignBg />
+          <h3>innovative design</h3>
         </div>
       )}
+
+      <div className={styles.serviceContainer}>
+        <ServiceSection main={service.main} addRef={addRef} type="main" light />
+        <ServiceSection
+          main={service.aside}
+          addRef={addRef}
+          type="aside"
+          light
+        />
+      </div>
+
+      {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
     </section>
   );
 };
