@@ -1,0 +1,16 @@
+.st0 {
+  clip-path: url(#SVGID_2_);
+}
+.st1 {
+  fill: #231f20;
+}
+
+.dotsSvg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 33%;
+  transform: rotate(323deg) translate(-255px, 112px);
+  z-index: -1;
+  opacity: 0.3;
+}

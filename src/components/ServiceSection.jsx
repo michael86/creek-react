@@ -8,24 +8,23 @@ const ServiceSection = ({ main, light, addRef, type }) => {
   useEffect(() => {
     const copy = JSON.parse(JSON.stringify(uls));
 
-    main.forEach(
-      (content) => content.type === "list" && copy.push(content.content)
-    );
+    main.forEach((content) => content.type === "list" && copy.push(content.content));
 
     setUls(copy);
   }, [main]);
 
   return (
-    <section ref={addRef ? (el) => addRef(el, type) : null}>
+    <section
+      className={type === "main" ? "main" : "aside"}
+      ref={addRef ? (el) => addRef(el, type) : null}
+    >
       {main.map((main, i) => {
         return (
           main.type === "text" &&
           (Array.isArray(main.content) ? (
             main.content.map((content, index) => (
               <p
-                className={`${styles.sectionContent} ${
-                  !light && styles.textPrimary
-                }`}
+                className={`${styles.sectionContent} ${!light && styles.textPrimary}`}
                 key={`content-${index}`}
               >
                 {content}
@@ -33,9 +32,7 @@ const ServiceSection = ({ main, light, addRef, type }) => {
             ))
           ) : (
             <p
-              className={`${styles.sectionContent} ${
-                !light && styles.textPrimary
-              }`}
+              className={`${styles.sectionContent} ${!light && styles.textPrimary}`}
               key={`content-${i}`}
             >
               {main.content}
@@ -48,12 +45,7 @@ const ServiceSection = ({ main, light, addRef, type }) => {
         <div className={styles.ulContainer}>
           {uls.map((items, i) => {
             return (
-              <ul
-                className={`${styles.sectionContent} ${
-                  !light && styles.textPrimary
-                }`}
-                key={i}
-              >
+              <ul className={`${styles.sectionContent} ${!light && styles.textPrimary}`} key={i}>
                 {items.map((item, i) => (
                   <li key={i}>{item}</li>
                 ))}

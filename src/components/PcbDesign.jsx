@@ -1,4 +1,4 @@
-import { useContext, useRef, useLayoutEffect } from "react";
+import { useContext, useRef, useLayoutEffect, useState } from "react";
 import ServiceButton from "./ServiceButton";
 import ServiceSection from "./ServiceSection";
 import styles from "../styles/Services.module.css";
@@ -6,6 +6,7 @@ import Viewport from "../context/Viewport";
 import gsap from "gsap";
 import PcbDesignBg from "./PcbDesignBg";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import PcbDesignDots from "./PcbDesignDots";
 
 const service = {
   title: "PCB Design",
@@ -69,9 +70,7 @@ const PcbDesign = () => {
 
   const toggleSectionAside = () => {
     if (btnTimeline.current)
-      !btnTimeline.current.progress()
-        ? btnTimeline.current.play()
-        : btnTimeline.current.reverse();
+      !btnTimeline.current.progress() ? btnTimeline.current.play() : btnTimeline.current.reverse();
   };
 
   const addRef = (el, type) => {
@@ -88,10 +87,22 @@ const PcbDesign = () => {
       const head = headRef.current.children[0];
 
       const traces = headRef.current.children[0].children[2].children;
-
+      const paragraphs = [...mainRef.current.children, asideRef.current.children[0]];
+      const headers = [...headRef.current.children]
+        .slice(1)
+        .map((header) => header.children)
+        .flat();
+      console.log(headers.flat());
       const tl = gsap
         .timeline()
-
+        .set(head, {
+          x: "50%",
+          y: "25%",
+          scale: 1.5,
+        })
+        .set([headers], { scale: 0, autoAlpha: 0, y: 100 })
+        .set([...paragraphs, asideRef.current], { autoAlpha: 0 })
+        .from(head, { autoAlpha: 0 })
         .from(traces, {
           scale: 0,
           autoAlpha: 0,
@@ -99,11 +110,80 @@ const PcbDesign = () => {
           duration: 1,
           y: 100,
         })
-        .to(head, { x: 0 });
+        .to(head, {
+          x: 0,
+          y: 0,
+          scale: 1,
+          onComplete: () => {
+            gsap.set(head, { clearProps: "all" });
+          },
+        })
+        .to(asideRef.current, {
+          autoAlpha: 1,
+          onComplete: () => {
+            gsap.set(asideRef.current, {
+              clearProps: "all",
+            });
+          },
+        })
+        .to(paragraphs, {
+          autoAlpha: 1,
+          stagger: 0.2,
+          onComplete: () => {
+            gsap.set(paragraphs, {
+              clearProps: "all",
+            });
+          },
+        })
+        .to(
+          headers[0],
+          {
+            scale: 1,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.1,
+            onComplete: () => {
+              gsap.set(headers[0], {
+                clearProps: "all",
+              });
+            },
+          },
+          1
+        )
+        .to(
+          headers[1],
+          {
+            scale: 1,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.1,
+            onComplete: () => {
+              gsap.set(headers[1], {
+                clearProps: "all",
+              });
+            },
+          },
+          1
+        )
+        .to(
+          headers[2],
+          {
+            scale: 1,
+            autoAlpha: 1,
+            y: 0,
+            stagger: 0.1,
+            onComplete: () => {
+              gsap.set(headers[2], {
+                clearProps: "all",
+              });
+            },
+          },
+          1
+        );
 
       ScrollTrigger.create({
         trigger: ref.current,
-        start: "top 90%",
+        start: "top 75%",
         toggleActions: "play none none reverse",
         animation: tl,
       });
@@ -115,23 +195,17 @@ const PcbDesign = () => {
   //main/aside triggers
   useLayoutEffect(() => {
     const mm = gsap.matchMedia();
+    const main = mainRef.current;
+    const aside = asideRef.current;
 
     gsap.context(() => {
       mm.add("(max-width: 991px)", () => {
-        const main = mainRef.current;
-        const aside = asideRef.current;
-
         btnTimeline.current = gsap
           .timeline({ paused: true })
           .set(main, { clearProps: "all" })
           .set(aside, { clearProps: "all" })
-          .to(main, { x: -500 })
-          .fromTo(
-            aside,
-            { autoAlpha: 0, x: 500 },
-            { height: "auto", autoAlpha: 1, x: "-100%" },
-            0
-          );
+          .to(main, { x: "-100%" })
+          .fromTo(aside, { autoAlpha: 0, x: 500 }, { height: "auto", autoAlpha: 1, x: "-100%" }, 0);
 
         timeline.current = gsap.timeline().from(main.children, {
           scrollTrigger: {
@@ -148,15 +222,13 @@ const PcbDesign = () => {
       });
 
       mm.add("(min-width: 992px)", () => {
-        const main = ref.current.children[2].children[0];
-        const aside = ref.current.children[2].children[1];
-        timeline.current = gsap
-          .timeline()
-          .set(main, { height: "auto" }) //Set height to auto incase of a viewport resize
-          .set(aside, { height: "auto" }); //Set height to auto incase of a viewport resize
+        gsap.set(main, { clearProps: "all" });
+        gsap.set(aside, { clearProps: "all" });
       });
     }, ref.current);
   }, []);
+
+  const splitString = (string) => string.split("");
 
   return (
     <section
@@ -169,21 +241,32 @@ const PcbDesign = () => {
       {width >= 992 && (
         <div ref={headRef} className={styles.dotsContainer}>
           <PcbDesignBg />
-          <h3>innovative design</h3>
+          <h3>
+            {splitString("Creative Design Strategies").map((letter) => (
+              <span>{letter}</span>
+            ))}
+          </h3>
+          <h3>
+            {splitString("Comprehensive Solutions").map((letter) => (
+              <span>{letter}</span>
+            ))}
+          </h3>
+          <h3>
+            {splitString("3D Engineering").map((letter) => (
+              <span>{letter}</span>
+            ))}
+          </h3>
         </div>
       )}
 
       <div className={styles.serviceContainer}>
         <ServiceSection main={service.main} addRef={addRef} type="main" light />
-        <ServiceSection
-          main={service.aside}
-          addRef={addRef}
-          type="aside"
-          light
-        />
+        <ServiceSection main={service.aside} addRef={addRef} type="aside" light />
       </div>
 
       {width < 992 && <ServiceButton toggleSectionAside={toggleSectionAside} />}
+
+      {width >= 991 && <PcbDesignDots />}
     </section>
   );
 };

@@ -39,6 +39,12 @@
   padding: 2rem 0;
 }
 
+.dotsContainer h3 {
+  font-size: 3rem;
+  line-height: 5rem;
+  text-shadow: 2px 2px 4px #2483d1;
+}
+
 .fabricationBgContainer {
   width: 10%;
   bottom: 0;
@@ -173,11 +179,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, min-content);
+    place-items: center;
   }
 
   .pcbDesignContainer h2 {
     grid-column: 1 / span 2;
     grid-row: 1;
+  }
+
+  .serviceContainer section {
+    margin-bottom: 0;
+  }
+  .serviceContainer section:last-of-type {
+    margin-top: 1rem;
   }
 
   .pcbDesignContainer .dotsContainer {
@@ -186,6 +200,7 @@
     grid-row: 2;
     max-height: 50rem;
     text-align: center;
+    translate: 0 -90px;
   }
 
   .pcbDesignContainer .dotsContainer svg {
