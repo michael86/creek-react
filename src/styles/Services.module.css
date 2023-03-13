@@ -201,6 +201,7 @@
     max-height: 50rem;
     text-align: center;
     translate: 0 -90px;
+    z-index: 2;
   }
 
   .pcbDesignContainer .dotsContainer svg {
