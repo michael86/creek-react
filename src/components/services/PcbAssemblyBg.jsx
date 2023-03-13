@@ -1,4 +1,4 @@
-import "../styles/PcbAssemblyBg.css";
+import "../../styles/PcbAssemblyBg.css";
 const PcbAssemblyBg = () => {
   return (
     <svg
@@ -109,13 +109,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="circle7157"
-          className={"st4"}
-          cx="6536.1"
-          cy="-1802"
-          r="118.4"
-        />
+        <circle id="circle7157" className={"st4"} cx="6536.1" cy="-1802" r="118.4" />
 
         <radialGradient
           id="circle7161_1_"
@@ -128,13 +122,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="circle7161"
-          className={"st5"}
-          cx="6536.1"
-          cy="-1444.6"
-          r="118.4"
-        />
+        <circle id="circle7161" className={"st5"} cx="6536.1" cy="-1444.6" r="118.4" />
         <path
           id="path4336"
           inkscapeconnectorcurvature="0"
@@ -154,17 +142,8 @@ const PcbAssemblyBg = () => {
           className={"st7"}
           d="M4213.2-1248.6v-997.2"
         />
-        <circle
-          id="path4151"
-          className={"st8"}
-          cx="4215.9"
-          cy="-2238.6"
-          r="9.1"
-        />
-        <text
-          transform="matrix(0 1 -1 0 4528.8667 -2246.0667)"
-          className={"st9 st10 st11"}
-        >
+        <circle id="path4151" className={"st8"} cx="4215.9" cy="-2238.6" r="9.1" />
+        <text transform="matrix(0 1 -1 0 4528.8667 -2246.0667)" className={"st9 st10 st11"}>
           T260
         </text>
         <path
@@ -204,13 +183,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="circle7165"
-          className={"st12"}
-          cx="6178.7"
-          cy="-1802"
-          r="118.4"
-        />
+        <circle id="circle7165" className={"st12"} cx="6178.7" cy="-1802" r="118.4" />
         <path
           id="path4286"
           inkscapeconnectorcurvature="0"
@@ -235,13 +208,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="circle7149"
-          className={"st13"}
-          cx="6536.1"
-          cy="-2169.9"
-          r="118.4"
-        />
+        <circle id="circle7149" className={"st13"} cx="6536.1" cy="-2169.9" r="118.4" />
         <path
           id="path4290"
           inkscapeconnectorcurvature="0"
@@ -338,22 +305,8 @@ const PcbAssemblyBg = () => {
           transform="matrix(9.0861947,0,0,9.0861947,5750.5257,1180.0896)"
           inkscapelabel="Ebene 1"
         >
-          <rect
-            id="rect4228"
-            x="-150.9"
-            y="-334.4"
-            className={"st15"}
-            width="24.7"
-            height="10.7"
-          />
-          <rect
-            id="rect4230"
-            x="-146.5"
-            y="-334.4"
-            className={"st16"}
-            width="16"
-            height="10.7"
-          />
+          <rect id="rect4228" x="-150.9" y="-334.4" className={"st15"} width="24.7" height="10.7" />
+          <rect id="rect4230" x="-146.5" y="-334.4" className={"st16"} width="16" height="10.7" />
         </g>
         <path
           id="path4338"
@@ -404,210 +357,35 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="circle7153"
-          className={"st18"}
-          cx="6536.1"
-          cy="-2527.3"
-          r="118.4"
-        />
-        <ellipse
-          id="path4225"
-          className={"st19"}
-          cx="4617.3"
-          cy="-2625.4"
-          rx="27.7"
-          ry="17.1"
-        />
-        <circle
-          id="path4227"
-          className={"st20"}
-          cx="4579.2"
-          cy="-2552.5"
-          r="24"
-        />
-        <circle
-          id="path4227-1"
-          className={"st20"}
-          cx="4379"
-          cy="-2739.8"
-          r="24"
-        />
-        <circle
-          id="circle4244"
-          className={"st20"}
-          cx="4854.5"
-          cy="-2119.3"
-          r="24"
-        />
-        <circle
-          id="circle4246"
-          className={"st20"}
-          cx="4709.4"
-          cy="-2050.5"
-          r="24"
-        />
-        <circle
-          id="circle4248"
-          className={"st20"}
-          cx="4694.5"
-          cy="-1874.1"
-          r="24"
-        />
-        <circle
-          id="circle4250"
-          className={"st20"}
-          cx="4754.3"
-          cy="-1640.8"
-          r="24"
-        />
-        <circle
-          id="circle4253"
-          className={"st20"}
-          cx="4690"
-          cy="-1500.3"
-          r="24"
-        />
-        <circle
-          id="circle4255"
-          className={"st20"}
-          cx="4803.6"
-          cy="-1329.8"
-          r="24"
-        />
-        <circle
-          id="circle4257"
-          className={"st20"}
-          cx="4903.8"
-          cy="-1295.4"
-          r="24"
-        />
-        <circle
-          id="circle4259"
-          className={"st20"}
-          cx="4872.4"
-          cy="-1093.6"
-          r="24"
-        />
-        <circle
-          id="circle4261"
-          className={"st20"}
-          cx="4975.6"
-          cy="-1095.1"
-          r="24"
-        />
-        <circle
-          id="circle4263"
-          className={"st20"}
-          cx="5134.1"
-          cy="-1093.6"
-          r="24"
-        />
-        <circle
-          id="circle4265"
-          className={"st20"}
-          cx="5134.1"
-          cy="-1196.8"
-          r="24"
-        />
-        <circle
-          id="circle4267"
-          className={"st20"}
-          cx="5228.3"
-          cy="-1180.3"
-          r="24"
-        />
-        <circle
-          id="circle4269"
-          className={"st20"}
-          cx="5643.9"
-          cy="-1186.3"
-          r="24"
-        />
-        <circle
-          id="circle4271"
-          className={"st20"}
-          cx="5632"
-          cy="-1279"
-          r="24"
-        />
-        <circle
-          id="circle4273"
-          className={"st20"}
-          cx="5706.7"
-          cy="-1277.5"
-          r="24"
-        />
-        <circle
-          id="circle4275"
-          className={"st20"}
-          cx="5787.5"
-          cy="-1470.4"
-          r="24"
-        />
-        <circle
-          id="circle4277"
-          className={"st20"}
-          cx="5769.5"
-          cy="-1566.1"
-          r="24"
-        />
-        <circle
-          id="circle4279"
-          className={"st20"}
-          cx="5851.8"
-          cy="-1566.1"
-          r="24"
-        />
-        <circle
-          id="circle4281"
-          className={"st20"}
-          cx="6180.7"
-          cy="-1087.6"
-          r="24"
-        />
-        <circle
-          id="circle4283"
-          className={"st20"}
-          cx="6298.8"
-          cy="-1110"
-          r="24"
-        />
-        <circle
-          id="circle4285"
-          className={"st20"}
-          cx="5777"
-          cy="-1954.8"
-          r="24"
-        />
-        <circle
-          id="circle4287"
-          className={"st20"}
-          cx="5850.3"
-          cy="-1944.4"
-          r="24"
-        />
-        <circle
-          id="circle4289"
-          className={"st20"}
-          cx="5869.7"
-          cy="-2035.6"
-          r="24"
-        />
-        <circle
-          id="circle4291"
-          className={"st20"}
-          cx="6070.1"
-          cy="-1984.7"
-          r="24"
-        />
-        <circle
-          id="circle4293"
-          className={"st20"}
-          cx="4402.9"
-          cy="-2340.6"
-          r="24"
-        />
+        <circle id="circle7153" className={"st18"} cx="6536.1" cy="-2527.3" r="118.4" />
+        <ellipse id="path4225" className={"st19"} cx="4617.3" cy="-2625.4" rx="27.7" ry="17.1" />
+        <circle id="path4227" className={"st20"} cx="4579.2" cy="-2552.5" r="24" />
+        <circle id="path4227-1" className={"st20"} cx="4379" cy="-2739.8" r="24" />
+        <circle id="circle4244" className={"st20"} cx="4854.5" cy="-2119.3" r="24" />
+        <circle id="circle4246" className={"st20"} cx="4709.4" cy="-2050.5" r="24" />
+        <circle id="circle4248" className={"st20"} cx="4694.5" cy="-1874.1" r="24" />
+        <circle id="circle4250" className={"st20"} cx="4754.3" cy="-1640.8" r="24" />
+        <circle id="circle4253" className={"st20"} cx="4690" cy="-1500.3" r="24" />
+        <circle id="circle4255" className={"st20"} cx="4803.6" cy="-1329.8" r="24" />
+        <circle id="circle4257" className={"st20"} cx="4903.8" cy="-1295.4" r="24" />
+        <circle id="circle4259" className={"st20"} cx="4872.4" cy="-1093.6" r="24" />
+        <circle id="circle4261" className={"st20"} cx="4975.6" cy="-1095.1" r="24" />
+        <circle id="circle4263" className={"st20"} cx="5134.1" cy="-1093.6" r="24" />
+        <circle id="circle4265" className={"st20"} cx="5134.1" cy="-1196.8" r="24" />
+        <circle id="circle4267" className={"st20"} cx="5228.3" cy="-1180.3" r="24" />
+        <circle id="circle4269" className={"st20"} cx="5643.9" cy="-1186.3" r="24" />
+        <circle id="circle4271" className={"st20"} cx="5632" cy="-1279" r="24" />
+        <circle id="circle4273" className={"st20"} cx="5706.7" cy="-1277.5" r="24" />
+        <circle id="circle4275" className={"st20"} cx="5787.5" cy="-1470.4" r="24" />
+        <circle id="circle4277" className={"st20"} cx="5769.5" cy="-1566.1" r="24" />
+        <circle id="circle4279" className={"st20"} cx="5851.8" cy="-1566.1" r="24" />
+        <circle id="circle4281" className={"st20"} cx="6180.7" cy="-1087.6" r="24" />
+        <circle id="circle4283" className={"st20"} cx="6298.8" cy="-1110" r="24" />
+        <circle id="circle4285" className={"st20"} cx="5777" cy="-1954.8" r="24" />
+        <circle id="circle4287" className={"st20"} cx="5850.3" cy="-1944.4" r="24" />
+        <circle id="circle4289" className={"st20"} cx="5869.7" cy="-2035.6" r="24" />
+        <circle id="circle4291" className={"st20"} cx="6070.1" cy="-1984.7" r="24" />
+        <circle id="circle4293" className={"st20"} cx="4402.9" cy="-2340.6" r="24" />
         <path
           id="path4295"
           inkscapeconnectorcurvature="0"
@@ -712,14 +490,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4329"
-          x="5506"
-          y="-2352.7"
-          className={"st25"}
-          width="267.6"
-          height="127.1"
-        />
+        <rect id="rect4329" x="5506" y="-2352.7" className={"st25"} width="267.6" height="127.1" />
 
         <linearGradient
           id="rect4333_1_"
@@ -733,14 +504,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4333"
-          x="5506"
-          y="-2538.8"
-          className={"st26"}
-          width="267.6"
-          height="127.1"
-        />
+        <rect id="rect4333" x="5506" y="-2538.8" className={"st26"} width="267.6" height="127.1" />
 
         <linearGradient
           id="rect4337_1_"
@@ -754,14 +518,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4337"
-          x="5506"
-          y="-2720.7"
-          className={"st27"}
-          width="267.6"
-          height="127.1"
-        />
+        <rect id="rect4337" x="5506" y="-2720.7" className={"st27"} width="267.6" height="127.1" />
 
         <linearGradient
           id="rect4341_1_"
@@ -775,14 +532,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4341"
-          x="5506"
-          y="-2898.3"
-          className={"st28"}
-          width="267.6"
-          height="127.1"
-        />
+        <rect id="rect4341" x="5506" y="-2898.3" className={"st28"} width="267.6" height="127.1" />
         <g id="g4345">
           <rect
             id="rect4314"
@@ -815,14 +565,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4353"
-          x="4946"
-          y="-2103.9"
-          className={"st31"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4353" x="4946" y="-2103.9" className={"st31"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4357_1_"
@@ -836,14 +579,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4357"
-          x="5019.1"
-          y="-2103.9"
-          className={"st32"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4357" x="5019.1" y="-2103.9" className={"st32"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4361_1_"
@@ -857,14 +593,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4361"
-          x="5092.2"
-          y="-2103.9"
-          className={"st33"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4361" x="5092.2" y="-2103.9" className={"st33"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4365_1_"
@@ -878,14 +607,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4365"
-          x="5165.3"
-          y="-2103.9"
-          className={"st34"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4365" x="5165.3" y="-2103.9" className={"st34"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4369_1_"
@@ -899,14 +621,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4369"
-          x="5238.4"
-          y="-2103.9"
-          className={"st35"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4369" x="5238.4" y="-2103.9" className={"st35"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4373_1_"
@@ -920,14 +635,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4373"
-          x="5311.5"
-          y="-2103.9"
-          className={"st36"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4373" x="5311.5" y="-2103.9" className={"st36"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4377_1_"
@@ -941,14 +649,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4377"
-          x="5384.6"
-          y="-2103.9"
-          className={"st37"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4377" x="5384.6" y="-2103.9" className={"st37"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect4381_1_"
@@ -962,14 +663,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect4381"
-          x="5457.7"
-          y="-2103.9"
-          className={"st38"}
-          width="68.2"
-          height="93.1"
-        />
+        <rect id="rect4381" x="5457.7" y="-2103.9" className={"st38"} width="68.2" height="93.1" />
 
         <linearGradient
           id="rect7173_1_"
@@ -983,14 +677,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect7173"
-          x="4371.9"
-          y="-2329.1"
-          className={"st39"}
-          width="68.2"
-          height="434.6"
-        />
+        <rect id="rect7173" x="4371.9" y="-2329.1" className={"st39"} width="68.2" height="434.6" />
 
         <linearGradient
           id="rect7177_1_"
@@ -1004,14 +691,7 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#6A758D" }} />
           <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
         </linearGradient>
-        <rect
-          id="rect7177"
-          x="4547.4"
-          y="-2329.1"
-          className={"st40"}
-          width="68.2"
-          height="434.6"
-        />
+        <rect id="rect7177" x="4547.4" y="-2329.1" className={"st40"} width="68.2" height="434.6" />
         <g id="g4410" transform="translate(0,958.79554)">
           <linearGradient
             id="rect4412_1_"
@@ -1025,14 +705,7 @@ const PcbAssemblyBg = () => {
             <stop offset="0" style={{ stopColor: "#6A758D" }} />
             <stop offset="1" style={{ stopColor: "#D0D7E3" }} />
           </linearGradient>
-          <rect
-            id="rect4412"
-            x="4946"
-            y="-2295.6"
-            className={"st41"}
-            width="68.2"
-            height="93.1"
-          />
+          <rect id="rect4412" x="4946" y="-2295.6" className={"st41"} width="68.2" height="93.1" />
 
           <linearGradient
             id="rect4414_1_"
@@ -1557,26 +1230,11 @@ const PcbAssemblyBg = () => {
           d="M4899.7-2023.1h675.4c9.1,0,16.6,7.4,16.6,16.6v675.4c0,9.1-7.4,16.6-16.6,16.6h-675.4
 		c-9.1,0-16.6-7.4-16.6-16.6v-675.4C4883.1-2015.7,4890.5-2023.1,4899.7-2023.1z"
         />
-        <text
-          transform="matrix(0 -1 1 0 5375.8745 -1596.0638)"
-          className={"st9 st66 st67"}
-        >
+        <text transform="matrix(0 -1 1 0 5375.8745 -1596.0638)" className={"st9 st66 st67"}>
           ESP
         </text>
-        <circle
-          id="path4246"
-          className={"st9"}
-          cx="4985.8"
-          cy="-1436.1"
-          r="22.6"
-        />
-        <circle
-          id="circle7615"
-          className={"st9"}
-          cx="5024.6"
-          cy="-2844.6"
-          r="22.6"
-        />
+        <circle id="path4246" className={"st9"} cx="4985.8" cy="-1436.1" r="22.6" />
+        <circle id="circle7615" className={"st9"} cx="5024.6" cy="-2844.6" r="22.6" />
 
         <radialGradient
           id="rect7099_1_"
@@ -1607,77 +1265,15 @@ const PcbAssemblyBg = () => {
           <stop offset="0" style={{ stopColor: "#E5E8ED" }} />
           <stop offset="1" style={{ stopColor: "#CBCBCB" }} />
         </radialGradient>
-        <circle
-          id="path7139"
-          className={"st69"}
-          cx="6176.6"
-          cy="-2169.9"
-          r="118.4"
-        />
-        <rect
-          id="rect7109"
-          x="6140.7"
-          y="-2210.1"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7111"
-          x="6140.7"
-          y="-2573.8"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7113"
-          x="6140.7"
-          y="-1846.4"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7115"
-          x="6140.7"
-          y="-1484.8"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7117"
-          x="6502.2"
-          y="-1484.8"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7119"
-          x="6502.2"
-          y="-1840.1"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7121"
-          x="6502.2"
-          y="-2210.1"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
-        <rect
-          id="rect7123"
-          x="6502.2"
-          y="-2575.9"
-          className={"st70"}
-          width="80.4"
-          height="76.1"
-        />
+        <circle id="path7139" className={"st69"} cx="6176.6" cy="-2169.9" r="118.4" />
+        <rect id="rect7109" x="6140.7" y="-2210.1" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7111" x="6140.7" y="-2573.8" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7113" x="6140.7" y="-1846.4" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7115" x="6140.7" y="-1484.8" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7117" x="6502.2" y="-1484.8" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7119" x="6502.2" y="-1840.1" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7121" x="6502.2" y="-2210.1" className={"st70"} width="80.4" height="76.1" />
+        <rect id="rect7123" x="6502.2" y="-2575.9" className={"st70"} width="80.4" height="76.1" />
         <g
           id="layer1-5"
           transform="matrix(9.0861947,0,0,9.0861947,5750.5257,416.4143)"
@@ -1691,44 +1287,16 @@ const PcbAssemblyBg = () => {
             width="24.7"
             height="10.7"
           />
-          <rect
-            id="rect10270"
-            x="-146.5"
-            y="-317.6"
-            className={"st16"}
-            width="16"
-            height="10.7"
-          />
+          <rect id="rect10270" x="-146.5" y="-317.6" className={"st16"} width="16" height="10.7" />
         </g>
         <g
           id="g4198"
           transform="matrix(9.1387359,0,0,9.1387359,5172.7822,548.46797)"
           inkscapelabel="Ebene 1"
         >
-          <rect
-            id="rect4200"
-            x="-114.8"
-            y="-333"
-            className={"st15"}
-            width="24.7"
-            height="10.7"
-          />
-          <rect
-            id="rect4202"
-            x="-110.5"
-            y="-333"
-            className={"st71"}
-            width="16"
-            height="10.7"
-          />
-          <rect
-            id="rect4204"
-            x="-107.8"
-            y="-329.5"
-            className={"st72"}
-            width="3.7"
-            height="3.7"
-          />
+          <rect id="rect4200" x="-114.8" y="-333" className={"st15"} width="24.7" height="10.7" />
+          <rect id="rect4202" x="-110.5" y="-333" className={"st71"} width="16" height="10.7" />
+          <rect id="rect4204" x="-107.8" y="-329.5" className={"st72"} width="3.7" height="3.7" />
         </g>
         <g
           id="layer1-9"
@@ -1743,22 +1311,8 @@ const PcbAssemblyBg = () => {
             width="24.7"
             height="10.7"
           />
-          <rect
-            id="rect10270-5"
-            x="-110.5"
-            y="-321"
-            className={"st71"}
-            width="16"
-            height="10.7"
-          />
-          <rect
-            id="rect10310"
-            x="-107.8"
-            y="-317.5"
-            className={"st72"}
-            width="3.7"
-            height="3.7"
-          />
+          <rect id="rect10270-5" x="-110.5" y="-321" className={"st71"} width="16" height="10.7" />
+          <rect id="rect10310" x="-107.8" y="-317.5" className={"st72"} width="3.7" height="3.7" />
         </g>
         <g
           id="layer1-7"
@@ -1790,22 +1344,8 @@ const PcbAssemblyBg = () => {
           inkscapelabel="Ebene 1"
         >
           <g id="g4192" transform="translate(-342.261,-541.74316)">
-            <rect
-              id="rect4194"
-              x="197.4"
-              y="229.1"
-              className={"st15"}
-              width="24.7"
-              height="10.7"
-            />
-            <rect
-              id="rect4196"
-              x="201.8"
-              y="229.1"
-              className={"st73"}
-              width="16"
-              height="10.7"
-            />
+            <rect id="rect4194" x="197.4" y="229.1" className={"st15"} width="24.7" height="10.7" />
+            <rect id="rect4196" x="201.8" y="229.1" className={"st73"} width="16" height="10.7" />
           </g>
         </g>
         <path
@@ -1849,52 +1389,18 @@ const PcbAssemblyBg = () => {
           transform="matrix(9.0861947,0,0,9.0861947,5921.9543,2073.5572)"
           inkscapelabel="Ebene 1"
         >
-          <rect
-            id="rect4216"
-            x="-154.7"
-            y="-354.1"
-            className={"st15"}
-            width="24.7"
-            height="10.7"
-          />
-          <rect
-            id="rect4218"
-            x="-150.3"
-            y="-354.1"
-            className={"st16"}
-            width="16"
-            height="10.7"
-          />
+          <rect id="rect4216" x="-154.7" y="-354.1" className={"st15"} width="24.7" height="10.7" />
+          <rect id="rect4218" x="-150.3" y="-354.1" className={"st16"} width="16" height="10.7" />
         </g>
         <g
           id="g4220"
           transform="matrix(12.793192,0,0,12.793192,7773.0165,2942.8657)"
           inkscapelabel="Ebene 1"
         >
-          <rect
-            id="rect4222"
-            x="-203.1"
-            y="-319.5"
-            className={"st15"}
-            width="24.7"
-            height="10.7"
-          />
-          <rect
-            id="rect4224"
-            x="-198.7"
-            y="-319.4"
-            className={"st16"}
-            width="16"
-            height="10.7"
-          />
+          <rect id="rect4222" x="-203.1" y="-319.5" className={"st15"} width="24.7" height="10.7" />
+          <rect id="rect4224" x="-198.7" y="-319.4" className={"st16"} width="16" height="10.7" />
         </g>
-        <circle
-          id="path7809"
-          className={"st9"}
-          cx="5104.1"
-          cy="-1732.9"
-          r="169.2"
-        />
+        <circle id="path7809" className={"st9"} cx="5104.1" cy="-1732.9" r="169.2" />
         <path
           id="path7815"
           inkscapeconnectorcurvature="0"

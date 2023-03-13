@@ -1,4 +1,4 @@
-import styles from "../styles/PcbDesignBg.module.css";
+import styles from "../../styles/PcbDesignBg.module.css";
 
 const PcbDesignBg = () => {
   return (
@@ -81,10 +81,7 @@ const PcbDesignBg = () => {
 		C3223.5,899.5,3223.4,44.2,3223.6,42.7z M2728.2-1441.5c0.8-12.7,12.9-22.4,27.2-21.9c12.5,0.1,22.7,10.2,23,22.7
 		c0.2,12.9-12.1,24.8-25.4,24.5C2740.1-1416.5,2727.5-1429.5,2728.2-1441.5z"
         />
-        <path
-          className={styles.st0}
-          d="M3095.6,919.8L3095.6,919.8L3095.6,919.8z"
-        />
+        <path className={styles.st0} d="M3095.6,919.8L3095.6,919.8L3095.6,919.8z" />
         <path
           className={styles.st0}
           d="M3152.8,30c-13.3,12.9-9.9,35.2,6.7,43.6c11.3,5.6,9.3,12.2,9.3,22.1c0,679.7,0,620.3-0.1,633.8

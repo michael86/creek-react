@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import styles from "../styles/Services.module.css";
+import styles from "../../styles/Services.module.css";
 
 const ServiceButton = ({ index, toggleSectionAside }) => {
   const [btnText, setBtnText] = useState("Read More");

@@ -3,6 +3,7 @@
   display: grid;
   grid-template-rows: min-content;
   height: 100svh;
+  height: 100vh;
 }
 
 .siteLogo {
