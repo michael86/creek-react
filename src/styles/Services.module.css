@@ -183,34 +183,57 @@
     gap: 2rem;
   }
 
+  .pcbDesign.cardTitle {
+    background-image: url("https://rework.co.uk/wp-content/uploads/art-circuit-001.jpg");
+    background-size: calc(200%);
+    animation: 3s infinite alternate move;
+  }
+
+  @keyframes move {
+    0% {
+      background-position: 0 0;
+    }
+
+    50% {
+      background-position: 100% 100%;
+    }
+
+    100% {
+      background-position: 150% 150%;
+    }
+  }
+
   .cardTitle {
     position: relative;
     grid-row: 1;
     text-align: center;
-    border: 2px solid black;
-    border-radius: 20px;
+    color: #2483d1;
     padding: 2rem;
     transition: all 0.2ms ease-in-out;
-    box-shadow: 9px 9px 10px rgb(36, 131, 209);
+    box-shadow: 5px 5px 10px rgba(36, 131, 209, 0.6);
   }
 
   .cardTitle:hover {
     cursor: pointer;
     transform: translateY(10px);
     box-shadow: 0px 0px 10px rgb(36, 131, 209);
+
+    transition: all 200ms ease-in-out;
   }
 
   .cardTitle:not([data-active="true"]) {
-    box-shadow: 9px 9px 10px rgb(0, 0, 0);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
     opacity: 0.5;
+    color: #000;
   }
 
   .cardTitle h2 {
-    color: #2483d1;
+    color: inherit;
     margin-bottom: 2rem;
     font-size: 3.2rem;
     text-transform: capitalize;
     text-decoration: underline;
+    transition: color 500ms ease-in-out;
   }
 
   .cardTitle svg {
@@ -232,7 +255,50 @@
     width: 50%;
   }
 
-  /* .ulContainer {
+  .leftSide,
+  .topSide,
+  .rightSide,
+  .bottomSide {
+    position: absolute;
+    background: none transparent;
+    width: 0px;
+    height: 0px;
+    background-color: rgb(36, 131, 209);
+  }
 
-  } */
+  .leftSide[data-active="false"],
+  .topSide[data-active="false"],
+  .rightSide[data-active="false"],
+  .bottomSide[data-active="false"] {
+    width: 0px;
+    height: 0px;
+  }
+
+  .leftSide {
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 3px;
+  }
+
+  .topSide {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+  }
+
+  .rightSide {
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+  }
+
+  .bottomSide {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+  }
 }

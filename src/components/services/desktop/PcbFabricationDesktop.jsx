@@ -1,4 +1,4 @@
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../../styles/Services.module.css";
@@ -7,15 +7,83 @@ import PcbFabricationBg from "../PcbFabricationBg";
 const PcbDesignDesktop = ({ content, onClick, active }) => {
   const splitString = (string) => string.split("");
   const ref = useRef();
+  const leftSide = useRef();
+  const topSide = useRef();
+  const rightSide = useRef();
+  const bottomSide = useRef();
+
+  const [tl, setTl] = useState();
+
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const bgColor = "rgb(36, 131, 209)";
+      const timeline = gsap
+        .timeline({
+          paused: true,
+        })
+        .from(
+          topSide.current,
+          {
+            width: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          rightSide.current,
+          {
+            height: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          bottomSide.current,
+          {
+            width: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          leftSide.current,
+          {
+            height: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        );
+
+      setTl(timeline);
+    }, ref.current);
+
+    return () => ctx.revert;
+  }, []);
+
+  const playAnim = () => {
+    if (!tl) return;
+    tl.play(0);
+  };
 
   //head animation
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const svg = ref.current.children[1].children[0].children;
-      console.log("svg", svg);
+      const svg = ref.current.children[5].children[0].children;
 
       const headers = [...ref.current.children]
-        .slice(2)
+        .slice(6)
         .map((header) => header)
         .map((header) => header.children)
         .flat();
@@ -47,8 +115,15 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
             data-active={active && active}
             className={styles.cardTitle}
             ref={ref}
-            onClick={() => onClick(content.id)}
+            onClick={() => {
+              playAnim();
+              onClick(content.id);
+            }}
           >
+            <span data-active={active} ref={leftSide} className={styles.leftSide}></span>
+            <span data-active={active} ref={topSide} className={styles.topSide}></span>
+            <span data-active={active} ref={rightSide} className={styles.rightSide}></span>
+            <span data-active={active} ref={bottomSide} className={styles.bottomSide}></span>
             <h2 className={`${styles.sectionTitle} `}>{content.title}</h2>
             <PcbFabricationBg />
             <h3>
