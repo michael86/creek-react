@@ -46,12 +46,12 @@ const PcbDesignMobile = ({ content }) => {
         timeline.current = gsap.from(sentence.children, {
           scrollTrigger: {
             trigger: sentence,
-            start: "top 70%",
-            end: "top top",
+            start: "top 80%",
+            end: "top 40%",
             scrub: true,
           },
           stagger: 0.2,
-          // autoAlpha: 0,
+          autoAlpha: 0,
           scale: 0,
           y: 100,
         });
