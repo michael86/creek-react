@@ -217,17 +217,10 @@
     text-align: center;
 
     background: rgb(36, 131, 209);
-    background: linear-gradient(
-      90deg,
-      rgba(36, 131, 209, 1) 0%,
-      rgba(36, 131, 209, 1) 23%,
-      rgba(0, 107, 129, 1) 51%,
-      rgba(36, 131, 209, 1) 76%,
-      rgba(0, 64, 77, 1) 100%
-    );
-    background-size: 200% 200%;
+    background: linear-gradient(158deg, rgba(36, 131, 209, 1) 0%, rgba(0, 64, 77, 1) 100%);
+    background-size: 300% 300%;
 
-    animation: move 15s ease infinite;
+    animation: move 5s ease infinite;
   }
 
   .waveContainer {

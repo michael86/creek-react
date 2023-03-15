@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 import styles from "../../styles/Services.module.css";
 
 const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
   const splitPara = (p) => p.split(". ");
+
   useEffect(() => {
     const copy = [];
 
