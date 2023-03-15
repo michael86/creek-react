@@ -6,6 +6,9 @@ const ActiveService = ({ content, addRef, light }) => {
     <div className={styles.serviceContainer}>
       <ServiceSection main={content.main} addRef={addRef} type="main" light />
       <ServiceSection main={content.aside} addRef={addRef} type="aside" light />
+      <div className={styles.waveContainer}>
+        <img src="images/wave-white.svg" alt="border" />
+      </div>
     </div>
   );
 };

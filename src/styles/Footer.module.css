@@ -53,3 +53,15 @@ footer p {
   margin-top: 2rem;
   margin: auto;
 }
+
+.accreditorContainer {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.accreditorContainer img {
+  margin-top: 2rem;
+  width: 5rem;
+  aspect-ratio: 1 / 1;
+}

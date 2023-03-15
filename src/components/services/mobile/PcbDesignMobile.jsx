@@ -36,7 +36,7 @@ const PcbDesignMobile = ({ content }) => {
         .timeline({ paused: true })
         .set(main, { clearProps: "all" })
         .set(aside, { clearProps: "all" })
-        .to(main, { x: "-100%" })
+        .to(main, { x: -400 })
         .fromTo(aside, { autoAlpha: 0, x: 500 }, { height: "auto", autoAlpha: 1, x: "-100%" }, 0);
 
       timeline.current = gsap.timeline().from(main.children, {

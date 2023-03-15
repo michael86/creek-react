@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
-
+import { useContext, useEffect, useState } from "react";
+import Viewport from "../../context/Viewport";
 import styles from "../../styles/Services.module.css";
 
 const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
+  const { width } = useContext(Viewport);
 
   useEffect(() => {
     const copy = [];

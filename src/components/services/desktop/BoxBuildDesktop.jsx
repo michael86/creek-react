@@ -227,11 +227,6 @@ const BoxBuildDesktop = ({ content, onClick, active }) => {
               ))}
             </h3>
           </div>
-
-          {/* <div className={styles.serviceContainer}>
-            <ServiceSection main={content.main} addRef={addRef} type="main" light />
-            <ServiceSection main={content.aside} addRef={addRef} type="aside" light />
-          </div> */}
         </>
       )}
     </>

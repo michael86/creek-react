@@ -63,7 +63,6 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
           topSide.current,
           {
             width: 0,
-            background: bgColor,
             immediateRender: false,
             autoRound: false,
             ease: "easeInOut",
@@ -74,7 +73,7 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
           rightSide.current,
           {
             height: 0,
-            background: bgColor,
+
             immediateRender: false,
             autoRound: false,
             ease: "easeInOut",
@@ -85,7 +84,7 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
           bottomSide.current,
           {
             width: 0,
-            background: bgColor,
+
             immediateRender: false,
             autoRound: false,
             ease: "easeInOut",
@@ -96,7 +95,7 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
           leftSide.current,
           {
             height: 0,
-            background: bgColor,
+
             immediateRender: false,
             autoRound: false,
             ease: "easeInOut",

@@ -1,6 +1,8 @@
 .galleryContainer {
   padding: 1rem;
   text-align: center;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .reveal {
@@ -48,4 +50,21 @@
 }
 .bubblyButton:focus {
   outline: 0;
+}
+
+@media screen and (min-width: 992px) {
+  .galleryContainer {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .reveal {
+    margin: 0;
+  }
+
+  .bubblyButton {
+    grid-column: 2 / span 2;
+    width: 50%;
+    margin: auto;
+  }
 }

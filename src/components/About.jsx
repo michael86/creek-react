@@ -1,23 +1,22 @@
 import styles from "../styles/About.module.css";
 import Global from "../styles/Global.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLinkedin,
-  faFacebook,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
-import { useRef } from "react";
+import { faLinkedin, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useContext, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 import waveBorder from "../public/images/wave.svg";
 import waveLight from "../public/images/wave-white.svg";
+import Accredittors from "./Accredittors";
+import Viewport from "../context/Viewport";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ addRefToTl }) => {
   const ref = useRef();
+  const { width } = useContext(Viewport);
 
   useLayoutEffect(() => {
     const paragraphs = [...ref.current.children[1].children].splice(1);
@@ -33,7 +32,7 @@ const About = ({ addRefToTl }) => {
             trigger: ref.current,
             start: "top 50%",
             end: "top top",
-            // markers: true,
+
             scrub: true,
           },
           y: 100,
@@ -94,31 +93,28 @@ const About = ({ addRefToTl }) => {
       <div className={styles.fontContainer}>
         <h2>About Us</h2>
         <p className={Global.mt2}>
-          Originally established as{" "}
-          <span className={Global.highLight}>Valco UK Ltd</span> in 1998, the
-          company split its mechanical and electrical divisions with the latter
-          emerging as Creek View Electronics in 2005. This meant that we could
-          continue to grow within the electrical manufacturing industry and
-          provide a better service to our customers. As one of the leading{" "}
+          Originally established as <span className={Global.highLight}>Valco UK Ltd</span> in 1998,
+          the company split its mechanical and electrical divisions with the latter emerging as
+          Creek View Electronics in 2005. This meant that we could continue to grow within the
+          electrical manufacturing industry and provide a better service to our customers. As one of
+          the leading{" "}
           <strong>
             <em>electronic design engineers in Essex</em>
           </strong>
           , we specialise in a variety of services.
         </p>
         <p className={Global.mt2}>
-          From conformal coating and cable assembly to box build assembly and
-          electrical testing and inspection services, you can ensure that Creek
-          View Electronics to provide a service that is second to none. So, if
-          you're looking for a high quality and reliable electronic design
-          company, why not choose Creek View Electronics? For many years, Creek
-          View Electronics obtained its printed circuit boards from
-          Photomechanical Services Ltd, which was established in 1969.
+          From conformal coating and cable assembly to box build assembly and electrical testing and
+          inspection services, you can ensure that Creek View Electronics to provide a service that
+          is second to none. So, if you're looking for a high quality and reliable electronic design
+          company, why not choose Creek View Electronics? For many years, Creek View Electronics
+          obtained its printed circuit boards from Photomechanical Services Ltd, which was
+          established in 1969.
         </p>
         <p className={Global.mt2}>
-          Recognising the opportunity to provide customers with an end-to-end
-          service solution, enhanced product quality and faster lead times, both
-          companies joined forces and now trade under Creek View Electronics
-          Ltd.
+          Recognising the opportunity to provide customers with an end-to-end service solution,
+          enhanced product quality and faster lead times, both companies joined forces and now trade
+          under Creek View Electronics Ltd.
         </p>
       </div>
       <div className={styles.cardContainer}>
@@ -162,6 +158,7 @@ const About = ({ addRefToTl }) => {
         </div>
       </div>
 
+      {width >= 991 && <Accredittors />}
       <div className={styles.waveContainer}>
         <img src={waveLight} alt="border" />
       </div>

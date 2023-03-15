@@ -8,6 +8,11 @@
   position: relative;
 }
 
+.serviceSection:nth-of-type(2n) {
+  background-color: #2483d1;
+  color: #fff;
+}
+
 .serviceContainer {
   display: flex;
   height: auto;
@@ -17,6 +22,7 @@
 
 .serviceContainer section {
   margin: 2rem 0;
+  padding: 0 2rem;
   width: 100%;
   flex-shrink: 0;
   height: auto;
@@ -175,32 +181,95 @@
 }
 
 @media screen and (min-width: 992px) {
+  div.container {
+    text-align: center;
+  }
+
+  div.container > h2 {
+    font-size: 4rem;
+    text-decoration: underline;
+    margin-bottom: 2rem;
+  }
+
   .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, min-content);
-    padding: 2rem;
     gap: 2rem;
   }
 
-  .pcbDesign.cardTitle {
-    background-image: url("https://rework.co.uk/wp-content/uploads/art-circuit-001.jpg");
-    background-size: calc(200%);
-    animation: 3s infinite alternate move;
+  .serviceContainer {
+    position: relative;
+    grid-row: 2;
+    grid-column: 1 / span 4;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+
+    padding: 2rem;
+    padding-bottom: 13rem;
+    text-align: center;
+
+    background: rgb(36, 131, 209);
+    background: linear-gradient(
+      90deg,
+      rgba(36, 131, 209, 1) 0%,
+      rgba(36, 131, 209, 1) 23%,
+      rgba(0, 107, 129, 1) 51%,
+      rgba(36, 131, 209, 1) 76%,
+      rgba(0, 64, 77, 1) 100%
+    );
+    background-size: 200% 200%;
+
+    animation: move 15s ease infinite;
   }
 
-  @keyframes move {
-    0% {
-      background-position: 0 0;
-    }
+  .waveContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
 
-    50% {
-      background-position: 100% 100%;
-    }
+  .waveContainer img {
+    display: block;
+  }
 
-    100% {
-      background-position: 150% 150%;
-    }
+  .serviceContainer section {
+    color: #fff;
+    margin: 0;
+  }
+
+  .serviceContainer section p {
+    margin-top: 2rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.08rem;
+  }
+
+  .ulContainer {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    text-align: start;
+  }
+  .ulContainer ul {
+    --icon-space: 1.3em;
+    list-style: none;
+    padding: 0;
+  }
+
+  .ulContainer ul li {
+    padding-left: var(--icon-space);
+  }
+
+  .ulContainer ul li:before {
+    color: rgb(153, 255, 153);
+    content: "\f101"; /* FontAwesome Unicode */
+    font-family: FontAwesome;
+    display: inline-block;
+    margin-left: calc(var(--icon-space) * -1);
+    width: var(--icon-space);
   }
 
   .cardTitle {
@@ -213,6 +282,12 @@
     box-shadow: 5px 5px 10px rgba(36, 131, 209, 0.6);
   }
 
+  .cardTitle:first-of-type {
+    margin-left: 2rem;
+  }
+  .cardTitle:nth-child(4) {
+    margin-right: 2rem;
+  }
   .cardTitle:hover {
     cursor: pointer;
     transform: translateY(10px);
@@ -225,6 +300,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.6);
     opacity: 0.5;
     color: #000;
+    border-bottom: #fff;
   }
 
   .cardTitle h2 {
@@ -240,19 +316,6 @@
     width: 50%;
     height: auto;
     display: inline-block;
-  }
-
-  .serviceContainer {
-    display: flex;
-    grid-row: 2;
-    grid-column: 1 / span 4;
-    line-height: 2.8rem;
-    letter-spacing: 0.08rem;
-    text-align: center;
-  }
-
-  .serviceContainer section {
-    width: 50%;
   }
 
   .leftSide,
@@ -300,5 +363,17 @@
     right: 0;
     width: 100%;
     height: 3px;
+  }
+
+  @keyframes move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
 }

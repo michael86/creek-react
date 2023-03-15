@@ -1,31 +1,26 @@
-import {
-  faFacebook,
-  faInstagram,
-  faLinkedin,
-  faTwitter,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext } from "react";
+import Viewport from "../context/Viewport";
 import styles from "../styles/Footer.module.css";
+import Accreditors from "../components/Accredittors";
 
 const Footer = () => {
+  const { width } = useContext(Viewport);
+
   return (
     <>
       <h3>Let's make your dream come true</h3>
       <p>Do you have a challenge for us?</p>
-      <p>
-        Get in touch with a member of our team to start discussing your goals
-      </p>
+      <p>Get in touch with a member of our team to start discussing your goals</p>
 
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
           <div className={styles.emailBtn}>
             <a href="mailto:sadsad@saddasd">
               Email Us
-              <FontAwesomeIcon
-                style={{ marginLeft: "1rem" }}
-                icon={faEnvelope}
-              />
+              <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faEnvelope} />
             </a>
           </div>
           <div className={styles.callBtn}>
@@ -49,11 +44,7 @@ const Footer = () => {
               icon={faLinkedin}
             />
           </a>
-          <a
-            href="https://twitter.com/CreekviewLtd"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://twitter.com/CreekviewLtd" target="_blank" rel="noreferrer">
             <FontAwesomeIcon
               style={{
                 color: "#1DA1F2",
@@ -61,11 +52,7 @@ const Footer = () => {
               icon={faTwitter}
             />
           </a>
-          <a
-            href="https://twitter.com/CreekviewLtd"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://twitter.com/CreekviewLtd" target="_blank" rel="noreferrer">
             <FontAwesomeIcon
               style={{
                 color: "#1DA1F2",
@@ -85,6 +72,11 @@ const Footer = () => {
         title="g-maps"
         referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
+      {width < 991 && (
+        <div className={styles.accreditorContainer}>
+          <Accreditors />
+        </div>
+      )}
     </>
   );
 };
