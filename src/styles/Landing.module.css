@@ -163,7 +163,7 @@
     align-items: center;
     background-color: rgb(102, 102, 102);
     background-blend-mode: multiply;
-    background-image: url("../public/images/landing-background.webp");
+    background-image: url("../../public/images/landing-background.webp");
     background-size: cover;
     background-position: center center;
   }

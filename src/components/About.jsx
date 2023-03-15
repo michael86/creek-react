@@ -7,8 +7,6 @@ import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
-import waveBorder from "../public/images/wave.svg";
-import waveLight from "../public/images/wave-white.svg";
 import Accredittors from "./Accredittors";
 import Viewport from "../context/Viewport";
 
@@ -88,7 +86,7 @@ const About = ({ addRefToTl }) => {
   return (
     <section className={styles.about} id="about" ref={ref}>
       <div className={styles.waveContainer}>
-        <img src={waveBorder} alt="border" />
+        <img src="/images/wave.svg" alt="border" />
       </div>
       <div className={styles.fontContainer}>
         <h2>About Us</h2>
@@ -160,7 +158,7 @@ const About = ({ addRefToTl }) => {
 
       {width >= 991 && <Accredittors />}
       <div className={styles.waveContainer}>
-        <img src={waveLight} alt="border" />
+        <img src="images/wave-white.svg" alt="border" />
       </div>
     </section>
   );

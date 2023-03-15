@@ -1,11 +1,10 @@
-import { useContext, useEffect, useState } from "react";
-import Viewport from "../../context/Viewport";
+import { useEffect, useState } from "react";
+
 import styles from "../../styles/Services.module.css";
 
 const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
-  const { width } = useContext(Viewport);
-
+  const splitPara = (p) => p.split(". ");
   useEffect(() => {
     const copy = [];
 
@@ -23,14 +22,28 @@ const ServiceSection = ({ main, light, addRef, type }) => {
         return (
           main.type === "text" &&
           (Array.isArray(main.content) ? (
-            main.content.map((content, index) => (
-              <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${index}`}>
-                {content}
-              </p>
-            ))
+            main.content.map((content, i) => {
+              return (
+                <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
+                  {splitPara(content).map((sentence, i) => (
+                    <span key={i}>
+                      {sentence}
+                      {!sentence.includes(".") && "."}
+                      &nbsp;
+                    </span>
+                  ))}
+                </p>
+              );
+            })
           ) : (
             <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
-              {main.content}
+              {splitPara(main.content).map((sentence, i) => (
+                <span key={i}>
+                  {sentence}
+                  {!sentence.includes(".") && "."}
+                  &nbsp;
+                </span>
+              ))}
             </p>
           ))
         );

@@ -25,9 +25,6 @@ const PcbDesignMobile = ({ content }) => {
   useLayoutEffect(() => {
     if (!mainRef.current || !asideRef.current) return;
 
-    console.log("mainRef", mainRef);
-
-    console.log("asideRef", asideRef);
     const main = mainRef.current;
     const aside = asideRef.current;
 
@@ -36,23 +33,33 @@ const PcbDesignMobile = ({ content }) => {
         .timeline({ paused: true })
         .set(main, { clearProps: "all" })
         .set(aside, { clearProps: "all" })
-        .to(main, { x: "-100%" })
+        .to(main, { x: -400 })
         .fromTo(aside, { autoAlpha: 0, x: 500 }, { height: "auto", autoAlpha: 1, x: "-100%" }, 0);
+    });
+  }, [content]);
 
-      timeline.current = gsap.timeline().from(main.children, {
-        scrollTrigger: {
-          trigger: ref.current,
-          start: "top 85%",
-          end: "top 40%",
-          scrub: true,
-        },
-        scale: 0,
-        autoAlpha: 0,
-        stagger: 0.2,
-        y: 100,
+  //Paragraphs
+  useLayoutEffect(() => {
+    const paragraphs = mainRef.current.children;
+    const ctx = gsap.context(() => {
+      [...paragraphs].forEach((sentence, index) => {
+        timeline.current = gsap.from(sentence.children, {
+          scrollTrigger: {
+            trigger: sentence,
+            start: "top 80%",
+            end: "top 40%",
+            scrub: true,
+          },
+          stagger: 0.2,
+          autoAlpha: 0,
+          scale: 0,
+          y: 100,
+        });
       });
     }, ref.current);
-  }, [content]);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>

@@ -107,17 +107,13 @@ const Gallery = () => {
 
     const descriptionContainer = ref.children[1];
 
-    revealTimelines.current[i] = gsap
-      .timeline({ paused: true })
-      .to(descriptionContainer, {
-        top: 0,
-      });
+    revealTimelines.current[i] = gsap.timeline({ paused: true }).to(descriptionContainer, {
+      top: 0,
+    });
   };
 
   useLayoutEffect(() => {
-    revealRefs.current.forEach((container, i) =>
-      registerRevealTimeline(container, i)
-    );
+    revealRefs.current.forEach((container, i) => registerRevealTimeline(container, i));
   }, []);
 
   const onShowDescription = (index) => {
@@ -155,10 +151,7 @@ const Gallery = () => {
               onClick={() => onShowDescription(i)}
               key={i}
             >
-              <img
-                src={require(`../public/images/gallery/${image.name}`)}
-                alt={image.alt}
-              />
+              <img src={`/images/gallery/${image.name}`} alt={image.alt} />
               <div className={styles.imageDescription}>
                 <p>{image.description}</p>
               </div>

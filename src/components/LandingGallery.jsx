@@ -1,11 +1,7 @@
 import styles from "../styles/Landing.module.css";
 import Global from "../styles/Global.module.css";
 import gsap from "gsap";
-import ScrollArrow from "../public/images/landing-scroll-arrow.svg";
-import assemblyLogoDesktop from "../public/images/assembly-logo.webp";
-import fabricationLogoDesktop from "../public/images/fabrication-logo.webp";
-import boxBuildLogoDesktop from "../public/images/box-build-logo.svg";
-import desginLogoDesktop from "../public/images/design-logo.webp";
+
 import { useLayoutEffect, useRef, useState, useContext } from "react";
 import Viewport from "../context/Viewport";
 
@@ -13,7 +9,7 @@ const cards = [
   {
     title: "PCB Assembly",
     srcMobile: "https://elitees.com/wp-content/uploads/2021/06/DSCF9318.jpg",
-    srcDesktop: assemblyLogoDesktop,
+    srcDesktop: "/images/assembly-logo.webp",
     alt: "pcb Assembly as a service",
     id: `bg-img-${1}`,
     description: `At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. 
@@ -22,7 +18,7 @@ const cards = [
   },
   {
     title: "PCB Fabrication",
-    srcDesktop: fabricationLogoDesktop,
+    srcDesktop: "images/fabrication-logo.webp",
     srcMobile: "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
     alt: "pcb fabrication as a service",
     id: `bg-img-${0}`,
@@ -31,7 +27,7 @@ const cards = [
   },
   {
     title: "Box Builds",
-    srcDesktop: boxBuildLogoDesktop,
+    srcDesktop: "images/box-build-logo.svg",
     srcMobile:
       "https://www.miracle.net.in/wp-content/uploads/2019/05/Outsourcing-A-Box-Build-Assembly-All-You-Need-To-Know.jpg",
     alt: "Box Builds as a service",
@@ -41,7 +37,7 @@ const cards = [
   },
   {
     title: "PCB Design",
-    srcDesktop: desginLogoDesktop,
+    srcDesktop: "images/design-logo.webp",
     srcMobile: "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
     alt: "pcb Design as a service",
     id: `bg-img-${3}`,
@@ -83,12 +79,7 @@ const LandingGallery = ({ mm }) => {
             .from(".service-card", { autoAlpha: 0, scale: 0, stagger: 0.2 }, 0)
             .from("h2", { y: 1000, stagger: 0.2 }, 1)
             .from("img", { scale: 0, rotate: 360, stagger: 0.2 }, 1)
-            .fromTo(
-              ".btn",
-              { y: 100, autoAlpha: 0 },
-              { y: 0, autoAlpha: 1, stagger: 0.2 },
-              2
-            );
+            .fromTo(".btn", { y: 100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.2 }, 2);
         },
         containerRef
       );
@@ -168,7 +159,7 @@ const LandingGallery = ({ mm }) => {
                 className={`${styles.cardHeader} ${Global.relative} ${Global.flex} ${Global.justifyCenter} ${Global.alignCenter} card-header`}
               >
                 <img
-                  src={ScrollArrow}
+                  src="images/landing-scroll-arrow.svg"
                   className={`${styles.scrollButton} ${styles.scrollLeft} ${Global.absolute} scroll-btn`}
                   alt="services scroll left"
                   onClick={() => onClick(index, -1)}
@@ -184,7 +175,7 @@ const LandingGallery = ({ mm }) => {
                 />
 
                 <img
-                  src={ScrollArrow}
+                  src="images/landing-scroll-arrow.svg"
                   className={`${styles.scrollButton} ${styles.scrollRight} ${Global.absolute} scroll-btn`}
                   alt="services scroll right"
                   onClick={() => onClick(index, 1)}

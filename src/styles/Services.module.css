@@ -20,6 +20,11 @@
   transition: height 0.2ms ease-in-out;
 }
 
+.serviceContainer p {
+  text-align: center;
+  margin-top: 2rem;
+}
+
 .serviceContainer section {
   margin: 2rem 0;
   padding: 0 2rem;
