@@ -201,7 +201,7 @@
         }
       ]
     },
-    "boxBuild": {
+    "box-build": {
       "title": "Box Builds",
       "id": "box-build",
       "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],

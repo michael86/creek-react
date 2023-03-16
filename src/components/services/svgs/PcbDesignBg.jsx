@@ -1,4 +1,4 @@
-import styles from "../../styles/PcbDesignBg.module.css";
+import styles from "../../../styles/PcbDesignBg.module.css";
 
 const PcbDesignBg = () => {
   return (

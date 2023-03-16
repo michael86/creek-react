@@ -1,4 +1,4 @@
-import "../../styles/PcbDesignDots.css";
+import "../../../styles/PcbDesignDots.css";
 
 const PcbDesignDots = () => {
   return (

@@ -1,4 +1,4 @@
-import "../../styles/PcbAssemblyBg.css";
+import "../../../styles/PcbAssemblyBg.css";
 const PcbAssemblyBg = () => {
   return (
     <svg

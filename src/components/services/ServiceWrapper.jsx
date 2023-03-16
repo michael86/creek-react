@@ -13,7 +13,7 @@ const services = [
   { name: "design", mobile: PcbDesignMobile },
   { name: "fabrication", mobile: PcbFabricationMobile },
   { name: "assembly", mobile: PcbAssemblyMobile },
-  { name: "boxBuild", mobile: BoxBuildMobile },
+  { name: "box-build", mobile: BoxBuildMobile },
 ];
 
 const ServiceWrapper = ({ content, ...props }) => {
@@ -27,7 +27,6 @@ const ServiceWrapper = ({ content, ...props }) => {
         return width >= 991 ? (
           <ServiceCard key={uuid.v4()} content={content[service.name]} {...props} />
         ) : (
-          // <Desktop key={uuid.v4()} content={content[service.name]} {...props} />
           <Mobile key={uuid.v4()} content={content[service.name]} {...props} />
         );
       })}

@@ -23,6 +23,8 @@ const ActiveService = ({ content, addRef }) => {
       });
   }, [content]);
 
+  console.log(content);
+
   return (
     <div className={styles.serviceContainer} ref={ref}>
       <ServiceSection main={content.main} addRef={addRef} type="main" light />

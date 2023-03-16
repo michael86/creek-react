@@ -2,7 +2,19 @@ import { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../styles/Services.module.css";
-// import PcbFabricationBg from "../PcbFabricationBg";
+import PcbAssemblyBg from "./svgs/PcbAssemblyBg";
+import PcbDesignBg from "./svgs/PcbDesignBg";
+import PcbDesignDots from "./svgs/PcbDesignDots";
+import PcbFabricationBg from "./svgs/PcbFabricationBg";
+
+const cardImages = {
+  design: PcbDesignBg,
+  fabrication: PcbFabricationBg,
+  assembly: PcbAssemblyBg,
+  "box-build": PcbDesignBg,
+};
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ServiceCard = ({ content, setActiveContent, active }) => {
   const splitString = (string) => string.split("");
@@ -12,70 +24,74 @@ const ServiceCard = ({ content, setActiveContent, active }) => {
   const rightSide = useRef();
   const bottomSide = useRef();
 
-  //   const [tl, setTl] = useState();
+  console.log(content);
+  const Image = cardImages[content.id];
 
-  //   useLayoutEffect(() => {
-  //     const ctx = gsap.context(() => {
-  //       const bgColor = "rgb(36, 131, 209)";
-  //       const timeline = gsap
-  //         .timeline({
-  //           paused: true,
-  //         })
-  //         .from(
-  //           topSide.current,
-  //           {
-  //             width: 0,
-  //             background: bgColor,
-  //             immediateRender: false,
-  //             autoRound: false,
-  //             ease: "easeInOut",
-  //           },
-  //           0
-  //         )
-  //         .from(
-  //           rightSide.current,
-  //           {
-  //             height: 0,
-  //             background: bgColor,
-  //             immediateRender: false,
-  //             autoRound: false,
-  //             ease: "easeInOut",
-  //           },
-  //           0
-  //         )
-  //         .from(
-  //           bottomSide.current,
-  //           {
-  //             width: 0,
-  //             background: bgColor,
-  //             immediateRender: false,
-  //             autoRound: false,
-  //             ease: "easeInOut",
-  //           },
-  //           0
-  //         )
-  //         .from(
-  //           leftSide.current,
-  //           {
-  //             height: 0,
-  //             background: bgColor,
-  //             immediateRender: false,
-  //             autoRound: false,
-  //             ease: "easeInOut",
-  //           },
-  //           0
-  //         );
+  const [tl, setTl] = useState();
 
-  //       setTl(timeline);
-  //     }, ref.current);
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      const bgColor = "rgb(36, 131, 209)";
+      const timeline = gsap
+        .timeline({
+          paused: true,
+        })
+        .from(
+          topSide.current,
+          {
+            width: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          rightSide.current,
+          {
+            height: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          bottomSide.current,
+          {
+            width: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        )
+        .from(
+          leftSide.current,
+          {
+            height: 0,
+            background: bgColor,
+            immediateRender: false,
+            autoRound: false,
+            ease: "easeInOut",
+          },
+          0
+        );
 
-  //     return () => ctx.revert;
-  //   }, []);
+      setTl(timeline);
+    }, ref.current);
 
-  //   const playAnim = () => {
-  //     if (!tl) return;
-  //     tl.play(0);
-  //   };
+    return () => ctx.revert;
+  }, []);
+
+  const playAnim = () => {
+    if (!tl) return;
+
+    tl.play(0);
+  };
 
   //head animation
   //   useLayoutEffect(() => {
@@ -112,21 +128,36 @@ const ServiceCard = ({ content, setActiveContent, active }) => {
       {content && (
         <>
           <div
-            data-active={active && active}
+            data-active={content.id === active}
             className={styles.cardTitle}
             ref={ref}
             onClick={() => {
-              //   playAnim();
-
+              playAnim();
               setActiveContent(content.id);
             }}
           >
-            <span data-active={active} ref={leftSide} className={styles.leftSide}></span>
-            <span data-active={active} ref={topSide} className={styles.topSide}></span>
-            <span data-active={active} ref={rightSide} className={styles.rightSide}></span>
-            <span data-active={active} ref={bottomSide} className={styles.bottomSide}></span>
+            <span
+              data-active={content.id === active}
+              ref={leftSide}
+              className={styles.leftSide}
+            ></span>
+            <span
+              data-active={content.id === active}
+              ref={topSide}
+              className={styles.topSide}
+            ></span>
+            <span
+              data-active={content.id === active}
+              ref={rightSide}
+              className={styles.rightSide}
+            ></span>
+            <span
+              data-active={content.id === active}
+              ref={bottomSide}
+              className={styles.bottomSide}
+            ></span>
             <h2 className={`${styles.sectionTitle} `}>{content.title}</h2>
-            {/* <PcbFabricationBg /> */}
+            <Image />
             {content.cardHeaders.map((header, i) => {
               return (
                 <h3 key={i}>
