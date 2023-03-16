@@ -24,7 +24,6 @@ const ServiceCard = ({ content, setActiveContent, active }) => {
   const rightSide = useRef();
   const bottomSide = useRef();
 
-  console.log(content);
   const Image = cardImages[content.id];
 
   const [tl, setTl] = useState();

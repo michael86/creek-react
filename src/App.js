@@ -7,11 +7,13 @@ import Services from "./components/Services";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Viewport from "./context/Viewport";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import Intro from "./components/Intro";
 
 function App() {
   //using innerWidth || innerHeight returned the wrong pxs due to dev tools being toxic and taking pinchzoom into equation
   const [width, setWidth] = useState(window.innerWidth);
+  const [introPlayed, setIntroPlayed] = useState(false);
 
   const timer = useRef();
 
@@ -31,18 +33,24 @@ function App() {
 
   return (
     <Viewport.Provider value={{ width }}>
-      <header>
-        <Nav />
-      </header>
-      <main className="scroll-snap-point">
-        <Landing />
-        <About />
-        <Services />
-        <Gallery />
-      </main>
-      <footer>
-        <Footer />
-      </footer>
+      {!introPlayed && <Intro setIntroPlayed={setIntroPlayed} />}
+
+      {introPlayed && (
+        <>
+          <header>
+            <Nav />
+          </header>
+          <main className="scroll-snap-point">
+            <Landing />
+            <About />
+            <Services />
+            <Gallery />
+          </main>
+          <footer>
+            <Footer />
+          </footer>
+        </>
+      )}
     </Viewport.Provider>
   );
 }
