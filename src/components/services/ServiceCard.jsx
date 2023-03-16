@@ -1,10 +1,10 @@
 import { useRef, useLayoutEffect, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import styles from "../../../styles/Services.module.css";
-import PcbFabricationBg from "../PcbFabricationBg";
+import styles from "../../styles/Services.module.css";
+// import PcbFabricationBg from "../PcbFabricationBg";
 
-const ServiceDesktop = ({ content, setActiveContent, active }) => {
+const ServiceCard = ({ content, setActiveContent, active }) => {
   const splitString = (string) => string.split("");
   const ref = useRef();
   const leftSide = useRef();
@@ -116,7 +116,7 @@ const ServiceDesktop = ({ content, setActiveContent, active }) => {
             className={styles.cardTitle}
             ref={ref}
             onClick={() => {
-              playAnim();
+              //   playAnim();
 
               setActiveContent(content.id);
             }}
@@ -126,22 +126,16 @@ const ServiceDesktop = ({ content, setActiveContent, active }) => {
             <span data-active={active} ref={rightSide} className={styles.rightSide}></span>
             <span data-active={active} ref={bottomSide} className={styles.bottomSide}></span>
             <h2 className={`${styles.sectionTitle} `}>{content.title}</h2>
-            <PcbFabricationBg />
-            <h3>
-              {splitString("Creative Design Strategies").map((letter, i) => (
-                <span key={i}>{letter}</span>
-              ))}
-            </h3>
-            <h3>
-              {splitString("Comprehensive Solutions").map((letter, i) => (
-                <span key={i}>{letter}</span>
-              ))}
-            </h3>
-            <h3>
-              {splitString("3D Engineering").map((letter, i) => (
-                <span key={i}>{letter}</span>
-              ))}
-            </h3>
+            {/* <PcbFabricationBg /> */}
+            {content.cardHeaders.map((header, i) => {
+              return (
+                <h3 key={i}>
+                  {splitString(header).map((letter, i) => (
+                    <span key={i}>{letter}</span>
+                  ))}
+                </h3>
+              );
+            })}
           </div>
         </>
       )}
@@ -149,4 +143,4 @@ const ServiceDesktop = ({ content, setActiveContent, active }) => {
   );
 };
 
-export default ServiceDesktop;
+export default ServiceCard;

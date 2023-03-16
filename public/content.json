@@ -8,6 +8,7 @@
     "design": {
       "title": "PCB Design",
       "id": "design",
+      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
       "main": [
         {
           "type": "text",
@@ -57,6 +58,7 @@
     "assembly": {
       "title": "PCB Assembly",
       "id": "assembly",
+      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
       "main": [
         {
           "type": "text",
@@ -148,6 +150,7 @@
     "fabrication": {
       "title": "PCB Fabrication",
       "id": "fabrication",
+      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
       "main": [
         {
           "type": "text",
@@ -201,6 +204,7 @@
     "boxBuild": {
       "title": "Box Builds",
       "id": "box-build",
+      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
       "main": [
         {
           "type": "text",
