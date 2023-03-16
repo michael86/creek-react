@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useContent = (key) => {
-  const [content, setContent] = useState(key);
+  const [content, setContent] = useState();
 
   useEffect(() => {
     fetch("/content.json")
