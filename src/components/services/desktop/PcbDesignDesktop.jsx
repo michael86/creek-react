@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../../styles/Services.module.css";
 import PcbDesignBg from "../PcbDesignBg";
 
-const PcbDesignDesktop = ({ content, onClick, active }) => {
+const PcbDesignDesktop = ({ content, setActiveContent, active }) => {
   const ref = useRef();
   const leftSide = useRef();
   const topSide = useRef();
@@ -125,7 +125,9 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
             ref={ref}
             onClick={() => {
               playAnim();
-              onClick(content.id);
+
+              console.log("content.id", content);
+              setActiveContent(content.id);
             }}
           >
             <span data-active={active} ref={leftSide} className={styles.leftSide}></span>

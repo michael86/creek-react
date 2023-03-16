@@ -30,11 +30,13 @@
 
 .card {
   width: 90%;
+  max-width: 60rem;
+
   margin: auto;
   background-color: rgb(255, 255, 255);
   color: #000;
   border-radius: 20px;
-  box-shadow: 0 5px 10px rgb(0 0 0 / 10%);
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
   padding: 0 0 2rem 0;
 }
 

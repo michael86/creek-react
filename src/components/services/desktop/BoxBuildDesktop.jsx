@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../../styles/Services.module.css";
 import PcbDesignBg from "../PcbDesignBg";
 
-const BoxBuildDesktop = ({ content, onClick, active }) => {
+const BoxBuildDesktop = ({ content, setActiveContent, active }) => {
   const splitString = (string) => string.split("");
   const ref = useRef();
   const asideRef = useRef();
@@ -202,7 +202,7 @@ const BoxBuildDesktop = ({ content, onClick, active }) => {
             className={styles.cardTitle}
             onClick={() => {
               playAnim();
-              onClick("boxBuild");
+              setActiveContent("boxBuild");
             }}
           >
             <span data-active={active} ref={leftSide} className={styles.leftSide}></span>

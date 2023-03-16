@@ -5,7 +5,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../../styles/Services.module.css";
 import PcbAssemblyBg from "../PcbAssemblyBg";
 
-const PcbAssemblyDesktop = ({ content, onClick, active }) => {
+const PcbAssemblyDesktop = ({ content, setActiveContent, active }) => {
   const splitString = (string) => string.split("");
   const ref = useRef();
   const leftSide = useRef();
@@ -192,7 +192,7 @@ const PcbAssemblyDesktop = ({ content, onClick, active }) => {
             className={styles.cardTitle}
             onClick={() => {
               playAnim();
-              onClick(content.id);
+              setActiveContent(content.id);
             }}
           >
             <span data-active={active} ref={leftSide} className={styles.leftSide}></span>

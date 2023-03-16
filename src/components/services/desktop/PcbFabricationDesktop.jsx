@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../../styles/Services.module.css";
 import PcbFabricationBg from "../PcbFabricationBg";
 
-const PcbDesignDesktop = ({ content, onClick, active }) => {
+const PcbDesignDesktop = ({ content, setActiveContent, active }) => {
   const splitString = (string) => string.split("");
   const ref = useRef();
   const leftSide = useRef();
@@ -117,7 +117,8 @@ const PcbDesignDesktop = ({ content, onClick, active }) => {
             ref={ref}
             onClick={() => {
               playAnim();
-              onClick(content.id);
+
+              setActiveContent(content.id);
             }}
           >
             <span data-active={active} ref={leftSide} className={styles.leftSide}></span>
