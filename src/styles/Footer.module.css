@@ -22,6 +22,12 @@ footer p {
   margin-right: 2rem;
   padding: 2rem;
   border-radius: 10px;
+  max-width: 35rem;
+}
+
+.emailBtn:hover,
+.callBtn:hover {
+  cursor: pointer;
 }
 
 .callBtn {
@@ -64,4 +70,69 @@ footer p {
   margin-top: 2rem;
   width: 5rem;
   aspect-ratio: 1 / 1;
+}
+
+.smallPrint {
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.smallPrint a {
+  color: #2483d1;
+}
+@media screen and (min-width: 991px) {
+  footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, min-content);
+    padding: 2rem;
+  }
+
+  footer h3 {
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .contactContainer {
+    grid-row: 2;
+    grid-column: 1 / span 2;
+    max-width: 108rem;
+  }
+
+  .socialsContainer {
+    display: block;
+    margin-left: 11rem;
+  }
+
+  .directContactContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .directContactContainer p:first-of-type {
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  .directContactContainer p:nth-child(2) {
+    text-align: center;
+  }
+
+  .emailBtn,
+  .callBtn {
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+
+  .socialsContainer svg {
+    margin-right: 2rem;
+  }
+
+  iframe {
+    max-height: 30rem;
+  }
+
+  .smallPrint {
+    grid-column: 1 / span 3;
+  }
 }

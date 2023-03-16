@@ -12,11 +12,11 @@ const Footer = () => {
   return (
     <>
       <h3>Let's make your dream come true</h3>
-      <p>Do you have a challenge for us?</p>
-      <p>Get in touch with a member of our team to start discussing your goals</p>
 
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
+          <p>Do you have a challenge for us?</p>
+          <p>Get in touch with a member of our team to start discussing your goals</p>
           <div className={styles.emailBtn}>
             <a href="mailto:sadsad@saddasd">
               Email Us
@@ -77,6 +77,16 @@ const Footer = () => {
           <Accreditors />
         </div>
       )}
+
+      <div className={styles.smallPrint}>
+        <p>Creekview LTD &copy; 2011</p>
+        <p>
+          Site created by{" "}
+          <a href="https://github.com/michael86" target={"_blank"}>
+            Michael Hodgson
+          </a>
+        </p>
+      </div>
     </>
   );
 };

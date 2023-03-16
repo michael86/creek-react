@@ -11,24 +11,16 @@ const ActiveService = ({ content, addRef }) => {
     const main = ref.current.children[0];
     const aside = ref.current.children[1];
 
-    let paragraphs = [...main.children].filter((el) => el.tagName === "P");
-    paragraphs = [...paragraphs, ...[...aside.children].filter((el) => el.tagName === "P")];
-    const spans = paragraphs.map((span) => span.children);
-
-    let ulContainers = [...main.children].filter((el) => el.tagName === "DIV");
-    ulContainers = [...ulContainers, ...[...aside.children].filter((el) => el.tagName === "DIV")];
-
-    gsap.timeline().from(spans, {
-      autoAlpha: 0,
-      stagger: 0.1,
-    });
-    // .from(
-    //   ul.map((child) => child),
-    //   {
-    //     autoAlpha: 0,
-    //     stagger: 0.1,
-    //   }
-    // );
+    gsap
+      .timeline()
+      .from(main.children, {
+        autoAlpha: 0,
+        stagger: 0.1,
+      })
+      .from(aside.children, {
+        autoAlpha: 0,
+        stagger: 0.1,
+      });
   }, [content]);
 
   return (
