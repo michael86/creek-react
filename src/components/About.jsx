@@ -2,19 +2,21 @@ import styles from "../styles/About.module.css";
 import Global from "../styles/Global.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
 
 import Accredittors from "./Accredittors";
 import Viewport from "../context/Viewport";
+import useContent from "../hooks/useContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const About = ({ addRefToTl }) => {
   const ref = useRef();
   const { width } = useContext(Viewport);
+  const [content] = useContent("about");
 
   useLayoutEffect(() => {
     const paragraphs = [...ref.current.children[1].children].splice(1);
@@ -83,6 +85,8 @@ const About = ({ addRefToTl }) => {
     });
   }, [addRefToTl]);
 
+  console.log("content", content);
+
   return (
     <section className={styles.about} id="about" ref={ref}>
       <div className={styles.waveContainer}>
@@ -91,15 +95,11 @@ const About = ({ addRefToTl }) => {
       <div className={styles.fontContainer}>
         <h2>About Us</h2>
         <p className={Global.mt2}>
-          Originally established as <span className={Global.highLight}>Valco UK Ltd</span> in 1998,
-          the company split its mechanical and electrical divisions with the latter emerging as
-          Creek View Electronics in 2005. This meant that we could continue to grow within the
-          electrical manufacturing industry and provide a better service to our customers. As one of
-          the leading{" "}
-          <strong>
-            <em>electronic design engineers in Essex</em>
-          </strong>
-          , we specialise in a variety of services.
+          Originally established as Valco UK Ltd in 1998, the company split its mechanical and
+          electrical divisions with the latter emerging as Creek View Electronics in 2005. This
+          meant that we could continue to grow within the electrical manufacturing industry and
+          provide a better service to our customers. As one of the leading electronic design
+          engineers in Essex, we specialise in a variety of services.
         </p>
         <p className={Global.mt2}>
           From conformal coating and cable assembly to box build assembly and electrical testing and

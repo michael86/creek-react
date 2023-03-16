@@ -11,18 +11,18 @@ import styles from "../styles/Services.module.css";
 const Services = () => {
   const { width } = useContext(Viewport);
   const [content, setContent] = useState();
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState("design");
 
   useEffect(() => {
     const getContent = async () => {
       await fetch("content.json")
         .then((response) => response.json())
-        .then((json) => setContent(json));
+        .then((content) => setContent(content.services));
     };
     getContent();
   }, []);
 
-  const onClick = (id) => setActive(content.findIndex((el) => el.id === id));
+  const onClick = (id) => setActive(id);
 
   return (
     <div className={styles.container}>
@@ -33,23 +33,23 @@ const Services = () => {
           <ConditionWrapper width={width}>
             <PcbDesign
               onClick={width >= 991 && onClick}
-              content={content[content.findIndex((el) => el.id === "design")]}
-              active={content[active].id === "design" ? true : false}
+              content={content.design}
+              active={active === "design" ? true : false}
             />
             <PcbFabrication
               onClick={width >= 991 && onClick}
-              content={content[content.findIndex((el) => el.id === "fabrication")]}
-              active={content[active].id === "fabrication" ? true : false}
+              content={content.fabrication}
+              active={active === "fabrication" ? true : false}
             />
             <PcbAssembly
               onClick={width >= 991 && onClick}
-              content={content[content.findIndex((el) => el.id === "assembly")]}
-              active={content[active].id === "assembly" ? true : false}
+              content={content.assembly}
+              active={active === "assembly" ? true : false}
             />
             <BoxBuilds
               onClick={width >= 991 && onClick}
-              content={content[content.findIndex((el) => el.id === "box-build")]}
-              active={content[active].id === "box-build" ? true : false}
+              content={content.boxBuild}
+              active={active === "boxBuild" ? true : false}
             />
             {width >= 991 && <ActiveService content={content[active]} />}
           </ConditionWrapper>

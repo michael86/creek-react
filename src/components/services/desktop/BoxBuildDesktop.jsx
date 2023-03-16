@@ -202,7 +202,7 @@ const BoxBuildDesktop = ({ content, onClick, active }) => {
             className={styles.cardTitle}
             onClick={() => {
               playAnim();
-              onClick(content.id);
+              onClick("boxBuild");
             }}
           >
             <span data-active={active} ref={leftSide} className={styles.leftSide}></span>
