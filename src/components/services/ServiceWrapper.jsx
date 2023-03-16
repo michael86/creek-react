@@ -22,7 +22,6 @@ const ServiceWrapper = ({ content, ...props }) => {
   return (
     <>
       {services.map((service) => {
-        const Desktop = service.desktop;
         const Mobile = service.mobile;
         return width >= 991 ? (
           <ServiceCard key={uuid.v4()} content={content[service.name]} {...props} />

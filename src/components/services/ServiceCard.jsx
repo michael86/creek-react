@@ -33,9 +33,7 @@ const ServiceCard = ({ content, setActiveContent, active }) => {
     const ctx = gsap.context(() => {
       const bgColor = "rgb(36, 131, 209)";
       const timeline = gsap
-        .timeline({
-          paused: true,
-        })
+        .timeline()
         .from(
           topSide.current,
           {
