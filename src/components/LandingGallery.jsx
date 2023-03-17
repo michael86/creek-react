@@ -55,35 +55,39 @@ const LandingGallery = ({ mm }) => {
   const { width } = useContext(Viewport);
 
   useLayoutEffect(() => {
-    mm &&
-      // max-width 600
-      mm.add(
-        "(max-width: 600px)",
-        () => {
-          gsap
-            .timeline()
-            .from(containerRef.current, { autoAlpha: 0 })
-            .from(".card-header-img", { x: -1000 })
-            .from("h2", { x: 1000 });
-        },
-        containerRef
-      );
+    if (!mm) return;
 
-    mm &&
-      mm.add(
-        "(min-width: 992px)",
-        () => {
-          gsap
-            .timeline()
-            .from(containerRef.current, { autoAlpha: 0 }, 0)
+    const breakPoint = 991;
+
+    mm.add(
+      {
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isDesktop, reduceMotion } = context.conditions;
+
+        if (reduceMotion) return;
+
+        const tl = gsap.timeline().from(containerRef.current, { autoAlpha: 0 });
+
+        !isDesktop && tl.from(".card-header-img", { x: -1000 }).from("h2", { x: 1000 });
+
+        isDesktop &&
+          tl
             .from(".service-card", { autoAlpha: 0, scale: 0, stagger: 0.2 }, 0)
             .from("h2", { y: 1000, stagger: 0.2 }, 1)
             .from("img", { scale: 0, rotate: 360, stagger: 0.2 }, 1)
             .fromTo(".btn", { y: 100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.2 }, 2);
-        },
-        containerRef
-      );
+      }
+    );
+  }, [mm]);
 
+  //card hover anims
+  useLayoutEffect(() => {
     cardRefs.current.forEach((card, index) => {
       cardTimelines.current[index] = gsap.context(() => {
         gsap
@@ -92,7 +96,7 @@ const LandingGallery = ({ mm }) => {
           .to("img", { repeat: -1, yoyo: true, scale: 1.2, duration: 1 }, 0);
       }, card);
     });
-  }, [mm]);
+  }, []);
 
   const onClick = (current, target) => {
     if (activeTl.current && activeTl.current.isActive()) return;

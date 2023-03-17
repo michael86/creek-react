@@ -11,30 +11,32 @@ const Landing = () => {
   const [mm, setMm] = useState();
 
   useLayoutEffect(() => {
-    const mm = gsap.matchMedia();
+    let mm = gsap.matchMedia(),
+      breakPoint = 991;
 
-    mm.add("(max-width: 600px)", () => {
-      gsap
-        .timeline()
-        .from("#site-logo path", {
-          scale: 1.5,
-          y: -300,
-          autoAlpha: 0,
-          stagger: 0.1,
-        })
-        .from("h1", { autoAlpha: 0, y: 30 });
-    });
+    mm.add(
+      {
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isDesktop, reduceMotion } = context.conditions;
+        if (reduceMotion) return;
 
-    mm.add("(min-width: 992px)", () => {
-      gsap
-        .timeline()
-        .from("#site-logo path", {
-          scale: 2,
-          stagger: 0.1,
-          autoAlpha: 0,
-        })
-        .from("h1", { autoAlpha: 0, y: 30 });
-    });
+        gsap
+          .timeline()
+          .from("#site-logo path", {
+            scale: isDesktop ? 2 : 1.5,
+            y: -300,
+            autoAlpha: 0,
+            stagger: 0.1,
+          })
+          .from("h1", { autoAlpha: 0, y: 30 });
+      }
+    );
 
     setMm(mm);
 

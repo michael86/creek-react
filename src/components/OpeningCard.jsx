@@ -39,6 +39,8 @@ const OpeningCard = () => {
         });
       }
     );
+
+    return () => mm.revert();
   }, [width]);
 
   return (

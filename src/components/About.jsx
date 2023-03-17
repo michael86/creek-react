@@ -52,6 +52,8 @@ const About = () => {
         });
       }
     );
+
+    return () => mm.revert();
   }, [content, width]);
 
   return (
