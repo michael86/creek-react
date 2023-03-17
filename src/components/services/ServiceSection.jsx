@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-
+import uuid from "react-native-uuid";
 import styles from "../../styles/Services.module.css";
+import FormattedContent from "../FormattedContent";
 
 const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
@@ -26,25 +27,13 @@ const ServiceSection = ({ main, light, addRef, type }) => {
             main.content.map((content, i) => {
               return (
                 <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
-                  {splitPara(content).map((sentence, i) => (
-                    <span key={i}>
-                      {sentence}
-                      {!sentence.includes(".") && "."}
-                      &nbsp;
-                    </span>
-                  ))}
+                  <FormattedContent data={{ content: content, key: uuid.v4() }} />
                 </p>
               );
             })
           ) : (
             <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
-              {splitPara(main.content).map((sentence, i) => (
-                <span key={i}>
-                  {sentence}
-                  {!sentence.includes(".") && "."}
-                  &nbsp;
-                </span>
-              ))}
+              <FormattedContent data={{ content: main.content, key: uuid.v4() }} />
             </p>
           ))
         );
