@@ -79,8 +79,8 @@ const LandingGallery = ({ mm }) => {
         isDesktop &&
           tl
             .from(".service-card", { autoAlpha: 0, scale: 0, stagger: 0.2 }, 0)
-            .from("h2", { y: 1000, stagger: 0.2 }, 1)
-            .from("img", { scale: 0, rotate: 360, stagger: 0.2 }, 1)
+            .from(".service-card h2", { y: 1000, stagger: 0.2 }, 1)
+            .from(".service-card img", { scale: 0, rotate: 360, stagger: 0.2 }, 1)
             .fromTo(".btn", { y: 100, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: 0.2 }, 2);
       }
     );
