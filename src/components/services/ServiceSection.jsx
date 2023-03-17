@@ -5,7 +5,6 @@ import FormattedContent from "../FormattedContent";
 
 const ServiceSection = ({ main, light, addRef, type }) => {
   const [uls, setUls] = useState([]);
-  const splitPara = (p) => p.split(". ");
 
   useEffect(() => {
     const copy = [];
@@ -25,16 +24,10 @@ const ServiceSection = ({ main, light, addRef, type }) => {
           main.type === "text" &&
           (Array.isArray(main.content) ? (
             main.content.map((content, i) => {
-              return (
-                <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
-                  <FormattedContent data={{ content: content, key: uuid.v4() }} />
-                </p>
-              );
+              return <FormattedContent key={i} data={{ content: content, key: uuid.v4() }} />;
             })
           ) : (
-            <p className={`${!light ? styles.textPrimary : ""}`} key={`content-${i}`}>
-              <FormattedContent data={{ content: main.content, key: uuid.v4() }} />
-            </p>
+            <FormattedContent key={i} data={{ content: main.content, key: uuid.v4() }} />
           ))
         );
       })}

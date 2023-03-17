@@ -6,7 +6,6 @@ const FormattedContent = ({ data }) => {
   //italic: "--";
   //underline: "__";
 
-  console.log(data);
   var parserRules = [
     { pattern: /##(.*?)##/g, replacement: "|<strong>$1|" },
     { pattern: /--(.*?)--/g, replacement: "|<em>$1|" },
