@@ -7,50 +7,41 @@ import Services from "./components/Services";
 import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Viewport from "./context/Viewport";
-import { useEffect, useState, useRef, useLayoutEffect } from "react";
+import { useState } from "react";
 import Intro from "./components/Intro";
+import gsap from "gsap";
+import useWidth from "./hooks/useWidth";
 
 function App() {
-  //using innerWidth || innerHeight returned the wrong pxs due to dev tools being toxic and taking pinchzoom into equation
-  const [width, setWidth] = useState(window.innerWidth);
-  const [introPlayed, setIntroPlayed] = useState(false);
+  const [width] = useWidth();
+  console.log("width", width);
 
-  const timer = useRef();
+  const [tl] = useState(gsap.timeline());
 
-  const handleWindowResize = () => {
-    if (timer.current) {
-      clearTimeout(timer.current); //if an user try to resize the screen again, we reset timer (no triggering state update logic)
-    }
-    timer.current = setTimeout(() => {
-      setWidth(window.innerWidth);
-    }, 500); //delay state change after 0.5s
+  const addTl = (_tl) => {
+    if (!_tl || !tl) return;
+
+    tl.add(_tl);
   };
-
-  useEffect(() => {
-    window.addEventListener("resize", handleWindowResize);
-    return () => window.removeEventListener("resize", handleWindowResize);
-  }, []);
 
   return (
     <Viewport.Provider value={{ width }}>
-      {!introPlayed && <Intro setIntroPlayed={setIntroPlayed} />}
+      <Intro addTl={addTl} />
 
-      {introPlayed && (
-        <>
-          <header>
-            <Nav />
-          </header>
-          <main className="scroll-snap-point">
-            <Landing />
-            <About />
-            <Services />
-            <Gallery />
-          </main>
-          <footer>
-            <Footer />
-          </footer>
-        </>
-      )}
+      <>
+        <header>
+          <Nav />
+        </header>
+        <main className="scroll-snap-point">
+          <Landing />
+          <About />
+          <Services />
+          <Gallery />
+        </main>
+        <footer>
+          <Footer />
+        </footer>
+      </>
     </Viewport.Provider>
   );
 }
