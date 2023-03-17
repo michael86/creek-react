@@ -22,7 +22,7 @@ const useContent = (key, generateKey = false) => {
       .then((content) => {
         generateKey ? setContent(genKeys(content[key])) : setContent(content[key]);
       });
-  }, []);
+  }, [generateKey, key]);
 
   return [content, setContent];
 };

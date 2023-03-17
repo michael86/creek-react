@@ -8,7 +8,7 @@ import Accredittors from "./Accredittors";
 import Viewport from "../context/Viewport";
 import useContent from "../hooks/useContent";
 import OpeningCard from "./OpeningCard";
-import { formatContent } from "../utils/text";
+import FormattedContent from "./FormattedContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,71 +19,40 @@ const About = () => {
 
   useLayoutEffect(() => {
     if (!content) return;
-    const paragraphs = [...ref.current.children[1].children].splice(1);
-    const card = ref.current.children[2].children[0];
 
-    const mm = gsap.matchMedia();
+    let mm = gsap.matchMedia(),
+      breakPoint = 991;
 
-    mm.add("(max-width: 991px)", () => {
-      gsap
-        .timeline()
-        .from(paragraphs, {
+    mm.add(
+      {
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { isDesktop, reduceMotion } = context.conditions;
+        const paragraphs = [...ref.current.children[1].children].splice(1);
+        const card = ref.current.children[2].children[0];
+
+        if (reduceMotion) return;
+
+        gsap.from(paragraphs, {
           scrollTrigger: {
             trigger: ref.current,
-            start: "top 50%",
-            end: "top top",
-
+            start: isDesktop ? "top 90%" : "top 50%",
+            end: isDesktop ? "top 30%" : "top top",
             scrub: true,
           },
           y: 100,
           x: 500,
           autoAlpha: 0,
           stagger: 0.2,
-        })
-        .from(card, {
-          scrollTrigger: {
-            trigger: paragraphs[paragraphs.length - 1],
-            start: "top 50%",
-            end: "top top",
-            // markers: true,
-            scrub: true,
-          },
-          scale: 0,
-          autoAlpha: 0,
-          stagger: 0.2,
         });
-    });
-
-    mm.add("(min-width: 992px)", () => {
-      gsap
-        .timeline()
-        .from(paragraphs, {
-          scrollTrigger: {
-            trigger: ref.current,
-            start: "top 90%",
-            end: "top 30%",
-            // markers: true,
-            scrub: true,
-          },
-          y: 100,
-          x: 500,
-          autoAlpha: 0,
-          stagger: 0.2,
-        })
-        .from(card, {
-          scrollTrigger: {
-            trigger: paragraphs[paragraphs.length - 1],
-            start: "top bottom",
-            end: "top center",
-            // markers: true,
-            scrub: true,
-          },
-          scale: 0,
-          autoAlpha: 0,
-          stagger: 0.2,
-        });
-    });
-  }, [content]);
+      }
+    );
+  }, [content, width]);
 
   return (
     <>
@@ -95,7 +64,9 @@ const About = () => {
           </div>
           <div className={styles.fontContainer}>
             <h2>About Us</h2>
-            {content.map((content) => formatContent(content))}
+            {content.map((content, i) => (
+              <FormattedContent data={content} key={i} />
+            ))}
           </div>
 
           <OpeningCard />

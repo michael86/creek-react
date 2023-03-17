@@ -82,7 +82,7 @@ const Footer = () => {
         <p>Creekview LTD &copy; 2011</p>
         <p>
           Site created by{" "}
-          <a href="https://github.com/michael86" target={"_blank"}>
+          <a href="https://github.com/michael86" target={"_blank"} rel={"noreferrer"}>
             Michael Hodgson
           </a>
         </p>

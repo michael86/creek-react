@@ -1,12 +1,49 @@
 import styles from "../styles/About.module.css";
-
+import gsap from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { useLayoutEffect, useRef } from "react";
+import useWidth from "../hooks/useWidth";
 
 const OpeningCard = () => {
+  const [width] = useWidth();
+  const ref = useRef();
+
+  useLayoutEffect(() => {
+    const mm = gsap.matchMedia(),
+      breakPoint = 991;
+
+    mm.add(
+      {
+        isDesktop: `(min-width: ${breakPoint}px)`,
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        let { isDesktop, reduceMotion } = context.conditions;
+
+        if (reduceMotion) return;
+
+        const card = ref.current;
+
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: card,
+            start: "top 90%",
+            end: isDesktop ? "top 30%" : "top 50%",
+            scrub: true,
+          },
+          scale: 0,
+          autoAlpha: 0,
+          stagger: 0.2,
+        });
+      }
+    );
+  }, [width]);
+
   return (
     <div className={styles.cardContainer}>
-      <div className={styles.card}>
+      <div className={styles.card} ref={ref}>
         <div className={styles.cardHeader}>
           <h3>Opening Times.</h3>
         </div>

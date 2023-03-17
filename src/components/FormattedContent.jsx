@@ -1,12 +1,7 @@
 import { createElement } from "react";
 import uuid from "react-native-uuid";
 
-export const splitParas = (p) => {
-  const split = p.split(".").map((sentence) => <span className="sentence">{sentence}</span>);
-  return split.map((sentence) => <span className="sentence">{sentence}</span>);
-};
-
-export const formatContent = (data) => {
+const FormattedContent = ({ data }) => {
   //bold: "##";
   //italic: "--";
   //underline: "__";
@@ -42,3 +37,5 @@ export const formatContent = (data) => {
 
   return html;
 };
+
+export default FormattedContent;

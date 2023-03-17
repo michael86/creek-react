@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import gsap from "gsap";
 import ServiceSection from "../ServiceSection";
 import ServiceButton from "../ServiceButton";

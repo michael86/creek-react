@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../styles/Services.module.css";
 import PcbAssemblyBg from "./svgs/PcbAssemblyBg";
 import PcbDesignBg from "./svgs/PcbDesignBg";
-import PcbDesignDots from "./svgs/PcbDesignDots";
+// import PcbDesignDots from "./svgs/PcbDesignDots";
 import PcbFabricationBg from "./svgs/PcbFabricationBg";
 
 const cardImages = {
