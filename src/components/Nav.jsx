@@ -31,7 +31,7 @@ const Nav = ({ sections }) => {
       gsap.to("#line-three", { top: "0vh", ease: "bounce", duration: 2 });
 
       //if width greater than height
-      console.log("width", width);
+
       navTimeline.current = gsap
         .timeline({ paused: true })
         .to("#line-one", {

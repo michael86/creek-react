@@ -59,13 +59,10 @@ const PcbDesignMobile = ({ content }) => {
         const paragraphs = mainRef.current.children;
 
         if (reduceMotion || !isMobile) return;
-        console.log("yeet");
-        console.log(paragraphs, ref.current);
+
         gsap.set(paragraphs, {
           display: "inline-block",
-          onComplete: () => {
-            console.log("complete", paragraphs[0].style.display);
-          },
+          onComplete: () => {},
         });
         gsap.from(paragraphs, {
           scrollTrigger: {

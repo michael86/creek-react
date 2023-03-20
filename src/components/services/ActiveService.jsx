@@ -1,7 +1,8 @@
 import ServiceSection from "./ServiceSection";
 import styles from "../../styles/Services.module.css";
-import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
+import { useRef } from "react";
+// useLayoutEffect;
+// import gsap from "gsap";
 
 const ActiveService = ({ content, addRef }) => {
   const ref = useRef();
