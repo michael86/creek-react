@@ -6,7 +6,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useContent from "../hooks/useContent";
 
 import styles from "../styles/Gallery.module.css";
-
+import FormattedContent from "./FormattedContent";
+import uuid from "react-native-uuid";
 gsap.registerPlugin(ScrollTrigger);
 
 const Gallery = ({ addRef }) => {
@@ -96,7 +97,7 @@ const Gallery = ({ addRef }) => {
                 >
                   <img src={`/images/gallery/${image.name}`} alt={image.alt} />
                   <div className={styles.imageDescription}>
-                    <p>{image.description}</p>
+                    <FormattedContent data={{ content: image.description, key: uuid.v4() }} />
                   </div>
                 </div>
               )

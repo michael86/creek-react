@@ -2,11 +2,12 @@ import styles from "../styles/Landing.module.css";
 import Global from "../styles/Global.module.css";
 import gsap from "gsap";
 import ScrollToPlugin from "gsap/ScrollToPlugin";
+import uuid from "react-native-uuid";
 
 import { useLayoutEffect, useRef, useState, useContext } from "react";
 import Viewport from "../context/Viewport";
 import useContent from "../hooks/useContent";
-
+import FormattedContent from "./FormattedContent";
 gsap.registerPlugin(ScrollToPlugin);
 
 const LandingGallery = ({ mm, setActiveContent }) => {
@@ -87,7 +88,6 @@ const LandingGallery = ({ mm, setActiveContent }) => {
       (context) => {
         const { isMobile } = context.conditions;
 
-        console.log("isMobile", isMobile);
         gsap.context(() => {
           activeTl.current = gsap
             .timeline()
@@ -178,7 +178,7 @@ const LandingGallery = ({ mm, setActiveContent }) => {
                 </div>
                 <div className={`${styles.cardContent} card-content`}>
                   <div className={styles.elipsisContainer}>
-                    <p>{card.description}</p>
+                    <FormattedContent data={{ content: card.description, key: uuid.v4() }} />
                   </div>
                   <div className={`${Global.mt2}`}>
                     <div

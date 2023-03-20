@@ -23,7 +23,7 @@
 .servicesContainer .expandAccordion {
   width: 5rem;
   height: auto;
-  z-index: 1;
+  z-index: 2;
   inset: 0;
   top: 50%;
   translate: 0 -50%;
