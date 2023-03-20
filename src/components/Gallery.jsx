@@ -50,7 +50,7 @@ const Gallery = ({ addRef }) => {
 
   useLayoutEffect(() => {
     revealRefs.current.forEach((container, i) => registerRevealTimeline(container, i));
-  }, []);
+  }, [content]);
 
   const onShowDescription = (index) => {
     const tl = revealTimelines.current[index];
