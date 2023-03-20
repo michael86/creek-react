@@ -34,7 +34,6 @@ const About = ({ addRef }) => {
         // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
         let { isDesktop, reduceMotion } = context.conditions;
         const paragraphs = [...ref.current.children[1].children].splice(1);
-        const card = ref.current.children[2].children[0];
 
         if (reduceMotion) return;
 
@@ -58,7 +57,7 @@ const About = ({ addRef }) => {
 
   useEffect(() => {
     content && addRef(ref);
-  }, [content]);
+  }, [content, addRef]);
 
   return (
     <>

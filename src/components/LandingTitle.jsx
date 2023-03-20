@@ -36,7 +36,7 @@ const LandingTitle = ({ mm }) => {
     );
 
     return () => mm.revert();
-  }, [content]);
+  }, [content, mm]);
 
   return (
     <>

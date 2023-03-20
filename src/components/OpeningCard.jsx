@@ -66,7 +66,12 @@ const OpeningCard = () => {
             <a href="#home" style={{ background: "#4267b2" }}>
               <FontAwesomeIcon icon={faFacebook} inverse />
             </a>
-            <a href="#home" style={{ background: "#1da1f2" }}>
+            <a
+              href="https://twitter.com/CreekviewLtd"
+              target={"_blank"}
+              rel={"noreferrer"}
+              style={{ background: "#1da1f2" }}
+            >
               <FontAwesomeIcon icon={faTwitter} inverse />
             </a>
 

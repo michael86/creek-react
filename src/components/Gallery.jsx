@@ -79,7 +79,7 @@ const Gallery = ({ addRef }) => {
 
   useEffect(() => {
     content && addRef(ref);
-  }, [content]);
+  }, [content, addRef]);
 
   return (
     <>

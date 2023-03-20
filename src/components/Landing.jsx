@@ -14,7 +14,7 @@ const Landing = ({ addRef, sections, activeContent, setActiveContent }) => {
 
   useEffect(() => {
     addRef(containerRef);
-  }, []);
+  }, [addRef]);
 
   return (
     <>

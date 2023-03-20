@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Viewport from "./context/Viewport";
 import useWidth from "./hooks/useWidth";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 function App() {
   const [width] = useWidth();

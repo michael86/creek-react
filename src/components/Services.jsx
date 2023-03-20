@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Viewport from "../context/Viewport";
 import useContent from "../hooks/useContent";
 
@@ -15,7 +15,7 @@ const Services = ({ addRef, activeContent, setActiveContent }) => {
 
   useEffect(() => {
     addRef(ref);
-  }, []);
+  }, [addRef]);
 
   return (
     <div ref={ref} className={styles.container} id="services">
