@@ -93,6 +93,8 @@ const Gallery = ({ addRef }) => {
                   className={`${styles.reveal}`}
                   ref={(el) => (revealRefs.current[i] = el)}
                   onClick={() => onShowDescription(i)}
+                  onMouseOver={() => gsap.to(revealRefs.current[i].children[0], { scale: 1.5 })}
+                  onMouseLeave={() => gsap.to(revealRefs.current[i].children[0], { scale: 1 })}
                   key={i}
                 >
                   <img src={`/images/gallery/${image.name}`} alt={image.alt} />

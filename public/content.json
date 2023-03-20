@@ -4,7 +4,7 @@
     "landingCards": [
       {
         "title": "PCB Design",
-        "srcDesktop": "images/design-logo.webp",
+        "srcDesktop": "images/pcbDesignBgWhite.svg",
         "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
         "alt": "pcb Design as a service",
         "id": "design",
@@ -12,7 +12,7 @@
       },
       {
         "title": "PCB Fabrication",
-        "srcDesktop": "images/fabrication-logo.webp",
+        "srcDesktop": "images/pcbFabricationBgWhite.svg",
         "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
         "alt": "pcb fabrication as a service",
         "id": "fabrication",
@@ -21,7 +21,7 @@
       {
         "title": "PCB Assembly",
         "srcMobile": "https://elitees.com/wp-content/uploads/2021/06/DSCF9318.jpg",
-        "srcDesktop": "/images/assembly-logo.webp",
+        "srcDesktop": "/images/pcbAssemblyBg.svg",
         "alt": "pcb Assembly as a service",
         "id": "assembly",
         "description": "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
@@ -256,65 +256,45 @@
   },
   "gallery": [
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2698 Y.jpg",
       "alt": "Custom PCBS",
-      "description": "We have fprmatted content"
+      "description": "Description Pending"
     },
 
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2712.jpg",
       "alt": "Custom PCBS",
-      "description": "2"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2732 Y.jpg",
       "alt": "Custom PCBS",
-      "description": "3"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2739.jpg",
       "alt": "Custom PCBS",
-      "description": "4"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2742.jpg",
       "alt": "Custom PCBS",
-      "description": "5"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2766.jpg",
       "alt": "Custom PCBS",
-      "description": "6"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2768.jpg",
       "alt": "Custom PCBS",
-      "description": "7"
+      "description": "Description Pending"
     },
     {
-      "name": "custom-pcbs.jpg",
+      "name": "IMG_2779.jpg",
       "alt": "Custom PCBS",
-      "description": "8"
-    },
-    {
-      "name": "custom-pcbs.jpg",
-      "alt": "Custom PCBS",
-      "description": "9"
-    },
-    {
-      "name": "custom-pcbs.jpg",
-      "alt": "Custom PCBS",
-      "description": "10"
-    },
-    {
-      "name": "custom-pcbs.jpg",
-      "alt": "Custom PCBS",
-      "description": "11"
-    },
-    {
-      "name": "custom-pcbs.jpg",
-      "alt": "Custom PCBS",
-      "description": "12"
+      "description": "Description Pending"
     }
   ]
 }

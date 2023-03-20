@@ -17,6 +17,11 @@
   width: 100%;
   height: auto;
   display: block;
+  max-height: 29rem;
+}
+
+.galleryContainer img:hover {
+  cursor: pointer;
 }
 
 .imageDescription {

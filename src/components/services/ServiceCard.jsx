@@ -4,14 +4,14 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import styles from "../../styles/Services.module.css";
 import PcbAssemblyBg from "./svgs/PcbAssemblyBg";
 import PcbDesignBg from "./svgs/PcbDesignBg";
-// import PcbDesignDots from "./svgs/PcbDesignDots";
 import PcbFabricationBg from "./svgs/PcbFabricationBg";
+import BoxBuildBg from "./svgs/BoxBuildBg";
 
 const cardImages = {
   design: PcbDesignBg,
   fabrication: PcbFabricationBg,
   assembly: PcbAssemblyBg,
-  "box-build": PcbDesignBg,
+  "box-build": BoxBuildBg,
 };
 
 gsap.registerPlugin(ScrollTrigger);

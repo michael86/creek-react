@@ -1,16 +1,18 @@
-import { useLayoutEffect } from "react";
+import { useContext, useLayoutEffect } from "react";
 import gsap from "gsap";
 import ServiceSection from "../ServiceSection";
 import ServiceButton from "../ServiceButton";
 import styles from "../../../styles/Services.module.css";
 import { useRef } from "react";
+import Viewport from "../../../context/Viewport";
 
 const PcbDesignMobile = ({ content }) => {
   const ref = useRef();
   const mainRef = useRef();
   const asideRef = useRef();
   const btnTimeline = useRef();
-  const timeline = useRef();
+
+  const { width } = useContext(Viewport);
 
   const toggleSectionAside = () => {
     if (btnTimeline.current)
@@ -40,27 +42,48 @@ const PcbDesignMobile = ({ content }) => {
 
   //Paragraphs
   useLayoutEffect(() => {
-    const paragraphs = mainRef.current.children;
+    if (!content) return;
 
-    const ctx = gsap.context(() => {
-      [...paragraphs].forEach((sentence) => {
-        timeline.current = gsap.from(sentence, {
+    let mm = gsap.matchMedia(),
+      breakPoint = 991;
+
+    mm.add(
+      {
+        // set up any number of arbitrarily-named conditions. The function below will be called when ANY of them match.
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        // context.conditions has a boolean property for each condition defined above indicating if it's matched or not.
+        let { reduceMotion, isMobile } = context.conditions;
+        const paragraphs = mainRef.current.children;
+
+        if (reduceMotion || !isMobile) return;
+        console.log("yeet");
+        console.log(paragraphs, ref.current);
+        gsap.set(paragraphs, {
+          display: "inline-block",
+          onComplete: () => {
+            console.log("complete", paragraphs[0].style.display);
+          },
+        });
+        gsap.from(paragraphs, {
           scrollTrigger: {
-            trigger: sentence,
+            trigger: ref.current,
             start: "top 80%",
-            end: "top 40%",
+            end: "top 30%",
             scrub: true,
           },
-          stagger: 0.2,
-          autoAlpha: 0,
-          scale: 0,
           y: 100,
+          x: 500,
+          autoAlpha: 0,
+          stagger: 0.2,
         });
-      });
-    }, ref.current);
+      }
+    );
 
-    return () => ctx.revert();
-  }, [content]);
+    return () => mm.revert();
+  }, [content, width]);
 
   return (
     <>

@@ -6,22 +6,22 @@ import gsap from "gsap";
 const ActiveService = ({ content, addRef }) => {
   const ref = useRef();
 
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-    const main = ref.current.children[0];
-    const aside = ref.current.children[1];
+  // useLayoutEffect(() => {
+  //   if (!ref.current) return;
+  //   const main = ref.current.children[0];
+  //   const aside = ref.current.children[1];
 
-    gsap
-      .timeline()
-      .from(main.children, {
-        autoAlpha: 0,
-        stagger: 0.1,
-      })
-      .from(aside.children, {
-        autoAlpha: 0,
-        stagger: 0.1,
-      });
-  }, [content]);
+  //   gsap
+  //     .timeline()
+  //     .from(main.children, {
+  //       autoAlpha: 0,
+  //       stagger: 0.1,
+  //     })
+  //     .from(aside.children, {
+  //       autoAlpha: 0,
+  //       stagger: 0.1,
+  //     });
+  // }, [content]);
 
   return (
     <div className={styles.serviceContainer} ref={ref}>
