@@ -59,7 +59,7 @@ const PcbDesignMobile = ({ content }) => {
     }, ref.current);
 
     return () => ctx.revert();
-  }, []);
+  }, [content]);
 
   return (
     <>

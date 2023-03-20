@@ -59,7 +59,7 @@ const BoxBuildMobile = ({ content }) => {
     }, ref.current);
 
     return () => ctx.revert();
-  }, []);
+  }, [content]);
 
   return (
     <>
