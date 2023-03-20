@@ -76,23 +76,41 @@ const LandingGallery = ({ mm, setActiveContent }) => {
     const currCard = cardRefs.current[current];
     const newCard = cardRefs.current[newIndex];
 
-    gsap.context(() => {
-      activeTl.current = gsap
-        .timeline()
-        .to("h2", { x: "-100%" }, 0)
-        .to(`.card-header-img`, { autoAlpha: "0" }, 0)
-        .to(`.card-content`, { y: "100%" }, 0)
-        .to(currCard, { display: "none" });
-    }, currCard);
+    const mm = gsap.matchMedia(),
+      breakPoint = 991;
 
-    gsap.context(() => {
-      activeTl.currCard = gsap
-        .timeline()
-        .set(newCard, { display: "block" })
-        .fromTo("h2", { x: "100%" }, { x: "0" }, 0)
-        .fromTo(`.card-header-img`, { autoAlpha: "0" }, { autoAlpha: "1" }, 0)
-        .fromTo(`.card-content`, { y: "100%" }, { y: "0" }, 0);
-    }, newCard);
+    mm.add(
+      {
+        isMobile: `(max-width: ${breakPoint - 1}px)`,
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        const { isMobile } = context.conditions;
+
+        console.log("isMobile", isMobile);
+        gsap.context(() => {
+          activeTl.current = gsap
+            .timeline()
+            .to("h2", { x: isMobile && "-100%" }, 0)
+            .to(`.card-header-img`, { autoAlpha: isMobile && "0" }, 0)
+            .to(`.card-content`, { y: isMobile && "100%" }, 0);
+        }, currCard);
+
+        gsap.context(() => {
+          activeTl.currCard = gsap
+            .timeline()
+            .set(newCard, { display: isMobile && "block" })
+            .fromTo("h2", { x: isMobile && "100%" }, { x: isMobile && "0" }, 0)
+            .fromTo(
+              `.card-header-img`,
+              { autoAlpha: isMobile && "0" },
+              { autoAlpha: isMobile && "1" },
+              0
+            )
+            .fromTo(`.card-content`, { y: isMobile && "100%" }, { y: isMobile && "0" }, 0);
+        }, newCard);
+      }
+    );
 
     setGallIndex(newIndex);
   };
