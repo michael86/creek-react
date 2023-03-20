@@ -8,11 +8,10 @@ import ConditionWrapper from "./ConditionalWrapper";
 
 import styles from "../styles/Services.module.css";
 
-const Services = ({ addRef }) => {
+const Services = ({ addRef, activeContent, setActiveContent }) => {
   const { width } = useContext(Viewport);
   const ref = useRef();
   const [content] = useContent("services");
-  const [activeContent, setActiveContent] = useState("design");
 
   useEffect(() => {
     addRef(ref);

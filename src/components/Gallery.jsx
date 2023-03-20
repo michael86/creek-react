@@ -3,72 +3,9 @@ import { Power2 } from "gsap/all";
 
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import useContent from "../hooks/useContent";
 
 import styles from "../styles/Gallery.module.css";
-
-const galleryImages = [
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "1",
-  },
-
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "2",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "3",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "4",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "5",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "6",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "7",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "8",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "9",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "10",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "11",
-  },
-  {
-    name: "custom-pcbs.jpg",
-    alt: "Custom PCBS",
-    description: "12",
-  },
-];
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +14,7 @@ const Gallery = ({ addRef }) => {
   const revealRefs = useRef([]);
   const revealTimelines = useRef([]);
   const firstRender = useRef(true);
-
+  const [content] = useContent("gallery");
   const [showAmount, setShowAmount] = useState(4);
 
   const registerRevealTimeline = (ref, i) => {
@@ -138,35 +75,41 @@ const Gallery = ({ addRef }) => {
   }, [showAmount]);
 
   const onShowMore = () => setShowAmount(+showAmount + 4);
+
   useEffect(() => {
-    addRef(ref);
-  }, []);
+    content && addRef(ref);
+  }, [content]);
 
   return (
-    <section className={`${styles.galleryContainer}`} ref={ref} id="gallery">
-      {galleryImages.map((image, i) => {
-        return (
-          i + 1 <= showAmount && (
-            <div
-              className={`${styles.reveal}`}
-              ref={(el) => (revealRefs.current[i] = el)}
-              onClick={() => onShowDescription(i)}
-              key={i}
-            >
-              <img src={`/images/gallery/${image.name}`} alt={image.alt} />
-              <div className={styles.imageDescription}>
-                <p>{image.description}</p>
-              </div>
-            </div>
-          )
-        );
-      })}
-      {showAmount < galleryImages.length && (
-        <button className={styles.bubblyButton} onClick={onShowMore}>
-          Show more
-        </button>
+    <>
+      {!content && <h3>loading</h3>}
+      {content && (
+        <section className={`${styles.galleryContainer}`} ref={ref} id="gallery">
+          {content.map((image, i) => {
+            return (
+              i + 1 <= showAmount && (
+                <div
+                  className={`${styles.reveal}`}
+                  ref={(el) => (revealRefs.current[i] = el)}
+                  onClick={() => onShowDescription(i)}
+                  key={i}
+                >
+                  <img src={`/images/gallery/${image.name}`} alt={image.alt} />
+                  <div className={styles.imageDescription}>
+                    <p>{image.description}</p>
+                  </div>
+                </div>
+              )
+            );
+          })}
+          {showAmount < content.length && (
+            <button className={styles.bubblyButton} onClick={onShowMore}>
+              Show more
+            </button>
+          )}
+        </section>
       )}
-    </section>
+    </>
   );
 };
 

@@ -19,6 +19,7 @@ function App() {
     sections[ref.current.id] = ref.current;
     setSections(sections);
   };
+  const [activeContent, setActiveContent] = useState("design");
 
   return (
     <Viewport.Provider value={{ width }}>
@@ -26,9 +27,18 @@ function App() {
         <Nav sections={sections} />
       </header>
       <main>
-        <Landing addRef={addRef} />
+        <Landing
+          addRef={addRef}
+          sections={sections}
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
+        />
         <About addRef={addRef} />
-        <Services addRef={addRef} />
+        <Services
+          addRef={addRef}
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
+        />
         <Gallery addRef={addRef} />
       </main>
       <footer>

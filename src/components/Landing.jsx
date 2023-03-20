@@ -6,7 +6,7 @@ import useContent from "../hooks/useContent";
 import LandingGallery from "./LandingGallery";
 import LandingTitle from "./LandingTitle";
 
-const Landing = ({ addRef }) => {
+const Landing = ({ addRef, sections, activeContent, setActiveContent }) => {
   const [content] = useContent("landing");
   const containerRef = useRef();
 
@@ -20,7 +20,12 @@ const Landing = ({ addRef }) => {
     <>
       <section className={styles.landing} ref={containerRef} id="landing">
         <LandingTitle content={content} mm={mm} />
-        <LandingGallery mm={mm} />
+        <LandingGallery
+          mm={mm}
+          sections={sections}
+          activeContent={activeContent}
+          setActiveContent={setActiveContent}
+        />
       </section>
     </>
   );

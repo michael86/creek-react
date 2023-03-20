@@ -1,5 +1,41 @@
 {
-  "landing": "Global Pcb Specialists",
+  "landing": {
+    "subtitle": "Global Pcb Specialists",
+    "landingCards": [
+      {
+        "title": "PCB Design",
+        "srcDesktop": "images/design-logo.webp",
+        "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
+        "alt": "pcb Design as a service",
+        "id": "design",
+        "description": "We can offer rapid 24-hour lead times on small batch productions, or for very large scale productions, we have international manufacturing partners"
+      },
+      {
+        "title": "PCB Fabrication",
+        "srcDesktop": "images/fabrication-logo.webp",
+        "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
+        "alt": "pcb fabrication as a service",
+        "id": "fabrication",
+        "description": "Creekview Electronics is one of the few UK printed circuit board manufacturers to provide a complete electronic manufacturing service."
+      },
+      {
+        "title": "PCB Assembly",
+        "srcMobile": "https://elitees.com/wp-content/uploads/2021/06/DSCF9318.jpg",
+        "srcDesktop": "/images/assembly-logo.webp",
+        "alt": "pcb Assembly as a service",
+        "id": "assembly",
+        "description": "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
+      },
+      {
+        "title": "Box Builds",
+        "srcDesktop": "images/box-build-logo.svg",
+        "srcMobile": "https://www.miracle.net.in/wp-content/uploads/2019/05/Outsourcing-A-Box-Build-Assembly-All-You-Need-To-Know.jpg",
+        "alt": "Box Builds as a service",
+        "id": "box-build",
+        "description": "Box build assembly uses all the skills & manufacturing expertise of Creekview, with the addition of completing your product to a finished item, ready to go"
+      }
+    ]
+  },
   "about": [
     "Originally established as ##Valco UK Ltd## in 1998, the company split its mechanical and electrical divisions with the latter emerging as __Creek View Electronics__ in 2005. This meant that we could continue to grow within the --electrical manufacturing-- industry and provide a better service to our customers. As one of the leading ##electronic design engineers in Essex##, we specialise in a variety of services.",
     "From conformal coating and cable assembly to box build assembly and __electrical testing__ and __inspection services__, you can ensure that Creek View Electronics will provide a service that is second to none. So, if you're looking for a high quality and reliable electronic design company, why not choose Creek View Electronics? For many years, Creek View Electronics obtained its printed circuit boards from Photomechanical Services Ltd, which was established in 1969.",
@@ -217,5 +253,68 @@
       ],
       "aside": [{ "type": "gallery", "content": ["img"] }]
     }
-  }
+  },
+  "gallery": [
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "1"
+    },
+
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "2"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "3"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "4"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "5"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "6"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "7"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "8"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "9"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "10"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "11"
+    },
+    {
+      "name": "custom-pcbs.jpg",
+      "alt": "Custom PCBS",
+      "description": "12"
+    }
+  ]
 }
