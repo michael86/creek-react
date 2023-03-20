@@ -17,13 +17,25 @@ const Footer = () => {
         <div className={styles.directContactContainer}>
           <p>Do you have a challenge for us?</p>
           <p>Get in touch with a member of our team to start discussing your goals</p>
-          <div className={styles.emailBtn}>
+          <div
+            className={styles.emailBtn}
+            onClick={(e) => {
+              window.location.href = "mailto:sadsad@saddasd";
+              e.preventDefault();
+            }}
+          >
             <a href="mailto:sadsad@saddasd">
               Email Us
               <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faEnvelope} />
             </a>
           </div>
-          <div className={styles.callBtn}>
+          <div
+            className={styles.callBtn}
+            onClick={(e) => {
+              window.location.href = "tel:0000000000";
+              e.preventDefault();
+            }}
+          >
             <a href="tel:0000000000">
               Phone Us
               <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faPhone} />
