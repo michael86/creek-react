@@ -2,8 +2,7 @@ import gsap from "gsap";
 import { Power2 } from "gsap/all";
 
 import ScrollTrigger from "gsap/ScrollTrigger";
-import { useEffect, useRef, useState } from "react";
-import { useLayoutEffect } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 import styles from "../styles/Gallery.module.css";
 
@@ -73,8 +72,8 @@ const galleryImages = [
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Gallery = () => {
-  const containerRef = useRef();
+const Gallery = ({ addRef }) => {
+  const ref = useRef();
   const revealRefs = useRef([]);
   const revealTimelines = useRef([]);
   const firstRender = useRef(true);
@@ -139,9 +138,12 @@ const Gallery = () => {
   }, [showAmount]);
 
   const onShowMore = () => setShowAmount(+showAmount + 4);
+  useEffect(() => {
+    addRef(ref);
+  }, []);
 
   return (
-    <section className={`${styles.galleryContainer}`} ref={containerRef} id="gallery">
+    <section className={`${styles.galleryContainer}`} ref={ref} id="gallery">
       {galleryImages.map((image, i) => {
         return (
           i + 1 <= showAmount && (

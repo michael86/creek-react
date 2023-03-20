@@ -1,16 +1,20 @@
 import gsap from "gsap";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "../styles/Landing.module.css";
 import useContent from "../hooks/useContent";
 
 import LandingGallery from "./LandingGallery";
 import LandingTitle from "./LandingTitle";
 
-const Landing = () => {
+const Landing = ({ addRef }) => {
   const [content] = useContent("landing");
   const containerRef = useRef();
 
   const [mm] = useState(gsap.matchMedia());
+
+  useEffect(() => {
+    addRef(containerRef);
+  }, []);
 
   return (
     <>

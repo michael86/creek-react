@@ -6,7 +6,7 @@ import styles from "../styles/Nav.module.css";
 
 gsap.registerPlugin(ScrollToPlugin);
 
-const Nav = () => {
+const Nav = ({ sections }) => {
   const [navOpen, setNavOpen] = useState(false);
 
   const { height } = useContext(Viewport);
@@ -77,7 +77,7 @@ const Nav = () => {
   };
 
   const onNavigate = (target, id) => {
-    const letters = [...target.children[0].children];
+    const letters = [...target.current.children[0].children];
     if (letters) {
       letters.forEach((letter) => {
         gsap.to(letter, {
@@ -89,17 +89,15 @@ const Nav = () => {
           duration: 1,
           onComplete: function () {
             gsap.set(this.targets(), { clearProps: "all" });
-            window.scrollTo(id);
           },
         });
       });
     }
 
     setTimeout(() => {
+      gsap.to(window, { duration: 1, scrollTo: sections[id] });
       setNavOpen(false);
-
-      gsap.to(window, { scrollTo: target });
-    }, 200);
+    }, 500);
   };
 
   return (
@@ -117,7 +115,7 @@ const Nav = () => {
       </div>
       <ul className={styles.navList}>
         <li
-          onClick={(e) => onNavigate(homeRef.current, "landing")}
+          onClick={(e) => onNavigate(homeRef, "landing")}
           ref={homeRef}
           className={`${styles.navItem} nav-link`}
         >
@@ -129,7 +127,7 @@ const Nav = () => {
           </p>
         </li>
         <li
-          onClick={() => onNavigate(aboutRef.current, "about")}
+          onClick={() => onNavigate(aboutRef, "about")}
           ref={aboutRef}
           className={`${styles.navItem} nav-link`}
         >
@@ -142,18 +140,35 @@ const Nav = () => {
           </p>
         </li>
         <li
-          onClick={() => onNavigate(gallRef.current, "gallery")}
+          onClick={() => onNavigate(gallRef, "gallery")}
           ref={gallRef}
           className={`${styles.navItem} nav-link`}
         >
-          <p className={styles.navLink}>Gallery</p>
+          <p className={styles.navLink}>
+            <span className={styles.navLetters}>G</span>
+            <span className={styles.navLetters}>a</span>
+            <span className={styles.navLetters}>l</span>
+            <span className={styles.navLetters}>l</span>
+            <span className={styles.navLetters}>e</span>
+            <span className={styles.navLetters}>r</span>
+            <span className={styles.navLetters}>y</span>
+          </p>
         </li>
         <li
-          onClick={() => onNavigate(serviceRef.current, "services")}
-          ref={gallRef}
+          onClick={() => onNavigate(serviceRef, "services")}
+          ref={serviceRef}
           className={`${styles.navItem} nav-link`}
         >
-          <p className={styles.navLink}>Services</p>
+          <p className={styles.navLink}>
+            <span className={styles.navLetters}>S</span>
+            <span className={styles.navLetters}>e</span>
+            <span className={styles.navLetters}>r</span>
+            <span className={styles.navLetters}>v</span>
+            <span className={styles.navLetters}>i</span>
+            <span className={styles.navLetters}>c</span>
+            <span className={styles.navLetters}>e</span>
+            <span className={styles.navLetters}>s</span>
+          </p>
         </li>
       </ul>
     </nav>

@@ -43,12 +43,11 @@ const BoxBuildMobile = ({ content }) => {
     const paragraphs = mainRef.current.children;
     const ctx = gsap.context(() => {
       [...paragraphs].forEach((sentence) => {
-        if (!sentence.children.length) return;
-        timeline.current = gsap.from(sentence.children, {
+        timeline.current = gsap.from(sentence, {
           scrollTrigger: {
             trigger: sentence,
-            start: "top 80%",
-            end: "top 40%",
+            start: "top 90%",
+            end: "top center%",
             scrub: true,
           },
           stagger: 0.2,

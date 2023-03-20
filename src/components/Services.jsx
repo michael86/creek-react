@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import Viewport from "../context/Viewport";
 import useContent from "../hooks/useContent";
 
@@ -8,14 +8,18 @@ import ConditionWrapper from "./ConditionalWrapper";
 
 import styles from "../styles/Services.module.css";
 
-const Services = () => {
+const Services = ({ addRef }) => {
   const { width } = useContext(Viewport);
-
+  const ref = useRef();
   const [content] = useContent("services");
   const [activeContent, setActiveContent] = useState("design");
 
+  useEffect(() => {
+    addRef(ref);
+  }, []);
+
   return (
-    <div className={styles.container} id="services">
+    <div ref={ref} className={styles.container} id="services">
       {!content && <p>Loading</p>}
       {content && (
         <>

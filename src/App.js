@@ -8,20 +8,28 @@ import Footer from "./components/Footer";
 import Gallery from "./components/Gallery";
 import Viewport from "./context/Viewport";
 import useWidth from "./hooks/useWidth";
+import { useRef, useState } from "react";
 
 function App() {
   const [width] = useWidth();
 
+  const [sections, setSections] = useState({});
+
+  const addRef = (ref) => {
+    sections[ref.current.id] = ref.current;
+    setSections(sections);
+  };
+
   return (
     <Viewport.Provider value={{ width }}>
       <header>
-        <Nav />
+        <Nav sections={sections} />
       </header>
       <main>
-        <Landing />
-        <About />
-        <Services />
-        <Gallery />
+        <Landing addRef={addRef} />
+        <About addRef={addRef} />
+        <Services addRef={addRef} />
+        <Gallery addRef={addRef} />
       </main>
       <footer>
         <Footer />

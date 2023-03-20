@@ -1,5 +1,5 @@
 import styles from "../styles/About.module.css";
-import { useContext, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import { useLayoutEffect } from "react";
@@ -12,7 +12,7 @@ import FormattedContent from "./FormattedContent";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const About = () => {
+const About = ({ addRef }) => {
   const ref = useRef();
   const { width } = useContext(Viewport);
   const [content] = useContent("about", true);
@@ -55,6 +55,10 @@ const About = () => {
 
     return () => mm.revert();
   }, [content, width]);
+
+  useEffect(() => {
+    content && addRef(ref);
+  }, [content]);
 
   return (
     <>

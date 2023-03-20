@@ -44,8 +44,7 @@ const PcbDesignMobile = ({ content }) => {
 
     const ctx = gsap.context(() => {
       [...paragraphs].forEach((sentence) => {
-        if (!sentence.children.length) return;
-        timeline.current = gsap.from(sentence.children, {
+        timeline.current = gsap.from(sentence, {
           scrollTrigger: {
             trigger: sentence,
             start: "top 80%",
