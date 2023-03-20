@@ -8,8 +8,8 @@ gsap.registerPlugin(ScrollToPlugin);
 
 const Nav = ({ sections }) => {
   const [navOpen, setNavOpen] = useState(false);
+  const { width } = useContext(Viewport);
 
-  const { height } = useContext(Viewport);
   const navRef = useRef();
   const navTimeline = useRef();
   const homeRef = useRef();
@@ -31,6 +31,7 @@ const Nav = ({ sections }) => {
       gsap.to("#line-three", { top: "0vh", ease: "bounce", duration: 2 });
 
       //if width greater than height
+      console.log("width", width);
       navTimeline.current = gsap
         .timeline({ paused: true })
         .to("#line-one", {
@@ -56,13 +57,13 @@ const Nav = ({ sections }) => {
         .fromTo(
           ".nav-link > p",
           { fontSize: "0" },
-          { fontSize: "20vw", stagger: 0.1, delay: 0.5, duration: 0.5 },
+          { fontSize: width >= 991 ? "8vw" : "20vw", stagger: 0.1, delay: 0.5, duration: 0.5 },
           0
         );
     }, navRef);
 
     return () => ctx.revert();
-  }, [height]);
+  }, [width]);
 
   useEffect(() => {
     if (firstRender.current) {
