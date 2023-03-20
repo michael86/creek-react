@@ -15,7 +15,7 @@ const Services = () => {
   const [activeContent, setActiveContent] = useState("design");
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} id="services">
       {!content && <p>Loading</p>}
       {content && (
         <>

@@ -75,11 +75,24 @@ footer p {
 .smallPrint {
   text-align: center;
   font-size: 1.2rem;
+  padding-bottom: 2rem;
 }
 
 .smallPrint a {
   color: #2483d1;
 }
+
+.smallPrint p {
+  display: inline;
+}
+
+.smallPrint p:not(:last-of-type):after {
+  content: "\0000a0|\0000a0";
+  display: inline-block;
+  translate: 0 10%;
+  font-size: 2.5rem;
+}
+
 @media screen and (min-width: 991px) {
   footer {
     display: grid;

@@ -42,7 +42,8 @@ const PcbAssemblyMobile = ({ content }) => {
   useLayoutEffect(() => {
     const paragraphs = mainRef.current.children;
     const ctx = gsap.context(() => {
-      [...paragraphs].forEach((sentence, index) => {
+      [...paragraphs].forEach((sentence) => {
+        if (!sentence.children.length) return;
         timeline.current = gsap.from(sentence.children, {
           scrollTrigger: {
             trigger: sentence,

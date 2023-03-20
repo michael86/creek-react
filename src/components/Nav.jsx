@@ -1,12 +1,6 @@
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/all";
-import React, {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { useContext, useEffect, useLayoutEffect, useRef, useState } from "react";
 import Viewport from "../context/Viewport";
 import styles from "../styles/Nav.module.css";
 
@@ -20,6 +14,8 @@ const Nav = () => {
   const navTimeline = useRef();
   const homeRef = useRef();
   const aboutRef = useRef();
+  const gallRef = useRef();
+  const serviceRef = useRef();
   const firstRender = useRef(true);
 
   const genRandNumber = () => {
@@ -80,9 +76,8 @@ const Nav = () => {
     setNavOpen(!navOpen);
   };
 
-  const onNavigate = (target) => {
+  const onNavigate = (target, id) => {
     const letters = [...target.children[0].children];
-
     if (letters) {
       letters.forEach((letter) => {
         gsap.to(letter, {
@@ -94,6 +89,7 @@ const Nav = () => {
           duration: 1,
           onComplete: function () {
             gsap.set(this.targets(), { clearProps: "all" });
+            window.scrollTo(id);
           },
         });
       });
@@ -109,26 +105,19 @@ const Nav = () => {
   return (
     <nav className={styles.base} ref={navRef}>
       <div className={styles.hamburger} onClick={onClick}>
-        <div
-          id="line-one"
-          className={[styles.line, styles.lineOne].join(" ")}
-        ></div>
+        <div id="line-one" className={[styles.line, styles.lineOne].join(" ")}></div>
         <div
           id="line-two"
-          className={[styles.line, styles.lineOne, styles.lineTwoMargin].join(
-            " "
-          )}
+          className={[styles.line, styles.lineOne, styles.lineTwoMargin].join(" ")}
         ></div>
         <div
           id="line-three"
-          className={[styles.line, styles.lineOne, styles.lineThreeMargin].join(
-            " "
-          )}
+          className={[styles.line, styles.lineOne, styles.lineThreeMargin].join(" ")}
         ></div>
       </div>
       <ul className={styles.navList}>
         <li
-          onClick={(e) => onNavigate(homeRef.current)}
+          onClick={(e) => onNavigate(homeRef.current, "landing")}
           ref={homeRef}
           className={`${styles.navItem} nav-link`}
         >
@@ -140,7 +129,7 @@ const Nav = () => {
           </p>
         </li>
         <li
-          onClick={() => onNavigate(aboutRef.current)}
+          onClick={() => onNavigate(aboutRef.current, "about")}
           ref={aboutRef}
           className={`${styles.navItem} nav-link`}
         >
@@ -152,14 +141,19 @@ const Nav = () => {
             <span className={styles.navLetters}>t</span>
           </p>
         </li>
-        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
+        <li
+          onClick={() => onNavigate(gallRef.current, "gallery")}
+          ref={gallRef}
+          className={`${styles.navItem} nav-link`}
+        >
           <p className={styles.navLink}>Gallery</p>
         </li>
-        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
+        <li
+          onClick={() => onNavigate(serviceRef.current, "services")}
+          ref={gallRef}
+          className={`${styles.navItem} nav-link`}
+        >
           <p className={styles.navLink}>Services</p>
-        </li>
-        <li onClick={onNavigate} className={`${styles.navItem} nav-link`}>
-          <p className={styles.navLink}>Contact</p>
         </li>
       </ul>
     </nav>

@@ -141,7 +141,7 @@ const Gallery = () => {
   const onShowMore = () => setShowAmount(+showAmount + 4);
 
   return (
-    <section className={`${styles.galleryContainer}`} ref={containerRef}>
+    <section className={`${styles.galleryContainer}`} ref={containerRef} id="gallery">
       {galleryImages.map((image, i) => {
         return (
           i + 1 <= showAmount && (
