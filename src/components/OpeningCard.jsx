@@ -2,12 +2,24 @@ import styles from "../styles/About.module.css";
 import gsap from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { useLayoutEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useWidth from "../hooks/useWidth";
 
 const OpeningCard = () => {
   const [width] = useWidth();
+  const [open, setOpen] = useState(false);
   const ref = useRef();
+
+  useEffect(() => {
+    const d = new Date();
+    const day = d.getDay();
+    const hour = d.getHours();
+
+    if (day > 0 && day < 5) {
+      if (hour >= 8 && hour <= 17) setOpen(true);
+    }
+    if (day === 5 && hour >= 8 && hour <= 12) setOpen(true);
+  }, []);
 
   useLayoutEffect(() => {
     const mm = gsap.matchMedia(),
@@ -52,7 +64,10 @@ const OpeningCard = () => {
 
         <div className={styles.cardBody}>
           <p>
-            We are currently <span className="open-status">open</span>
+            We are currently{" "}
+            <span className="open-status" style={{ color: open ? "green" : "red" }}>
+              {open ? "open" : "closed"}
+            </span>
           </p>
           <ul>
             <li>Mon: 8AM - 5PM</li>
