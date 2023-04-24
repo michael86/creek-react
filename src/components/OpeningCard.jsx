@@ -78,9 +78,10 @@ const OpeningCard = () => {
           </ul>
 
           <div className={styles.socialsContainer}>
-            <a href="#home" style={{ background: "#4267b2" }}>
+            {/* //Facebook */}
+            {/* <a href="#home" style={{ background: "#4267b2" }}>
               <FontAwesomeIcon icon={faFacebook} inverse />
-            </a>
+            </a> */}
             <a
               href="https://twitter.com/CreekviewLtd"
               target={"_blank"}
@@ -90,16 +91,24 @@ const OpeningCard = () => {
               <FontAwesomeIcon icon={faTwitter} inverse />
             </a>
 
-            <a href="#home" style={{ background: "#ff0000" }}>
+            <a
+              href="https://uk.linkedin.com/company/creekview-electronics-ltd"
+              target={"_blank"}
+              rel={"noreferrer"}
+              style={{ background: "#ff0000" }}
+            >
               <FontAwesomeIcon icon={faLinkedin} inverse />
             </a>
           </div>
 
           <div className={styles.btnContainer}>
-            <a href="tel:01268 724187">
+            <a href="tel:01268724187">
               <button>Phone</button>
             </a>
-            <button>Email</button>
+
+            <a href="mailto:sales@creekviewelectronics.co.uk">
+              <button>Email Us</button>
+            </a>
           </div>
         </div>
       </div>

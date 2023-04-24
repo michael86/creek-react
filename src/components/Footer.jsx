@@ -20,11 +20,11 @@ const Footer = () => {
           <div
             className={styles.emailBtn}
             onClick={(e) => {
-              window.location.href = "mailto:sadsad@saddasd";
+              window.location.href = "mailto:sales@creekviewelectronics.co.uk";
               e.preventDefault();
             }}
           >
-            <a href="mailto:sadsad@saddasd">
+            <a href="mailto:sales@creekviewelectronics.co.uk">
               Email Us
               <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faEnvelope} />
             </a>
@@ -32,18 +32,18 @@ const Footer = () => {
           <div
             className={styles.callBtn}
             onClick={(e) => {
-              window.location.href = "tel:0000000000";
+              window.location.href = "tel:01268724187";
               e.preventDefault();
             }}
           >
-            <a href="tel:0000000000">
+            <a href="tel:01268724187">
               Phone Us
               <FontAwesomeIcon style={{ marginLeft: "1rem" }} icon={faPhone} />
             </a>
           </div>
         </div>
         <div className={styles.socialsContainer}>
-          <FontAwesomeIcon style={{ color: "#4267B2" }} icon={faFacebook} />
+          {/* <FontAwesomeIcon style={{ color: "#4267B2" }} icon={faFacebook} /> */}
           <a
             href="https://www.linkedin.com/company/creekview-electronics-ltd/mycompany/"
             target="_blank"
@@ -64,14 +64,14 @@ const Footer = () => {
               icon={faTwitter}
             />
           </a>
-          <a href="https://twitter.com/CreekviewLtd" target="_blank" rel="noreferrer">
+          {/* <a href="https://twitter.com/CreekviewLtd" target="_blank" rel="noreferrer">
             <FontAwesomeIcon
               style={{
                 color: "#1DA1F2",
               }}
               icon={faInstagram}
             />
-          </a>
+          </a> */}
         </div>
       </div>
       <iframe
