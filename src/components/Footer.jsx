@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <>
-      <h3>Do you have a challenge for us?</h3>
+      <h4>Do you have a challenge for us?</h4>
 
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
