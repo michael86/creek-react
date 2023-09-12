@@ -11,11 +11,11 @@ const Footer = () => {
 
   return (
     <>
-      <h3>Let's make your dream come true</h3>
+      <h3>Do you have a challenge for us?</h3>
 
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
-          <p>Do you have a challenge for us?</p>
+          
           <p>Get in touch with a member of our team to start discussing your goals</p>
           <div
             className={styles.emailBtn}
