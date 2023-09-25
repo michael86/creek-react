@@ -1,4 +1,4 @@
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
@@ -11,11 +11,10 @@ const Footer = () => {
 
   return (
     <>
-      <h4>Do you have a challenge for us?</h4>
+      <h3>Do you have a challenge for us?</h3>
 
       <div className={styles.contactContainer}>
         <div className={styles.directContactContainer}>
-          
           <p>Get in touch with a member of our team to start discussing your goals</p>
           <div
             className={styles.emailBtn}
