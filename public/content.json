@@ -254,47 +254,65 @@
       "aside": [{ "type": "gallery", "content": ["img"] }]
     }
   },
-  "gallery": [
-    {
-      "name": "IMG_2698 Y.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
+  "gallery": {
+    "box-build": [
+      {
+        "name": "IMG_2698 Y.jpg",
+        "alt": "Custom PCBS",
+        "description": "Box-build Description Pending"
+      },
 
-    {
-      "name": "IMG_2712.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2732 Y.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2739.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2742.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2766.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2768.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    },
-    {
-      "name": "IMG_2779.jpg",
-      "alt": "Custom PCBS",
-      "description": "Description Pending"
-    }
-  ]
+      {
+        "name": "IMG_2712.jpg",
+        "alt": "Custom PCBS",
+        "description": "Box-build Description Pending"
+      },
+      {
+        "name": "IMG_2732 Y.jpg",
+        "alt": "Custom PCBS",
+        "description": "Box-build Description Pending"
+      }
+    ],
+    "design": [
+      {
+        "name": "IMG_2739.jpg",
+        "alt": "Custom PCBS",
+        "description": "design Description Pending"
+      },
+      {
+        "name": "IMG_2742.jpg",
+        "alt": "Custom PCBS",
+        "description": "design Description Pending"
+      },
+      {
+        "name": "IMG_2766.jpg",
+        "alt": "Custom PCBS",
+        "description": "design Description Pending"
+      }
+    ],
+    "assembly": [
+      {
+        "name": "IMG_2768.jpg",
+        "alt": "Custom PCBS",
+        "description": "assembly Description Pending"
+      },
+      {
+        "name": "IMG_2779.jpg",
+        "alt": "Custom PCBS",
+        "description": "assembly Description Pending"
+      }
+    ],
+    "fabrication": [
+      {
+        "name": "IMG_2768.jpg",
+        "alt": "Custom PCBS",
+        "description": "fabrication Description Pending"
+      },
+      {
+        "name": "IMG_2779.jpg",
+        "alt": "Custom PCBS",
+        "description": "fabrication Description Pending"
+      }
+    ]
+  }
 }

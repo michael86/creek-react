@@ -10,7 +10,7 @@ import FormattedContent from "./FormattedContent";
 import uuid from "react-native-uuid";
 gsap.registerPlugin(ScrollTrigger);
 
-const Gallery = ({ addRef }) => {
+const Gallery = ({ addRef, activeContent }) => {
   const ref = useRef();
   const revealRefs = useRef([]);
   const revealTimelines = useRef([]);
@@ -86,7 +86,7 @@ const Gallery = ({ addRef }) => {
       {!content && <h3>loading</h3>}
       {content && (
         <section className={`${styles.galleryContainer}`} ref={ref} id="gallery">
-          {content.map((image, i) => {
+          {content[activeContent].map((image, i) => {
             return (
               i + 1 <= showAmount && (
                 <div

@@ -39,7 +39,7 @@ function App() {
           activeContent={activeContent}
           setActiveContent={setActiveContent}
         />
-        <Gallery addRef={addRef} />
+        <Gallery addRef={addRef} activeContent={activeContent} />
       </main>
       <footer>
         <Footer />
