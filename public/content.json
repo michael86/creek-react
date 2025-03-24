@@ -16,7 +16,7 @@
         "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
         "alt": "pcb fabrication as a service",
         "id": "fabrication",
-        "description": "Creekview Electronics is one of the few UK printed circuit board manufacturers to provide a complete electronic manufacturing service."
+        "description": "Creekview EMS is one of the few UK printed circuit board manufacturers to provide a complete electronic manufacturing service."
       },
       {
         "title": "PCB Assembly",
@@ -24,7 +24,7 @@
         "srcDesktop": "/images/pcbAssemblyBg.svg",
         "alt": "pcb Assembly as a service",
         "id": "assembly",
-        "description": "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
+        "description": "At Creekview EMS, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
       },
       {
         "title": "Box Builds",
@@ -50,7 +50,7 @@
         {
           "type": "text",
           "content": [
-            "With extensive experience in a wide variety of industries and systems, Creekview Electronics can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
+            "With extensive experience in a wide variety of industries and systems, Creekview EMS can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
             "Our aim is to deliver your project on time and to within your budget, and to ultimately surpass your expectations. Feasibility studies may first be undertaken to ensure that your project is viable both in engineering and economic terms. We then utilise creative design strategies to reduce costs wherever possible, and employ technical experts to support, refine and direct your project to completion.",
             "We offer a comprehensive range of design solutions including rapid prototyping for full 3D visual and engineering validation. We can also convert 2D drawings or reverse engineer parts into fully interactive 3D CAD models. These systems enable us to apply design for manufacture techniques throughout the project, ensuring that the product is optimised for the correct manufacturing and assembly process. This facilitates expert analysis of a product during the design process, where we can check parts and assemblies, and detect interference long before prototyping and manufacturing. This saves our customers time and money."
           ]
@@ -100,7 +100,7 @@
         {
           "type": "text",
           "content": [
-            "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project.",
+            "At Creekview EMS, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project.",
             "With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs. We have recently invested heavily into our surface mount technology, which now includes a Europlacer speed print automated stencil printer and Europlacer iineo II SMT machine.",
             "One of our three SMD placement machines is installed as high capacity automatic SMD placement, with several quick slot-in carts that allow us to switch setup quickly. This facilitates our extensive production capacity and ensures that we can consistently deliver high standards to our customers. Our through-hole facility is well-equipped, with skilled IPC trained operators to populate and solder components to boards. We can also provide automated placement of micro-BGA parts, giving us the flexibility to accommodate your requirements for each project."
           ]
