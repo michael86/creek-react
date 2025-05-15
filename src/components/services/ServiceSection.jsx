@@ -9,7 +9,9 @@ const ServiceSection = ({ main, light, addRef, type }) => {
   useEffect(() => {
     const copy = [];
 
-    main.forEach((content) => content.type === "list" && copy.push(content.content));
+    main.forEach(
+      (content) => content.type === "list" && copy.push(content.content)
+    );
 
     setUls(copy);
   }, [main]);
@@ -24,10 +26,18 @@ const ServiceSection = ({ main, light, addRef, type }) => {
           main.type === "text" &&
           (Array.isArray(main.content) ? (
             main.content.map((content, i) => {
-              return <FormattedContent key={i} data={{ content: content, key: uuid.v4() }} />;
+              return (
+                <FormattedContent
+                  key={i}
+                  data={{ content: content, key: uuid.v4() }}
+                />
+              );
             })
           ) : (
-            <FormattedContent key={i} data={{ content: main.content, key: uuid.v4() }} />
+            <FormattedContent
+              key={i}
+              data={{ content: main.content, key: uuid.v4() }}
+            />
           ))
         );
       })}

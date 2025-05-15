@@ -17,8 +17,6 @@ const Services = ({ addRef, activeContent, setActiveContent }) => {
     addRef(ref);
   }, [addRef]);
 
-  console.log("content", content);
-
   return (
     <div ref={ref} className={styles.container} id="services">
       {!content && <p>Loading</p>}

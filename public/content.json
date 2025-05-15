@@ -37,15 +37,19 @@
     ]
   },
   "about": [
-    "Originally established as ##Valco UK Ltd## in 1998, the company split its mechanical and electrical divisions with the latter emerging as __Creekview EMS__ in 2005. This meant that we could continue to grow within the --electrical manufacturing-- industry and provide a better service to our customers. As one of the leading ##electronic design engineers in Essex##, we specialise in a variety of services.",
-    "From conformal coating and cable assembly to box build assembly and __electrical testing__ and __inspection services__, you can ensure that Creekview EMS will provide a service that is second to none. So, if you're looking for a high quality and reliable electronic design company, why not choose Creekview EMS? For many years, Creekview obtained its printed circuit boards from Photomechanical Services Ltd, which was established in 1969.",
-    "Recognising the opportunity to provide customers with an --end-to-end service solution--, enhanced product quality and faster lead times, both companies joined forces and now trade under Creekview EMS Ltd."
+    "Originally established as Valco UK Ltd in 1998, the company restructured in 2005, forming Creek View Electronics to focus exclusively on electrical manufacturing. This shift enabled us to grow within the industry and enhance the service we offer our customers.",
+    "Based in Essex, we specialise in a wide range of services including conformal coating, cable assembly, box build assembly, and electrical testing and inspection—delivering reliable, high-quality solutions.",
+    "To further expand our capabilities and deliver a complete turnkey service, Creekview EMS Limited was established—offering everything from design to finished product. Every step of the process is covered, providing the one-stop solution our customers expect, all under one trusted name"
   ],
   "services": {
     "design": {
       "title": "PCB Design",
       "id": "design",
-      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
+      "cardHeaders": [
+        "Creative Design Strategies",
+        "Comprehensive Solutions",
+        "3D Engineering"
+      ],
       "main": [
         {
           "type": "text",
@@ -95,7 +99,11 @@
     "assembly": {
       "title": "PCB Assembly",
       "id": "assembly",
-      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
+      "cardHeaders": [
+        "Creative Design Strategies",
+        "Comprehensive Solutions",
+        "3D Engineering"
+      ],
       "main": [
         {
           "type": "text",
@@ -122,7 +130,7 @@
         },
         {
           "type": "text",
-          "content": "As we manufacture our own PCBs, we can ensure that each individual PCB is tooled with the optimum step and repeat, breakout tabs and fiducials to suit our assembly. This allows us to achieve the lowest possible production costs. Learn more about our PCB fabrication here."
+          "content": "We're a highly responsive PCB supplier offering lead times from just 12 hours, with 5-day delivery as standard. Our focus on quality and reliability is supported by a highly skilled team managing every stage of the process with care and attention. Services are delivered in line with our ISO 9001:2015 approved quality management system, and UL certification is provided to ensure safety, performance, and full traceability. We offer efficient mass-volume production through our trusted strategic overseas partners, Whatever your PCB requirements, Creekview EMS Ltd can be relied upon to deliver"
         },
         { "type": "title", "content": "End-To-End Reliability" },
         {
@@ -187,7 +195,11 @@
     "fabrication": {
       "title": "PCB Fabrication",
       "id": "fabrication",
-      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
+      "cardHeaders": [
+        "Creative Design Strategies",
+        "Comprehensive Solutions",
+        "3D Engineering"
+      ],
       "main": [
         {
           "type": "text",
@@ -241,17 +253,35 @@
     "box-build": {
       "title": "Box Builds",
       "id": "box-build",
-      "cardHeaders": ["Creative Design Strategies", "Comprehensive Solutions", "3D Engineering"],
+      "cardHeaders": [
+        "From Concept to Completion",
+        "End-to-End Box Build Assembly Services"
+      ],
       "main": [
         {
           "type": "text",
           "content": [
-            "Box build assembly uses all the skills & manufacturing expertise of Creekview, with the addition of completing your product to a finished item, ready to go on your shelf or straight to your end customer, we cover it Having the \"full package\" will give you the peace of mind it's all in one place, with one point contact.",
-            "If we have made it , we will guarantee our workmanship. Please contact us with your full spec to take full advantage of our turnkey facility."
+            "Bring your product vision to life with Creekview EMS Limited . Our comprehensive box build assembly services take your idea seamlessly from prototype through to full-scale manufacturing — ensuring quality, efficiency, and a market-ready final product.",
+            "##What is Box Build?##",
+            "Box build, involves the complete assembly of electronic products. This can range from enclosing a simple PCB and connecting displays or interfaces, to building systems with multiple sub-assemblies and hundreds of individual components.",
+            "Partner with Creekview EMS Limited for a seamless transition from concept to market — with quality and reliability built in at every stag",
+            "##What we offer:##"
           ]
         }
       ],
-      "aside": [{ "type": "gallery", "content": ["img"] }]
+      "aside": [
+        {
+          "type": "list",
+          "content": [
+            "Complete Turnkey Assembly - From design support to final product delivery",
+            "Full Material Procurement - We source all components so you don't have to",
+            "Streamlined Supply Chain - Efficient, cost-effective management throughout",
+            "Quality Assurance - Fully compliant processes and rigorous testing",
+            "Custom Packaging & Delivery - Products ready for immediate dispatch or retail",
+            "Tested & Ready - Every unit verified for performance before shipping"
+          ]
+        }
+      ]
     }
   },
   "gallery": {
