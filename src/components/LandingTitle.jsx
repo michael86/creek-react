@@ -43,7 +43,10 @@ const LandingTitle = ({ mm }) => {
       {!content && <h3>loading</h3>}
       {content && (
         <div className={styles.siteTitle}>
+
+
 <svg
+
     xmlns="http://www.w3.org/2000/svg"
     xmlSpace="preserve"
     id="site-logo"
@@ -121,6 +124,7 @@ const LandingTitle = ({ mm }) => {
       }}
     />
   </svg>
+
           <h1 className={`${Global.mt2}`}>{content.subtitle}</h1>
         </div>
       )}
