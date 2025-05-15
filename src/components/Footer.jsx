@@ -1,4 +1,4 @@
-import { faFacebook, faInstagram, faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
@@ -91,7 +91,7 @@ const Footer = () => {
       )}
 
       <div className={styles.smallPrint}>
-        <p>Creekview LTD &copy; 2011</p>
+        <p>Creekview EMS &copy; 2025</p>
         <p>
           Site created by{" "}
           <a href="https://github.com/michael86" target={"_blank"} rel={"noreferrer"}>

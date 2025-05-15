@@ -11,7 +11,6 @@ const BoxBuildMobile = ({ content }) => {
   const mainRef = useRef();
   const asideRef = useRef();
   const btnTimeline = useRef();
-  const timeline = useRef();
   const { width } = useContext(Viewport);
 
   const toggleSectionAside = () => {

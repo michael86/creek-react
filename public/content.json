@@ -16,7 +16,7 @@
         "srcMobile": "https://ecitech.com/wp-content/uploads/2020/04/pcb_main.jpg",
         "alt": "pcb fabrication as a service",
         "id": "fabrication",
-        "description": "Creekview Electronics is one of the few UK printed circuit board manufacturers to provide a complete electronic manufacturing service."
+        "description": "Creekview EMS is one of the few UK printed circuit board manufacturers to provide a complete electronic manufacturing service."
       },
       {
         "title": "PCB Assembly",
@@ -24,7 +24,7 @@
         "srcDesktop": "/images/pcbAssemblyBg.svg",
         "alt": "pcb Assembly as a service",
         "id": "assembly",
-        "description": "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
+        "description": "At Creekview EMS, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project. With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs."
       },
       {
         "title": "Box Builds",
@@ -37,9 +37,9 @@
     ]
   },
   "about": [
-    "Originally established as ##Valco UK Ltd## in 1998, the company split its mechanical and electrical divisions with the latter emerging as __Creek View Electronics__ in 2005. This meant that we could continue to grow within the --electrical manufacturing-- industry and provide a better service to our customers. As one of the leading ##electronic design engineers in Essex##, we specialise in a variety of services.",
-    "From conformal coating and cable assembly to box build assembly and __electrical testing__ and __inspection services__, you can ensure that Creek View Electronics will provide a service that is second to none. So, if you're looking for a high quality and reliable electronic design company, why not choose Creek View Electronics? For many years, Creek View Electronics obtained its printed circuit boards from Photomechanical Services Ltd, which was established in 1969.",
-    "Recognising the opportunity to provide customers with an --end-to-end service solution--, enhanced product quality and faster lead times, both companies joined forces and now trade under Creek View Electronics Ltd."
+    "Originally established as ##Valco UK Ltd## in 1998, the company split its mechanical and electrical divisions with the latter emerging as __Creekview EMS__ in 2005. This meant that we could continue to grow within the --electrical manufacturing-- industry and provide a better service to our customers. As one of the leading ##electronic design engineers in Essex##, we specialise in a variety of services.",
+    "From conformal coating and cable assembly to box build assembly and __electrical testing__ and __inspection services__, you can ensure that Creekview EMS will provide a service that is second to none. So, if you're looking for a high quality and reliable electronic design company, why not choose Creekview EMS? For many years, Creekview obtained its printed circuit boards from Photomechanical Services Ltd, which was established in 1969.",
+    "Recognising the opportunity to provide customers with an --end-to-end service solution--, enhanced product quality and faster lead times, both companies joined forces and now trade under Creekview EMS Ltd."
   ],
   "services": {
     "design": {
@@ -50,7 +50,7 @@
         {
           "type": "text",
           "content": [
-            "With extensive experience in a wide variety of industries and systems, Creekview Electronics can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
+            "With extensive experience in a wide variety of industries and systems, Creekview EMS can provide you with a complete electronics solution. From refining a concept to production of the final product, we work together with our customers at every step, to achieve successful results.",
             "Our aim is to deliver your project on time and to within your budget, and to ultimately surpass your expectations. Feasibility studies may first be undertaken to ensure that your project is viable both in engineering and economic terms. We then utilise creative design strategies to reduce costs wherever possible, and employ technical experts to support, refine and direct your project to completion.",
             "We offer a comprehensive range of design solutions including rapid prototyping for full 3D visual and engineering validation. We can also convert 2D drawings or reverse engineer parts into fully interactive 3D CAD models. These systems enable us to apply design for manufacture techniques throughout the project, ensuring that the product is optimised for the correct manufacturing and assembly process. This facilitates expert analysis of a product during the design process, where we can check parts and assemblies, and detect interference long before prototyping and manufacturing. This saves our customers time and money."
           ]
@@ -100,7 +100,7 @@
         {
           "type": "text",
           "content": [
-            "At Creekview Electronics, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project.",
+            "At Creekview EMS, we provide our customers with reliable printed circuit board assembly solutions that achieve quality results at competitive prices. We specialise in surface mount and through-hole PCB assembly, configured to meet the design, specification and volume of your project.",
             "With a multi-assembly setup, we can manufacture different products simultaneously and our conventional PCB assembly capabilities enable us to manufacture single or double-sided, mixed technology PCBs. We have recently invested heavily into our surface mount technology, which now includes a Europlacer speed print automated stencil printer and Europlacer iineo II SMT machine.",
             "One of our three SMD placement machines is installed as high capacity automatic SMD placement, with several quick slot-in carts that allow us to switch setup quickly. This facilitates our extensive production capacity and ensures that we can consistently deliver high standards to our customers. Our through-hole facility is well-equipped, with skilled IPC trained operators to populate and solder components to boards. We can also provide automated placement of micro-BGA parts, giving us the flexibility to accommodate your requirements for each project."
           ]
@@ -194,7 +194,7 @@
           "content": [
             "Our customers can take advantage of our comprehensive range of design services for different types of printed circuit board, including: single sided PCBs, double sided conventional PCBs, plated through-hole PCBs, multilayer PCBs.",
             "With over 48-years experience in PCB fabrication, we have used our expertise to continually refine our processes. And meticulous management of our entire manufacturing system ensures that only one tooling charge will be applied. This guarantees our customers high quality products at competitive prices. We can offer rapid 24-hour lead times on small batch productions, or for very large scale productions, we have international manufacturing partners that can be utilised.",
-            "The speed at which we deliver your products is always based upon your requirements and you are guaranteed to receive the same high quality standards on every product. Quality testing is carried out at our UK headquarters, with strict standards which must be met. Creek View Electronics has visited its international suppliers to ensure that processes are worked within globally recognised work ethics, without compromising on quality."
+            "The speed at which we deliver your products is always based upon your requirements and you are guaranteed to receive the same high quality standards on every product. Quality testing is carried out at our UK headquarters, with strict standards which must be met. Creekview EMS has visited its international suppliers to ensure that processes are worked within globally recognised work ethics, without compromising on quality."
           ]
         }
       ],

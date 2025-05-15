@@ -1,7 +1,7 @@
 import styles from "../styles/About.module.css";
 import gsap from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin, faFacebook, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faLinkedin,  faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import useWidth from "../hooks/useWidth";
 
